@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  vars:
+    ansible_ssh_pipelining: true
+  gather_facts: false
+  roles:
+    - {role: k8s-deploy,
+      project: laiwan_io_web,
+      project_dns_name: laiwan-io-web,
+      k8s_namespace: qipai-production,
+      stage: production}

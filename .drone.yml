@@ -1,0 +1,41 @@
+pipeline:
+
+  code_inspection:
+    image: python:3.6
+    commands:
+      - pip install -q pylama yapf
+      - yapf -dr . | (! grep '.')
+      - pylama
+    when:
+      event: push
+
+  build_app_image:
+    image: plugins/docker
+    registry: registry.shafayouxi.org
+    secrets: [ docker_username, docker_password ]
+    repo: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    tags: latest
+    dockerfile: Dockerfile
+    build_args:
+      - "--no-cache"
+    when:
+      event: push
+
+  build_docker_image_with_tag:
+    image: plugins/docker
+    registry: registry.shafayouxi.org
+    secrets: [ docker_username, docker_password ]
+    repo: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    dockerfile: Dockerfile
+    tags: ${DRONE_TAG##v}
+    build_args:
+      - "--no-cache"
+    when:
+      event: tag
+
+  telegram:
+    image: appleboy/drone-telegram
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001188725759
+    when:
+      status: [ failure ]
