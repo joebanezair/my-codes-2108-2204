@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 8000
         command: ["/bin/sh"]
-        args: ["-c", "python app.py"]
+        args: ["-c", "python src/manage.py runserver"]
       imagePullSecrets:
       - name: docker-registry-secret
 ---
@@ -59,10 +59,6 @@ spec:
         backend:
           serviceName: {{ project_dns_name }}
           servicePort: 80
-      - path: /doc
-        backend:
-          serviceName: {{ project_dns_name }}
-          servicePort: 80
 
   - host: www.laiwan.io
     http:
@@ -72,10 +68,6 @@ spec:
           serviceName: {{ project_dns_name }}
           servicePort: 80
       - path: /agreement.html
-        backend:
-          serviceName: {{ project_dns_name }}
-          servicePort: 80
-      - path: /doc
         backend:
           serviceName: {{ project_dns_name }}
           servicePort: 80
