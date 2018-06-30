@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8B7WPSQJFA.com.ac.laiwan",
+        "paths": [
+            "/room/*","/add/*"
+        ]
+      }
+    ]
+  }
+}

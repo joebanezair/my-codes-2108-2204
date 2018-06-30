@@ -33,6 +33,14 @@ pipeline:
     when:
       event: tag
 
+  test:
+    image: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    pull: true
+    commands:
+      - python src/manage.py test
+    when:
+      event: push
+
   telegram:
     image: appleboy/drone-telegram
     token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I

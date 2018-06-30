@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="/static/css/download.css">
+    <title>来玩</title>
+    <script type="text/javascript">
+
+    var qrcode_download_url = {{ qrcode_download_url|tojson }}
+    var app_store_url = {{ app_store_url|tojson }}
+    var apple_app_site_association_wake_up_app_url = {{ apple_app_site_association_wake_up_app_url|tojson }}
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        if (window.location.href != apple_app_site_association_wake_up_app_url){
+            window.location.href = apple_app_site_association_wake_up_app_url
+        }
+    });
+
+    function appDownload (){
+      if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+        window.location.href = app_store_url
+      }
+      else if (navigator.userAgent.match(/android/i)) {
+        window.location.href = qrcode_download_url
+      }
+      else {
+        window.location.href = qrcode_download_url
+      }
+    }
+
+</script>
+</head>
+
+<body class="app">
+
+<img class='topImg' src="/static/img/top.png">
+<img class='bottomImg' src="/static/img/bottom.png">
+
+
+<div class="out-container">
+    <div class="main">
+        <header>
+            <div class="table-container">
+                <div class="cell-container">
+                    <div class="app-brief">
+                        <div class="icon-container wrapper">
+                            <i class="icon-icon_path bg-path"></i>
+                            <span class="icon">
+                                    <img src="/static/img/laiwan_icon.png">
+                                </span>
+                        <h1 align="center" class="name wrapper">
+                            来玩
+                        </h1>
+                        </div>
+                        <p>房间号：{{ room_pin }}</p>
+                        <div id="actions" class="actions type-android">
+                            <input class="button" name="submit" type="image" value="" src="/static/img/download.png"
+                            onclick="appDownload()"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+
+</body>
+</html>
