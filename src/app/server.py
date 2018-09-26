@@ -1,8 +1,9 @@
 from app import app
-from views.routers import doc_blueprint, invitation_blueprint
+from views.routers import doc_blueprint, invitation_blueprint, home_blueprint
 
 app.blueprint(doc_blueprint)
 app.blueprint(invitation_blueprint)
+app.blueprint(home_blueprint)
 
 
 def run_server():

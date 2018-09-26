@@ -72,3 +72,22 @@ class AddFriendPage(HTTPMethodView):
             apple_app_site_association_wake_up_app_url=self.
             APPLE_APP_SITE_ASSOCIATION_WAKE_UP_APP_URL.format(
                 request_path=request.path))
+
+
+class HomePage(HTTPMethodView):
+    """首页
+    """
+    TEMPLATE_FILE = 'home.html'
+
+    IOS_DOWNLOAD_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
+    ANDROID_DOWNLOAD_URL = '#'
+    GOOGLE_DOWNLOAD_URL = '#'
+    NEICE_DOWNLOAD_URL = '#'
+
+    async def get(self, request):
+        return template(
+            self.TEMPLATE_FILE,
+            ios_download_url=self.IOS_DOWNLOAD_URL,
+            android_download_url=self.ANDROID_DOWNLOAD_URL,
+            google_download_url=self.GOOGLE_DOWNLOAD_URL,
+            neice_download_url=self.NEICE_DOWNLOAD_URL)

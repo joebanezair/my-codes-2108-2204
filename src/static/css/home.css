@@ -1,0 +1,147 @@
+@charset "UTF-8";
+body {
+    background: url("/static/img/bg.png");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    width: 1900px;
+    height: 800px;
+    position: relative;
+    color: #ffffff;
+    cursor: pointer;
+    background-position: center;
+}
+
+.main {
+    width: 860px;
+    height: 900px;
+    margin: 0 auto;
+}
+
+.main .left {
+    width: 354px;
+    height: 1009px;
+    position: relative;
+    float: left;
+
+}
+
+.left .logo {
+    background: url("/static/img/logo.png");
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 142px;
+    position: absolute;
+    top: 66px;
+    left: 98px;
+}
+
+.left .logo h2 {
+    position: absolute;
+    top: 142px;
+    left: 35px;
+}
+
+.left .logo-border {
+    background: url("/static/img/divided.png");
+    width: 2px;
+    height: 95px;
+    position: absolute;
+    right: 0;
+    top: 115px;
+}
+
+.iphonex {
+    background: url("/static/img/iphonex.png");
+    width: 351px;
+    height: 700px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /*margin-top: 136px;*/
+}
+
+.main .right {
+    /*background-color: darkseagreen;*/
+    height: 1000px;
+    width: 413px;
+    float: right;
+    position: relative;
+}
+
+.right .description {
+    padding-left: 10px;
+    position: absolute;
+    top: 100px;
+    margin-bottom: 180px;
+}
+
+.description h2 {
+    padding-left: 76px;
+    text-align: center;
+}
+
+.right .picture {
+    height: 654px;
+    position: absolute;
+    bottom: 0;
+    width: 546px;
+    right: 0;
+}
+
+.right .picture .erweima {
+    background: url("/static/img/erweima.png");
+    width: 238px;
+    height: 228px;
+    margin-left: 113px;
+    float: left;
+}
+
+.picture .ios {
+    float: right;
+    background: url("/static/img/apple.png");
+    width: 182px;
+    height: 102px;
+    position: absolute;
+    right: 0;
+}
+
+.picture .android {
+    float: right;
+    background: url("/static/img/android.png");
+    width: 182px;
+    height: 102px;
+    position: absolute;
+    right: 0;
+    top: 125px;
+}
+
+.right .download {
+    width: 572px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 60px;
+    /* margin-left: 86px; */
+    /* padding-left: 122px; */
+}
+
+.download .google {
+    background: url("/static/img/google.png");
+    width: 433px;
+    height: 86px;
+    margin-bottom: 44px;
+    margin-left: 139px;
+}
+
+.download .neice {
+    background: url("/static/img/neice.png");
+    width: 433px;
+    height: 86px;
+    margin-left: 139px;
+}
+.erweima img{
+	margin-left:22px;
+	margin-top:22px
+}
