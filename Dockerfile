@@ -4,4 +4,5 @@ WORKDIR /opt/app
 
 COPY src .
 
-RUN pip install -r /opt/app/requirements.txt
+
+RUN pip install -r requirements.txt

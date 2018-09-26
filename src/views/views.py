@@ -20,8 +20,7 @@ class AppleAppSiteAssociation(HTTPMethodView):
 
     async def get(self, request):
         _template = env.get_template(self.APPLE_APP_SITE_ASSOCIATION__FILE)
-        return text(
-            body=next(_template.generate()), content_type='application/json')
+        return text(body=_template.render(), content_type='application/json')
 
 
 class JoinRoomPage(HTTPMethodView):
@@ -30,48 +29,32 @@ class JoinRoomPage(HTTPMethodView):
     已下载：自动打开应用并进入房间
     """
     TEMPLATE_FILE = 'join_room.html'
-    # app store 应用链接
     APP_STORE_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
-    # laiwan 下载链接
-    QRCODE_DOWNLOAD_URL = 'https://www.laiwan.io/download'
-    # apple-app-site-association 链接
-    APPLE_APP_SITE_ASSOCIATION_WAKE_UP_APP_URL = \
-        'https://apple-app-site-association.laiwan.io{request_path}'
+    DOUDIZHU_H5_URL = 'https://www.laiwan.io/doudizhu/?id={room_pin}'
 
     async def get(self, request, room_pin):
         return template(
             self.TEMPLATE_FILE,
-            room_pin=room_pin,
-            qrcode_download_url=self.QRCODE_DOWNLOAD_URL,
+            doudizhu_h5_url=self.DOUDIZHU_H5_URL.format(room_pin=room_pin),
             app_store_url=self.APP_STORE_URL,
-            apple_app_site_association_wake_up_app_url=self.
-            APPLE_APP_SITE_ASSOCIATION_WAKE_UP_APP_URL.format(
-                request_path=request.path))
+            room_pin=room_pin)
 
 
-class AddFriendPage(HTTPMethodView):
-    """添加好友
-    未下载：跳转到商城
-    已下载：自动打开应用并添加该好友
+class JoinDoudiZhuPage(HTTPMethodView):
+    """加入房间
+    暂时兼容 /doudizhu?id=xxxx 这样的跳转 url
     """
-    TEMPLATE_FILE = 'add_friend.html'
-    # app store 应用链接
+    TEMPLATE_FILE = 'join_room.html'
     APP_STORE_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
-    # laiwan 下载链接
-    QRCODE_DOWNLOAD_URL = 'https://www.laiwan.io/download'
-    # apple-app-site-association 链接
-    APPLE_APP_SITE_ASSOCIATION_WAKE_UP_APP_URL = \
-        'https://apple-app-site-association.laiwan.io{request_path}'
+    DOUDIZHU_H5_URL = 'https://www.laiwan.io/doudizhu/?id={room_pin}'
 
-    async def get(self, request, username):
+    async def get(self, request):
+        room_pin = request.raw_args.get('id')
         return template(
             self.TEMPLATE_FILE,
-            username=username,
-            qrcode_download_url=self.QRCODE_DOWNLOAD_URL,
+            doudizhu_h5_url=self.DOUDIZHU_H5_URL.format(room_pin=room_pin),
             app_store_url=self.APP_STORE_URL,
-            apple_app_site_association_wake_up_app_url=self.
-            APPLE_APP_SITE_ASSOCIATION_WAKE_UP_APP_URL.format(
-                request_path=request.path))
+            room_pin=room_pin)
 
 
 class HomePage(HTTPMethodView):

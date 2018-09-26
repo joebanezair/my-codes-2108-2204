@@ -9,29 +9,13 @@
     <link rel="stylesheet" href="/static/css/download.css">
     <title>来玩</title>
     <script type="text/javascript">
+        var doudizhu_h5_url = {{ doudizhu_h5_url|tojson }}
 
-    var qrcode_download_url = {{ qrcode_download_url|tojson }}
-    var app_store_url = {{ app_store_url|tojson }}
-    var apple_app_site_association_wake_up_app_url = {{ apple_app_site_association_wake_up_app_url|tojson }}
-
-    document.addEventListener("DOMContentLoaded", function(event) {
-        if (window.location.href != apple_app_site_association_wake_up_app_url){
-            window.location.href = apple_app_site_association_wake_up_app_url
+        document.addEventListener("DOMContentLoaded", function(event) {
+        if (window.location.host != "apple-app-site-association.laiwan.io"){
+            window.location.href = doudizhu_h5_url
         }
-    });
-
-    function appDownload (){
-      if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
-        window.location.href = app_store_url
-      }
-      else if (navigator.userAgent.match(/android/i)) {
-        window.location.href = qrcode_download_url
-      }
-      else {
-        window.location.href = qrcode_download_url
-      }
-    }
-
+        });
 </script>
 </head>
 
@@ -39,7 +23,6 @@
 
 <img class='topImg' src="/static/img/top.png">
 <img class='bottomImg' src="/static/img/bottom.png">
-
 
 <div class="out-container">
     <div class="main">
@@ -59,7 +42,7 @@
                         <p>房间号：{{ room_pin }}</p>
                         <div id="actions" class="actions type-android">
                             <input class="button" name="submit" type="image" value="" src="/static/img/download.png"
-                            onclick="appDownload()"/>
+                            onclick=window.open("{{app_store_url}}") />
                         </div>
                     </div>
                 </div>
@@ -67,6 +50,5 @@
         </header>
     </div>
 </div>
-
 </body>
 </html>

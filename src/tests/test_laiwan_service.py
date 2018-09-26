@@ -6,7 +6,3 @@ class TestLaiwan:
     async def test_join_room(self, client):
         response2 = await client.get('/room/12345')
         assert response2.status == 200
-
-    async def test_add_friend(self, client):
-        response3 = await client.get('/add/someone')
-        assert response3.status == 200

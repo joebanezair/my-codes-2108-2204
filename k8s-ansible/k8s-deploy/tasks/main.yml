@@ -16,8 +16,8 @@
     src: deployment.yaml.tpl
     dest: k8s/{{ project }}/deployment.yaml
 
-- name: Run install.sh
-  shell: ./install.sh
+- name: Run install-{{ k8s_namespace }}.sh
+  shell: ./install-{{ k8s_namespace }}.sh
   args:
     chdir: k8s/{{ project }}
   register: install

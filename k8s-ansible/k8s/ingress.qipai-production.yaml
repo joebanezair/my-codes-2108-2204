@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: laiwan-io-web
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: 'true'
+spec:
+  tls:
+  - secretName: laiwai-tls
+    hosts:
+    - laiwan.io
+    - www.laiwan.io
+    - apple-app-site-association.laiwan.io
+  rules:
+  - host: laiwan.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: laiwan-io-web
+          servicePort: 80
+
+
+  - host: www.laiwan.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: laiwan-io-web
+          servicePort: 80
+
+
+  - host: apple-app-site-association.laiwan.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: laiwan-io-web
+          servicePort: 80

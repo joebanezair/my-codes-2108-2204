@@ -18,7 +18,7 @@ invitation_blueprint.add_route(
 invitation_blueprint.add_route(
     views.JoinRoomPage.as_view(), '/room/<room_pin>', methods=['GET'])
 invitation_blueprint.add_route(
-    views.AddFriendPage.as_view(), '/add/<username>', methods=['GET'])
+    views.JoinDoudiZhuPage.as_view(), '/doudizhu', methods=['GET'])
 
 # 首页
 home_blueprint = Blueprint('home')
