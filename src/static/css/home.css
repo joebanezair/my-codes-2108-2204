@@ -1,27 +1,26 @@
 @charset "UTF-8";
 body {
-    background: url("/static/img/bg.png");
-    background-repeat: no-repeat;
+    background: url("/static/img/bg.jpg");
     margin: 0;
     padding: 0;
-    width: 1900px;
-    height: 800px;
-    position: relative;
+    width: 100%;
+    height: 120%;
+    position: absolute;
     color: #ffffff;
     cursor: pointer;
     background-position: center;
 }
 
 .main {
-    width: 860px;
-    height: 900px;
+    width: 100%;
+    height:100%;
     margin: 0 auto;
 }
 
 .main .left {
-    width: 354px;
-    height: 1009px;
-    position: relative;
+    width: 50%;
+    height: 100%;
+    position: absolute;
     float: left;
 
 }
@@ -29,119 +28,107 @@ body {
 .left .logo {
     background: url("/static/img/logo.png");
     background-repeat: no-repeat;
-    width: 120px;
-    height: 142px;
-    position: absolute;
-    top: 66px;
-    left: 98px;
+    background-size:contain;
+    width:10%;
+    height: 25%;
+    margin:1% 0 0 30%;
+    
 }
 
 .left .logo h2 {
+    float: center;
     position: absolute;
-    top: 142px;
-    left: 35px;
+    left:5%;
+
+
 }
 
 .left .logo-border {
-    background: url("/static/img/divided.png");
-    width: 2px;
-    height: 95px;
+    background: url("static/img/divided.png");
+    width: 0.2%;
+    height: 12%;
     position: absolute;
     right: 0;
-    top: 115px;
+    top: 16%;
 }
 
 .iphonex {
-    background: url("/static/img/iphonex.png");
-    width: 351px;
-    height: 700px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    background: url("static/img/iphonex.png");
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 70%;
+    background-size:contain;
+    float:right;
+    margin-top: -10%;
     /*margin-top: 136px;*/
 }
 
 .main .right {
-    /*background-color: darkseagreen;*/
-    height: 1000px;
-    width: 413px;
-    float: right;
-    position: relative;
+    width: 50%;
+    height: 100%;
+    float:left;
+    position: absolute;
+    right: 0;
 }
 
 .right .description {
-    padding-left: 10px;
+    padding-left: 0;
     position: absolute;
-    top: 100px;
-    margin-bottom: 180px;
+    top: 7%;
+    width: 100%;
+    
 }
 
 .description h2 {
-    padding-left: 76px;
+    font-size: 1.5rem;
+    padding-left: 25%;
     text-align: center;
+    
 }
 
-.right .picture {
-    height: 654px;
-    position: absolute;
-    bottom: 0;
-    width: 546px;
-    right: 0;
+.picture {
+    height:1%;
 }
 
 .right .picture .erweima {
-    background: url("/static/img/erweima.png");
-    width: 238px;
-    height: 228px;
-    margin-left: 113px;
-    float: left;
+    position:absolute;
+    top:30%;
+     
+}
+
+.right .picture .img{
+    position: absolute;
+    top:31%; 
+    left:2%; 
 }
 
 .picture .ios {
-    float: right;
-    background: url("/static/img/apple.png");
-    width: 182px;
-    height: 102px;
+    left:60%;
     position: absolute;
-    right: 0;
+    top:38%;
+     
 }
 
 .picture .android {
-    float: right;
-    background: url("/static/img/android.png");
-    width: 182px;
-    height: 102px;
+    left:60%;
     position: absolute;
-    right: 0;
-    top: 125px;
+    top: 30%;
 }
 
 .right .download {
-    width: 572px;
-    height: 300px;
+    width: 100%;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 60px;
-    /* margin-left: 86px; */
-    /* padding-left: 122px; */
+    height:80%;
+    margin-top:20%;
 }
 
 .download .google {
-    background: url("/static/img/google.png");
-    width: 433px;
-    height: 86px;
-    margin-bottom: 44px;
-    margin-left: 139px;
+    position: absolute;
+    top:48%;
 }
 
 .download .neice {
-    background: url("/static/img/neice.png");
-    width: 433px;
-    height: 86px;
-    margin-left: 139px;
+    position: absolute;
+    top:60%;
 }
-.erweima img{
-	margin-left:22px;
-	margin-top:22px
-}
+
