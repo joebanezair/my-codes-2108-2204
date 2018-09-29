@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>来玩</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <link rel="shortcut icon" href="/static/img/laiwan_icon.png">
+    <link rel="shortcut icon" href="/static//img/laiwan_icon.png">
     <link rel="stylesheet" href="/static/css/home.css">
-    <title>来玩</title>
-
+    <link rel="stylesheet" media="(max-width:715px)" href="/static/css/phone.css">
+    <link rel="stylesheet" media="(max-width:430px)" href="/static/css/phone1.css">
 </head>
-
 <body>
-
+     
 <div class="main">
-    <div class="content">
-        <div class="left">
-            <div class="logo">
-                <h2>来玩</h2>
-            </div>
+    <div class="left">
+            <h2>来玩</h2>
+            <div class="logo"></div>
             <div class="logo-border"></div>
-            <div class="iphonex">
+            <div class="iphonex"></div>      
+    </div>
 
-            </div>
+    <div class="right">
+        <div class="description">
+            <h2>斗地主&nbsp&nbsp德州扑克</h2>  
+            <h3>好友欢乐约战</h3>
         </div>
-        <div class="right">
-            <div class="description">
-                <h2>斗地主&nbsp&nbsp&nbsp德州扑克</h2>  
-                <h2>好友欢乐约战</h2>
-            </div>
-            <div class="picture">
-                <div class=""></div>
-                <div  class="img"><img src="/static/img/qrcode.png" width="50%" height="50%"></div>
-                <a href="{{ ios_download_url }}" target="view_window">
-                    <div class="ios"><img src="/static/img/apple.png" width="70%" height="70%"></div>
-                </a>
-                <a href="{{ android_download_url }}" target="view_window">
-                    <div class="android"><img src="/static/img/android.png" width="70%" height="70%"></div>
-                </a>
-            </div>
-            <div class="download">
-                <a href="{{ google_download_url }}" target="view_window">
-                    <div class="google"><img src="/static/img/google.png" width="100%" height="90%"></div>
-                </a>
-                <a href="{{ neice_download_url }}" target="view_window">
-                    <div class="neice"><img src="/static/img/neice.png" width="100%" height="90%"></div>
-                </a>
 
+        <div class="picture">
+            <div class="erweima"></div>
+            <a href="{{ ios_download_url }}" target="view_window">
+                <div class="ios"></div>
+            </a>
+            <a href="{{ android_download_url }}" target="view_window">
+                <div class="android"></div>
+            </a>
+        </div>
 
-            </div>
-
+        <div class="download">
+            <a href="{{ google_download_url }}" target="view_window">
+                <div class="google"></div>
+            </a>
+            <a href="{{ neice_download_url }}" target="view_window">
+                <div class="neice"></div>
+            </a>
         </div>
     </div>
+    <div class="bottom"></div>
+
+
+
 
 </div>
 
