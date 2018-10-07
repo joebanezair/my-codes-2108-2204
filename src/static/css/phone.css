@@ -8,7 +8,7 @@ body{
     position: absolute;
     color: #ffffff;
     cursor: pointer;
-    background-position: center;
+    background-position: left;
 }
 
 .main{
@@ -29,16 +29,16 @@ body{
 	background-repeat: no-repeat;
 	background-size:contain; 
 	position: absolute;
-	height:15%;
+	height:16%;
 	width: 27%;
-	right: 25%;
-	top:15%;
+	right: 30%;
+	top:10%;
 }
 
 .left .logo-border{
 	background:url("/static/img/divided.png");
 	width: 0.2%;
-    height: 40%;
+    height: 15%;
     position: absolute;
     right: 0;
     top: 10%;
@@ -57,8 +57,9 @@ body{
 
 .left h2{
 	 position: absolute;
-     right: 0;
-     display: block;
+     right: 30%;
+     font-size: 1.4em;
+     top:19%;
 }
 
 .main .right{
@@ -76,52 +77,50 @@ body{
 }
 
 .description h2{
-	position: absolute;
-	top: 13%;
+	margin:30% 0 0% 8% ;
+	font-size:1.3em;
 }
 
 .description h3{
-	position: absolute;
-	top:60%;
+	font-size: 1.3em;
+	text-align: center;	
 }
 
 .right .picture{
 	width: 100%;
 	height: 42%;
-	top:20%;
+	top:32%;
 	position: relative;
 }
 
-.picture .erweima{
-	background:url("/static/img/qrcode.png");
+.picture .kuang{
+	background:url("/static/img/en2.png");
 	background-size: contain;
-	background-repeat: no-repeat;
-	height: 30%;
-	width: 40%;
-	position: absolute;
-	left: 6%;
+	background-repeat: no-repeat; 
+	height: 35%;
+    width: 100%;
+    position: absolute;
 }
 
 .picture .ios{
 	background:url("/static/img/apple.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 15%;
-	width: 60%;
+	height: 40%;
+	width: 34%;
 	position: absolute;
-	bottom: 54%;
-	left:6%;
+	right: 1%;
 }
 
 .picture .android{
 	background:url("/static/img/android.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 15%;
-	width: 60%;
+	height:40%;
+	width: 34%;
 	position: absolute;
-	bottom: 35%;
-	left:6%;
+	bottom: 0;
+	right: 1%;
 }
 
 .right .download{
@@ -139,14 +138,4 @@ body{
 	width: 80%;
 	position: absolute;
 	top:-40%;
-}
-
-.download .neice{
-	background:url("/static/img/neice.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	height: 40%;
-	width: 80%;
-	position: absolute;
-	bottom: 75%;
 }
