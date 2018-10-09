@@ -23,3 +23,7 @@ invitation_blueprint.add_route(
 # 首页
 home_blueprint = Blueprint('home')
 home_blueprint.add_route(views.HomePage.as_view(), '/', methods=['GET'])
+
+# 用户支持页面
+home_blueprint.add_route(
+    views.AppSupportView.as_view(), '/support', methods=['GET'])

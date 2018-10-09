@@ -1,3 +1,4 @@
+import aiohttp
 from sanic.views import HTTPMethodView
 from sanic.response import html, text
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -57,20 +58,47 @@ class JoinDoudiZhuPage(HTTPMethodView):
             room_pin=room_pin)
 
 
+class AppSupportView(HTTPMethodView):
+    """用户支持页面
+    """
+
+    async def get(self, request, **kwargs):
+        return template(
+            'support.html',
+            support_qq='2543775150',
+            support_qq_group='576398409',
+            support_wechat='laiwankefu',
+        )
+
+
 class HomePage(HTTPMethodView):
     """首页
     """
     TEMPLATE_FILE = 'home.html'
 
-    IOS_DOWNLOAD_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
-    ANDROID_DOWNLOAD_URL = '#'
-    GOOGLE_DOWNLOAD_URL = '#'
+    GOOGLE_DOWNLOAD_URL = ('https://play.google.com'
+                           '/store/apps/details?id=com.ac.laiwan')
+    # 内测版本
     NEICE_DOWNLOAD_URL = '#'
 
+    ANDROID_DOWNLOAD_URL = 'https://laiwan.io/download/android.json'
+
     async def get(self, request):
+
+        # 通过内部 api 获取最新的下载链接地址
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(self.ANDROID_DOWNLOAD_URL) as response:
+                    result_json = await response.json()
+                    android_download_url = result_json['result'][
+                        'download_url']
+        except Exception:
+            android_download_url = '#'
+
         return template(
             self.TEMPLATE_FILE,
-            ios_download_url=self.IOS_DOWNLOAD_URL,
-            android_download_url=self.ANDROID_DOWNLOAD_URL,
+            ios_download_url=('itms-apps://itunes.apple.com'
+                              '/cn/app/id1394482339'),
+            android_download_url=android_download_url,
             google_download_url=self.GOOGLE_DOWNLOAD_URL,
             neice_download_url=self.NEICE_DOWNLOAD_URL)

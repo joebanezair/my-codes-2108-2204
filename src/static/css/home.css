@@ -27,12 +27,12 @@ body{
 .left .logo{
 	background: url("/static/img/logo.png");
 	background-repeat: no-repeat;
-	background-size:contain; 	
+	background-size:contain;
 	height:15%;
 	width: 15%;
 	position:absolute;
 	right: 20%;
-	top:2%;	
+	top:2%;
 }
 
 .left .logo-border{
@@ -79,7 +79,7 @@ body{
 .description h2{
 	margin:8% 0 2% 8% ;
 	font-size: 2.0em;
-	
+
 }
 
 .description h3{
@@ -97,7 +97,7 @@ body{
 .picture .kuang{
 	background:url("/static/img/en3.png");
 	background-size: contain;
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	height: 50%;
     width: 54%;
     position: absolute;
@@ -122,7 +122,7 @@ body{
 	width: 35%;
 	position: absolute;
 	bottom: 0;
-	right: 0%;	
+	right: 0%;
 }
 
 .picture .google{
@@ -134,8 +134,3 @@ body{
 	position: absolute;
 	bottom: -50%;
 }
-
-
-
-
-
