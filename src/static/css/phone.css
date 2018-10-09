@@ -37,11 +37,11 @@ body{
 
 .left .logo-border{
 	background:url("/static/img/divided.png");
-	width: 0.2%;
+	width: 0.5%;
     height: 15%;
     position: absolute;
-    right: 0;
-    top: 10%;
+    right: 5%;
+    top: 5%;
 }
 
 .left .iphonex{
@@ -83,7 +83,7 @@ body{
 
 .description h3{
 	font-size: 1.3em;
-	text-align: center;	
+	text-align: center;
 }
 
 .right .picture{
@@ -94,7 +94,7 @@ body{
 }
 
 .picture .kuang{
-	background:url("/static/img/en2.png");
+	background:url("/static/img/en3.png");
 	background-size: contain;
 	background-repeat: no-repeat; 
 	height: 35%;
@@ -109,7 +109,7 @@ body{
 	height: 40%;
 	width: 34%;
 	position: absolute;
-	right: 1%;
+	right: 0;
 }
 
 .picture .android{
@@ -120,22 +120,14 @@ body{
 	width: 34%;
 	position: absolute;
 	bottom: 0;
-	right: 1%;
+	right: 0;
 }
 
-.right .download{
-	position: relative;
-	width: 100%;
-	height: 30%;
-	top:20%;
-}
-
-.download .google{
+.picture .google{
 	background:url("/static/img/google.png");
 	background-repeat: no-repeat;
 	background-size: contain;
 	height: 40%;
-	width: 80%;
+	width: 100%;
 	position: absolute;
-	top:-40%;
 }
