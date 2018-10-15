@@ -5,228 +5,80 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>来玩</title>
-    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+    <link rel="stylesheet" href="bulma.min.css">
     <style>
-    .hero{
-        background:url(/static/img/bg.jpg)
-    }
-   
-    .iphonex{    
-        background-repeat: no-repeat;
-        height: 60%;
-        width: 40%;  
-        margin-top:5%;
-    }
-
-    .logo{
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 15%;
-        width: 15%;
-        margin-left:8%;
-        position: absolute;
-        top:1%;
-    }
-
-    .divided{
-        width: 0.4%;
-        height: 15%;
-        margin-left:50%;
-    }
-
-    .kuang{
-        background: url(/static/img/en3.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 28%;
-        width: 30%;
-        position: absolute;
-        top:30%;
-        left:50%;
-    }
-
-    .ios{
-        background:url(/static/img/apple.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 11.5%;
-        width: 16%;
-        position: absolute;
-        top:30.6%;
-        left:80%;
-    }
-
-    .android{
-        background:url(/static/img/android.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 11.5%;
-        width: 16%;
-        position: absolute;
-        top:45.7%;
-        left:80%;
-    }
-
-    .google{
-        background: url(/static/img/google.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        height:16%;
-        width:43%;
-        position: absolute;
-        top:60%;
-        left:51%;
-    }
-
-    #font{
-        margin-left:10%;
-        position:absolute;
-        top:18%;
-    }
-
-    #font1{
-        position:absolute;
-        left:55%;
-        top:2%;
-    }
-
-    #font2{
-        position:absolute;
-        left:55%;
-        top:10%;
-    }
-    @media (max-width:1471px)
-    {
-        .logo{
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 15%;
-            width: 15%;
-            margin-left:10%;
+        .hero {
+            background: url(img/bg.jpg)
         }
 
-        .google{
-            background: url(/static/img/google.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            height:16%;
-            width:45%;
-            position: absolute;
-            top:60%;
-            left:51%;  
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #font{
-            margin-left:12%;
-            position:absolute;
-            top:18%;
-        }
-    }
-    @media(max-width:1280px)
-    {
-        .logo{
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 15%;
-            width: 15%;
-            margin-left:12%;
+        .b {
+            margin-left: 5%;
+            margin-right: 5%;
         }
 
-        .ios{
-            background:url(/static/img/apple.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 11.5%;
-            width: 16%;
-            position: absolute;
-            top:30.6%;
-            left:80%;
+        @media(min-width:768px) {
+            #chicun {
+                max-width: 300px;
+            }
         }
-
-        .android{
-            background:url(/static/img/android.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 11.5%;
-            width: 16%;
-            position: absolute;
-            top:47.6%;
-            left:80%;
-        }
-
-        .iphonex{
-            background-size: contain;
-            background-repeat: no-repeat;
-            height: 70%;
-            width: 40%;  
-            margin-top:7%; 
-        }
-
-        #font{
-            margin-left:14%;
-            position:absolute;
-            top:18%;
-        }
-    }
-    @media(max-width:650px)
-    {
-     .android{
-            background:url(/static/img/android.png);
-            background-repeat: no-repeat;
-            background-size: contain;
-            height: 11.5%;
-            width: 16%;
-            position: absolute;
-            top:46.2%;
-            left:80%;
-        }
-
-     #font{
-            margin-left:13.3%;
-            position:absolute;
-            top:18%;
-        }
-
-     #font1{
-            position:absolute;
-            left:53%;
-            top:2%;
-        }
-    }
-    @media(max-width:420px)
-    {
-        #font{
-            margin-left:12%;
-            position:absolute;
-            top:18%;
-        }
-    }
-
     </style>
 </head>
 
 <body>
-    <section class="hero is-fullheight">       
+    <section class="hero is-fullheight">
+        <div class="hero-head">
+            <div class="container">
+                <figure class="center">
+                    <img src="img/logo.png">
+                </figure>
+            </div>
+        </div>
         <div class="hero-body">
-            <div class="container">          
-                <div class="divided"><img src="/static/img/divided.png"></div>
-                <div class="logo"><img src="/static/img/logo.png"></div>
-                <div class="title has-text-white is-italic has-text-weight-bold is-size-3 is-size-4-mobile" id="font">来玩</div>
-                <div class="iphonex"><img src="/static/img/iphonex.png"></div>                                            
-                <div class="kuang"></div>
-                <a href="{{ ios_download_url }}" target="view_window">
-                    <div class="ios"></div>
-                </a>
-                <a href="{{ android_download_url }}" target="view_window">
-                    <div class="android"></div>
-                </a>
-                <a href="{{ google_download_url }}" target="view_window">
-                    <div class="google"></div>
-                </a>
-                <div class="title has-text-white is-italic has-text-weight-bold is-size-3 is-size-5-mobile " id="font1">斗地主&nbsp;&nbsp;德州扑克</div>
-                <div class="title has-text-white is-italic has-text-weight-bold is-size-3 is-size-5-mobile " id="font2">好友欢乐约战</div>           
-            </div>     
-        </div>    
+            <div class="container">
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <p class="center title has-text-white">LaiWan</p>
+                        <figure class="center">
+                            <img src="img/iphonex.png" id="chicun">
+                        </figure>
+                    </div>
+                    <div class="column is-1">
+                        <figure class="center">
+                            <img src="img/divided.png">
+                        </figure>
+                    </div>
+                    <div class="column">
+                        <p class="center title has-text-white is-size-7-mobile">DouDIZhu &nbsp;&nbsp;&nbsp;DeZhouPuKe</p>
+                        <p class="center subtitle has-text-white is-size-7-mobile">Play With Your Friends</p>
+                        <div class="column">
+                            <figure class="center">
+                                <img src="img/en3.png">
+                            </figure>
+                        </div>
+                        <div class="column center">
+                            <figure class="b">
+                                <img src="img/apple.png">
+                            </figure>
+                            <figure class="b">
+                                <img src="img/android.png">
+                            </figure>
+                        </div>
+                        <div class="column">
+                            <figure class="center">
+                                <img src="img/google.png">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
 
