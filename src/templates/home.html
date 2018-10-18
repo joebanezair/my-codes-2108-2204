@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>来玩</title>
     <!-- <link rel="stylesheet" href="debug.css"> -->
+    <link rel="icon" href="/static/img/laiwan_icon.png" type="image/png" />
     <link rel="stylesheet" href="/static/css/bulma.min.css">
     <style>
         .hero {
@@ -44,7 +45,7 @@
             <div class="container">
                 <div class="columns is-mobile">
                     <div class="column">
-                        <p class="center title has-text-white">LaiWan</p>
+                        <p class="center title has-text-white">来玩</p>
                         <figure class="center">
                             <img src="/static/img/iphonex.png" id="chicun">
                         </figure>
@@ -55,24 +56,30 @@
                         </figure>
                     </div>
                     <div class="column">
-                        <p class="center title has-text-white is-size-7-mobile">DouDIZhu &nbsp;&nbsp;&nbsp;DeZhouPuKe</p>
-                        <p class="center subtitle has-text-white is-size-7-mobile">Play With Your Friends</p>
+                        <p class="center title has-text-white is-size-7-mobile">斗地主 &nbsp;&nbsp;&nbsp;德州扑克</p>
+                        <p class="center subtitle has-text-white is-size-7-mobile">和朋友一起玩</p>
                         <div class="column">
                             <figure class="center">
-                                <img src="/static/img/en3.png">
+                                <img src="{{ qrcode_path }}">
                             </figure>
                         </div>
                         <div class="column center">
                             <figure class="b">
-                                <img src="/static/img/apple.png">
+                                <a href="{{ ios_download_url }}">
+                                    <img src="/static/img/apple.png">
+                                </a>
                             </figure>
                             <figure class="b">
-                                <img src="/static/img/android.png">
+                                <a href="{{ android_download_url }}">
+                                    <img src="/static/img/android.png">
+                                </a>
                             </figure>
                         </div>
                         <div class="column">
                             <figure class="center">
-                                <img src="/static/img/google.png">
+                                <a href="{{ google_download_url }}">
+                                    <img src="/static/img/google.png">
+                                </a>
                             </figure>
                         </div>
                     </div>

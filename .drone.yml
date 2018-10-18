@@ -5,7 +5,7 @@ pipeline:
     commands:
       - pip install -q pylama yapf
       - yapf -dr . | (! grep '.')
-      - pylama
+      - pylama --skip '*/configs/*'
     when:
       event: push
 

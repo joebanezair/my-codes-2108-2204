@@ -1,4 +1,5 @@
 import aiohttp
+import logging
 from sanic.views import HTTPMethodView
 from sanic.response import html, text
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -7,6 +8,8 @@ from jinja2 import Environment, PackageLoader, select_autoescape
 env = Environment(
     loader=PackageLoader('views.routers', '../templates'),
     autoescape=select_autoescape(['html', 'xml', 'tpl']))
+
+logger = logging.getLogger('root')
 
 
 def template(tpl, **kwargs):
@@ -78,27 +81,51 @@ class HomePage(HTTPMethodView):
 
     GOOGLE_DOWNLOAD_URL = ('https://play.google.com'
                            '/store/apps/details?id=com.ac.laiwan')
-    # 内测版本
-    NEICE_DOWNLOAD_URL = '#'
 
-    ANDROID_DOWNLOAD_URL = 'https://laiwan.io/download/android.json'
+    ANDROID_DOWNLOAD_URI = 'https://{host}/download/android.json'
+    IOS_DOWNLOAD_URI = 'https://{host}/download/ios.json'
 
-    async def get(self, request):
+    async def get_ios_download_url(self, request):
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                        self.IOS_DOWNLOAD_URI.format(
+                            host=request.host)) as response:
+                    result_json = await response.json()
+            return result_json['result']['download_url']
+        except Exception as e:
+            logger.error('Can not get latest downlaod info', exc_info=e)
+            # 获取不到下载地址，主页点击下载链接的时候，不跳转
+            return ''
 
+    async def get_android_url(self, request):
         # 通过内部 api 获取最新的下载链接地址
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get(self.ANDROID_DOWNLOAD_URL) as response:
+                async with session.get(
+                        self.IOS_DOWNLOAD_URI.format(
+                            host=request.host)) as response:
                     result_json = await response.json()
-                    android_download_url = result_json['result'][
-                        'download_url']
-        except Exception:
-            android_download_url = '#'
+            return result_json['result']['download_url']
+        except Exception as e:
+            logger.error('Can not get latest downlaod info', exc_info=e)
+            return ''
+
+    async def get(self, request):
+        ios_download_url = await self.get_ios_download_url(request)
+
+        # staging 上，ios 下载指向企业版
+        if request.app.config.ENV == 'staging':
+            qrcode_path = '/static/img/qrcode_staging.png'
+        else:
+            qrcode_path = '/static/img/qrcode_production.png'
+            ios_download_url = ('itms-apps://itunes.apple.com'
+                                '/cn/app/id1394482339')
+        android_download_url = await self.get_android_url(request)
 
         return template(
             self.TEMPLATE_FILE,
-            ios_download_url=('itms-apps://itunes.apple.com'
-                              '/cn/app/id1394482339'),
+            ios_download_url=ios_download_url,
             android_download_url=android_download_url,
             google_download_url=self.GOOGLE_DOWNLOAD_URL,
-            neice_download_url=self.NEICE_DOWNLOAD_URL)
+            qrcode_path=qrcode_path)

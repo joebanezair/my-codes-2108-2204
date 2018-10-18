@@ -94,7 +94,7 @@ body{
 }
 
 .picture .kuang{
-	background:url("/static/img/en3.png");
+	background:url("/static/img/qrcode_production.png");
 	background-size: contain;
 	background-repeat: no-repeat; 
 	height: 35%;

@@ -16,8 +16,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
+        env:
+        - name: STAGE
+          value: {{ stage }}
         command: ["/bin/sh"]
-        args: ["-c", "python manage.py runserver"]
+        args: ["-c", "python manage.py runserver --config configs.$STAGE"]
       imagePullSecrets:
       - name: docker-registry-secret
 ---
