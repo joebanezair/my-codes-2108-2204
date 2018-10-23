@@ -10,7 +10,3 @@ git tag v$git_tag || exit
 git push origin v$git_tag
 
 echo "Tag v$git_tag 已经同步到Remote"
-
-echo "部署到Staging"
-cd k8s-ansible && ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i staging.hosts staging.yml \
-    --extra-vars "docker_tag=$git_tag"
