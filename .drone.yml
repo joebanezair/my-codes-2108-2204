@@ -14,7 +14,9 @@ pipeline:
     registry: registry.shafayouxi.org
     secrets: [ docker_username, docker_password ]
     repo: registry.shafayouxi.org/kevinanew/laiwan_io_web
-    tags: latest
+    tags:
+      - latest
+      - ${DRONE_COMMIT_SHA}
     dockerfile: Dockerfile
     build_args:
       - "--no-cache"
@@ -47,9 +49,31 @@ pipeline:
     inventory: k8s-ansible/staging.hosts
     playbook: k8s-ansible/staging.yml
     flush_cache: true
+    extra_vars: docker_tag=${DRONE_COMMIT_SHA}
     when:
+      event: push
       branch: master
+
+  deploy_staging:
+    image: plugins/ansible
+    secrets: [ ansible_private_key ]
+    inventory: k8s-ansible/staging.hosts
+    playbook: k8s-ansible/staging.yml
+    flush_cache: true
+    extra_vars: docker_tag=v${DRONE_TAG##v}
+    when:
       event: tag
+
+  deploy_production:
+    image: plugins/ansible
+    secrets: [ ansible_private_key ]
+    inventory: k8s-ansible/production.hosts
+    playbook: k8s-ansible/production.yml
+    flush_cache: true
+    extra_vars: docker_tag=v${DRONE_TAG##v}
+    when:
+      event: tag
+      branch: master
 
   telegram:
     image: appleboy/drone-telegram

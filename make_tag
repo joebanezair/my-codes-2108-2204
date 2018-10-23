@@ -1,6 +1,9 @@
 #!/bin/bash
-echo "这个脚本将帮助你添加一个新的tag，并部署到staging服务器上"
-
+echo
+echo "这个脚本将帮助你添加一个新的tag"
+echo "如果是master分支添加的tag，会通过 Drone 部署到 PRODUCTION 服务器上"
+echo
+echo
 echo "正在获取Remote git上最近的5个Tag ..."
 git ls-remote --tags| awk '{print $2}' | sort --version-sort | tail -n 5
 

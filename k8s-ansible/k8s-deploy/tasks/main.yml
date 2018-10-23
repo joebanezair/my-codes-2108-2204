@@ -4,12 +4,15 @@
   become: yes
   file: path=k8s mode=0755 state=directory
 
-- name: copy k8s deploy files to server
-  synchronize:
-    src: k8s/
-    dest: k8s/{{ project }}
-    rsync_opts: --exclude=.DS_Store
-    delete: yes
+- name: upload ingress.qipai-{{ stage }}.yaml
+  copy:
+    src: k8s/ingress.qipai-{{ stage }}.yaml
+    dest: k8s/{{ project }}/ingress.qipai-{{ stage }}.yaml
+
+- name: upload install-qipai-{{ stage }}.sh
+  copy:
+    src: k8s/install-qipai-{{ stage }}.sh
+    dest: k8s/{{ project }}/install-qipai-{{ stage }}.sh
 
 - name: upload deployment.yaml
   template:
