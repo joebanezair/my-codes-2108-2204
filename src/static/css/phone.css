@@ -27,7 +27,7 @@ body{
 .left .logo{
 	background: url("/static/img/logo.png");
 	background-repeat: no-repeat;
-	background-size:contain; 
+	background-size:contain;
 	position: absolute;
 	height:16%;
 	width: 27%;
@@ -96,7 +96,7 @@ body{
 .picture .kuang{
 	background:url("/static/img/qrcode_production.png");
 	background-size: contain;
-	background-repeat: no-repeat; 
+	background-repeat: no-repeat;
 	height: 35%;
     width: 100%;
     position: absolute;

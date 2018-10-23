@@ -16,9 +16,9 @@ invitation_blueprint.add_route(
     '/apple-app-site-association',
     methods=['GET'])
 invitation_blueprint.add_route(
-    views.JoinRoomPage.as_view(), '/room/<room_pin>', methods=['GET'])
+    views.JoinDoudiZhuPage.as_view(), '/doudizhu/room', methods=['GET'])
 invitation_blueprint.add_route(
-    views.JoinDoudiZhuPage.as_view(), '/doudizhu', methods=['GET'])
+    views.JoinTexasHoldemPage.as_view(), '/texas/room', methods=['GET'])
 
 # 首页
 home_blueprint = Blueprint('home')

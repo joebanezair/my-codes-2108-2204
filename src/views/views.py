@@ -27,16 +27,15 @@ class AppleAppSiteAssociation(HTTPMethodView):
         return text(body=_template.render(), content_type='application/json')
 
 
-class JoinRoomPage(HTTPMethodView):
+class JoinDoudiZhuPage(HTTPMethodView):
     """加入房间
-    未下载：跳转到商城
-    已下载：自动打开应用并进入房间
     """
     TEMPLATE_FILE = 'join_room.html'
     APP_STORE_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
-    DOUDIZHU_H5_URL = 'https://www.laiwan.io/doudizhu/?id={room_pin}'
+    DOUDIZHU_H5_URL = 'https://www.laiwan.io/download'
 
-    async def get(self, request, room_pin):
+    async def get(self, request):
+        room_pin = request.raw_args.get('pin')
         return template(
             self.TEMPLATE_FILE,
             doudizhu_h5_url=self.DOUDIZHU_H5_URL.format(room_pin=room_pin),
@@ -44,16 +43,15 @@ class JoinRoomPage(HTTPMethodView):
             room_pin=room_pin)
 
 
-class JoinDoudiZhuPage(HTTPMethodView):
+class JoinTexasHoldemPage(HTTPMethodView):
     """加入房间
-    暂时兼容 /doudizhu?id=xxxx 这样的跳转 url
     """
     TEMPLATE_FILE = 'join_room.html'
     APP_STORE_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
-    DOUDIZHU_H5_URL = 'https://www.laiwan.io/doudizhu/?id={room_pin}'
+    DOUDIZHU_H5_URL = 'https://www.laiwan.io/download'
 
     async def get(self, request):
-        room_pin = request.raw_args.get('id')
+        room_pin = request.raw_args.get('pin')
         return template(
             self.TEMPLATE_FILE,
             doudizhu_h5_url=self.DOUDIZHU_H5_URL.format(room_pin=room_pin),
@@ -103,7 +101,7 @@ class HomePage(HTTPMethodView):
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(
-                        self.IOS_DOWNLOAD_URI.format(
+                        self.ANDROID_DOWNLOAD_URI.format(
                             host=request.host)) as response:
                     result_json = await response.json()
             return result_json['result']['download_url']
