@@ -43,7 +43,7 @@ pipeline:
     when:
       event: push
 
-  deploy_staging:
+  deploy_staging_by_commit:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
     inventory: k8s-ansible/staging.hosts
@@ -54,7 +54,7 @@ pipeline:
       event: push
       branch: master
 
-  deploy_staging:
+  deploy_staging_by_tag:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
     inventory: k8s-ansible/staging.hosts
