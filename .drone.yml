@@ -41,6 +41,16 @@ pipeline:
     when:
       event: push
 
+  deploy_staging:
+    image: plugins/ansible
+    secrets: [ ansible_private_key ]
+    inventory: k8s-ansible/staging.hosts
+    playbook: k8s-ansible/staging.yml
+    flush_cache: true
+    when:
+      branch: master
+      event: tag
+
   telegram:
     image: appleboy/drone-telegram
     token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
