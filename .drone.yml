@@ -60,7 +60,7 @@ pipeline:
     inventory: deploy/staging.hosts
     playbook: deploy/staging.yml
     flush_cache: true
-    extra_vars: docker_tag=v${DRONE_TAG##v}
+    extra_vars: docker_tag=${DRONE_TAG##v}
     when:
       event: tag
 
@@ -70,7 +70,7 @@ pipeline:
     inventory: deploy/production.hosts
     playbook: deploy/production.yml
     flush_cache: true
-    extra_vars: docker_tag=v${DRONE_TAG##v}
+    extra_vars: docker_tag=${DRONE_TAG##v}
     when:
       event: tag
       branch: master
