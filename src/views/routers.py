@@ -6,6 +6,8 @@ from views import views
 doc_blueprint = Blueprint('doc')
 doc_blueprint.static('/privacy.html', '/opt/app/doc/privacy.html')
 doc_blueprint.static('/agreement.html', '/opt/app/doc/agreement.html')
+doc_blueprint.add_route(
+    views.RobotsView.as_view(), '/robots.txt', methods=['GET'])
 
 # 来玩的 邀请链接、分享链接
 invitation_blueprint = Blueprint('invitation')

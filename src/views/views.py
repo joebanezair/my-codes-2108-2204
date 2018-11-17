@@ -127,3 +127,16 @@ class HomePage(HTTPMethodView):
             android_download_url=android_download_url,
             google_download_url=self.GOOGLE_DOWNLOAD_URL,
             qrcode_path=qrcode_path)
+
+
+class RobotsView(HTTPMethodView):
+    """robots.txt
+    """
+
+    async def get(self, request):
+        # 判断站点
+        if request.host == 'shafayouxi.org':
+            rule = 'Disallow'
+        else:
+            rule = 'Allow'
+        return text(f'User-agent: *\n{rule}: /')
