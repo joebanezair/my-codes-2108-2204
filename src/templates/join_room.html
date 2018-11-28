@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
+{% extends "prime.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-          content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="/static/css/download.css">
+{% block head %}
+    {{ super() }}
     <title>来玩</title>
     <script type="text/javascript">
         var doudizhu_h5_url = {{ doudizhu_h5_url|tojson }}
@@ -17,18 +12,9 @@
         }
         });
 </script>
-</head>
+{% endblock %}
 
-<body class="app">
-
-<img class='topImg' src="/static/img/top.png">
-<img class='bottomImg' src="/static/img/bottom.png">
-
-<div class="out-container">
-    <div class="main">
-        <header>
-            <div class="table-container">
-                <div class="cell-container">
+{% block content %}
                     <div class="app-brief">
                         <div class="icon-container wrapper">
                             <i class="icon-icon_path bg-path"></i>
@@ -45,10 +31,4 @@
                             onclick=window.open("{{app_store_url}}") />
                         </div>
                     </div>
-                </div>
-            </div>
-        </header>
-    </div>
-</div>
-</body>
-</html>
+{% endblock %}

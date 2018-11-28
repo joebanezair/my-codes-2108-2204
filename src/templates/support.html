@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html>
+{% extends "prime.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-eqFuiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-          content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="/download/static/css/download.css">
+{% block head %}
+    {{ super() }}
     <link rel="icon" href="/static/img/laiwan_icon.png" type="image/png" />
     <title>来玩-用户支持</title>
-</head>
+    <script src="/static/js/qrcode.js"></script>
+{% endblock %}
 
-<body class="app">
-
-<img class='topImg' src="/download/static/img/top.png">
-<img class='bottomImg' src="/download/static/img/bottom.png">
-
-
-<div class="out-container">
-    <div class="main">
-        <header>
-            <div class="table-container">
-                <div class="cell-container">
+{% block content %}
                     <div class="support" style="text-align:center; margin-top: -200px;">
                         <h1>用户支持</h1>
                             <table style="width: 60%; margin:auto; font-weight: bold">
@@ -39,11 +25,4 @@
                             </tr>
                             </table>
                     </div>
-                </div>
-            </div>
-        </header>
-    </div>
-</div>
-</body>
-<script src="/download/static/js/qrcode.js"></script>
-</html>
+{% endblock %}
