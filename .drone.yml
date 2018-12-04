@@ -11,9 +11,9 @@ pipeline:
 
   build_app_image:
     image: plugins/docker
-    registry: registry.shafayouxi.org
+    registry: registry.cn-hongkong.aliyuncs.com
     secrets: [ docker_username, docker_password ]
-    repo: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
     tags:
       - latest
       - ${DRONE_COMMIT_SHA}
@@ -25,9 +25,9 @@ pipeline:
 
   build_docker_image_with_tag:
     image: plugins/docker
-    registry: registry.shafayouxi.org
+    registry: registry.cn-hongkong.aliyuncs.com
     secrets: [ docker_username, docker_password ]
-    repo: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
     dockerfile: Dockerfile
     tags: ${DRONE_TAG##v}
     build_args:
@@ -36,7 +36,7 @@ pipeline:
       event: tag
 
   test:
-    image: registry.shafayouxi.org/kevinanew/laiwan_io_web
+    image: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
     pull: true
     commands:
       - python src/manage.py test

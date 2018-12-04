@@ -2,26 +2,27 @@
 - name: Make k8s dir
   remote_user: root
   become: yes
-  file: path=k8s mode=0755 state=directory
+  file: path=k8s_{{ stage }}/{{ project }} mode=0755 state=directory
 
 - name: upload ingress.qipai-{{ stage }}.yaml
   copy:
     src: k8s/ingress.qipai-{{ stage }}.yaml
-    dest: k8s/{{ project }}/ingress.qipai-{{ stage }}.yaml
+    dest: k8s_{{ stage }}/{{ project }}/ingress.qipai-{{ stage }}.yaml
 
 - name: upload install-qipai-{{ stage }}.sh
   copy:
     src: k8s/install-qipai-{{ stage }}.sh
-    dest: k8s/{{ project }}/install-qipai-{{ stage }}.sh
+    dest: k8s_{{ stage }}/{{ project }}/install-qipai-{{ stage }}.sh
+    mode: 0755
 
 - name: upload deployment.yaml
   template:
     src: deployment.yaml.tpl
-    dest: k8s/{{ project }}/deployment.yaml
+    dest: k8s_{{ stage }}/{{ project }}/deployment.yaml
 
 - name: Run install-{{ k8s_namespace }}.sh
   shell: ./install-{{ k8s_namespace }}.sh
   args:
-    chdir: k8s/{{ project }}
+    chdir: k8s_{{ stage }}/{{ project }}
   register: install
 - debug: var=install.stdout_lines
