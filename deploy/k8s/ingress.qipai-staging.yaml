@@ -4,22 +4,14 @@ metadata:
   name: laiwan-io-web
   annotations:
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: 'true'
+    certmanager.k8s.io/cluster-issuer: "letsencrypt-production"
 spec:
   tls:
-  - secretName: shafayouxi-org-tls
+  - secretName: www-shafayouxi-org-tls
     hosts:
-    - www.shafayouxi.org
     - shafayouxi.org
+    - www.shafayouxi.org
   rules:
-  - host: www.shafayouxi.org
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: laiwan-io-web
-          servicePort: 80
-
   - host: shafayouxi.org
     http:
       paths:
@@ -28,3 +20,10 @@ spec:
           serviceName: laiwan-io-web
           servicePort: 80
 
+  - host: www.shafayouxi.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: laiwan-io-web
+          servicePort: 80

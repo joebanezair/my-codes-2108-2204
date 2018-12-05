@@ -4,10 +4,10 @@ metadata:
   name: laiwan-io-web
   annotations:
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: 'true'
+    certmanager.k8s.io/cluster-issuer: "letsencrypt-production"
 spec:
   tls:
-  - secretName: laiwai-tls
+  - secretName: www-laiwai-io-tls
     hosts:
     - laiwan.io
     - www.laiwan.io
@@ -21,7 +21,6 @@ spec:
           serviceName: laiwan-io-web
           servicePort: 80
 
-
   - host: www.laiwan.io
     http:
       paths:
@@ -29,7 +28,6 @@ spec:
         backend:
           serviceName: laiwan-io-web
           servicePort: 80
-
 
   - host: apple-app-site-association.laiwan.io
     http:
