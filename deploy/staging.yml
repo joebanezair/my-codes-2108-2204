@@ -9,5 +9,5 @@
     - {role: k8s-deploy,
       project: laiwan_io_web,
       project_dns_name: laiwan-io-web,
-      k8s_namespace: qipai-staging,
+      k8s_namespace: laiwan-staging,
       stage: staging}
