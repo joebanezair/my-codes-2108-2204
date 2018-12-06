@@ -10,6 +10,8 @@ spec:
         app: {{ project_dns_name }}
         server: {{ project_dns_name }}
     spec:
+      nodeSelector:
+        stage: {{ stage }}
       containers:
       - name: {{ project_dns_name }}
         image: registry.cn-hongkong.aliyuncs.com/laiwanio/{{ project }}:{{ docker_tag }}
