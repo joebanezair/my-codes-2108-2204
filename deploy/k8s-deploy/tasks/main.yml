@@ -4,15 +4,15 @@
   become: yes
   file: path=k8s_{{ stage }}/{{ project }} mode=0755 state=directory
 
-- name: upload ingress.qipai-{{ stage }}.yaml
+- name: upload ingress-{{ k8s_namespace }}.yaml
   copy:
-    src: k8s/ingress.qipai-{{ stage }}.yaml
-    dest: k8s_{{ stage }}/{{ project }}/ingress.qipai-{{ stage }}.yaml
+    src: k8s/ingress-{{ k8s_namespace }}.yaml
+    dest: k8s_{{ stage }}/{{ project }}/ingress-{{ k8s_namespace }}.yaml
 
-- name: upload install-qipai-{{ stage }}.sh
+- name: upload install-{{ k8s_namespace }}.sh
   copy:
-    src: k8s/install-qipai-{{ stage }}.sh
-    dest: k8s_{{ stage }}/{{ project }}/install-qipai-{{ stage }}.sh
+    src: k8s/install-{{ k8s_namespace }}.sh
+    dest: k8s_{{ stage }}/{{ project }}/install-{{ k8s_namespace }}.sh
     mode: 0755
 
 - name: upload deployment.yaml
