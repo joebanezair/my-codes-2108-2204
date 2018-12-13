@@ -1,88 +1,168 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="来玩，是全民娱乐的专业棋牌在线竞技平台，拥有众多游戏全终端覆盖iOS、安卓端，包括斗地主、德州扑克等棋牌游戏，同时还有欢乐答题等休闲游戏。以竞技为核心，让您在紧张刺激中享受游戏的乐趣。送钻石！送房卡！进入《来玩》，下载游戏体验原汁原味的俱乐部玩法"/>
-    <meta name="keywords" content="真人德扑圈,德扑圈,德州扑克圈,德扑社交游戏,约局,组局,扑克,德扑,德友圈,天天德州,大鱼扑克,俱乐部,免房卡"/>
     <title>【来玩官网】—德州扑克斗地主约局神器</title>
-    <!-- <link rel="stylesheet" href="debug.css"> -->
-    <link rel="icon" href="/static/img/laiwan_icon.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="来玩，是全民娱乐的专业棋牌在线竞技平台，拥有众多游戏全终端覆盖iOS、安卓端，包括斗地主、德州扑克等棋牌游戏，同时还有欢乐答题等休闲游戏。以竞技为核心，让您在紧张刺激中享受游戏的乐趣。送钻石！送房卡！进入《来玩》，下载游戏体验原汁原味的俱乐部玩法">
+    <meta name="keywords" content="真人德扑圈,德扑圈,德州扑克圈,德扑社交游戏,约局,组局,扑克,德扑,德友圈,天天德州,大鱼扑克,俱乐部,免房卡">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="icon" href="/static/img/laiwan_icon.png" type="image/png">
+    <script src="/static/css/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/static/css/bulma.min.css">
     <style>
-        .hero {
-            background: url(/static/img/bg.jpg)
-        }
+    .hero {
+        background: url(/static/img/bg-web.png);
+    }
 
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    #burger {
+        background: url(/static/img/bg-web.png);
+    }
 
-        .b {
-            margin-left: 5%;
-            margin-right: 5%;
-        }
+    .center {
+        display: flex;
 
-        @media(min-width:768px) {
-            #chicun {
-                max-width: 300px;
-            }
+        align-items: center;
+        justify-content: center;
+    }
+
+    .brand_style {
+        margin-left: 10rem;
+    }
+
+    .logo_style {
+        min-width: 2rem;
+        min-height: 3rem;
+    }
+
+    .menuitem_style {
+        border: none;
+    }
+
+    .menuitem_style:hover {
+        border-bottom: 2px solid #cfcfcf;
+    }
+
+    .flex_apple {
+        display: flex;
+        width: 100%;
+        height: 50%;
+
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .flex_android {
+        display: flex;
+        width: 100%;
+        height: 50%;
+
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .flex_erweima {
+        display: flex;
+
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .google_style {
+        width: 100%;
+        height: 100%;
+    }
+
+    .neice_style {
+        width: 100%;
+        height: 100%;
+    }
+
+    .change_size {
+        display: block;
+    }
+
+
+    @media(min-width:769px) {
+        #screen {
+            max-width: 300px;
         }
+    }
     </style>
-</head>
+    <script>
+    $(document).ready(function () {
+        if ($(window).width() < 768) {
+            $('.change_size').removeClass('is-4').addClass('is-6');
+        }
 
+        else {
+            $('.change_size').removeClass('is-6').addClass('is-4');
+        }
+
+        $('.navbar-burger').click(function () {
+            $('.navbar-burger').toggleClass('is-active');
+            $('.navbar-menu').toggleClass('is-active');
+        });
+
+    });
+    </script>
+</head>
 <body>
     <section class="hero is-fullheight">
-        <div class="hero-head">
-            <div class="container">
-                <figure class="center">
-                    <img src="/static/img/logo.png">
-                </figure>
+        <nav class="navbar">
+            <div class="navbar-brand brand_style">
+                <a class="navbar-item"> <img src="/static/img/logo.png" class="logo_style center"> </a>
+                <a class="navbar-burger burger"> <span class="has-text-white"></span> <span class="has-text-white"></span> <span class="has-text-white"></span> </a>
             </div>
-        </div>
+            <div class="navbar-menu" id="burger">
+                <div class="navbar-start">
+                    <p class="title has-text-white is-4 center">
+                        来玩
+                    </p>
+                </div>
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <a class="has-text-white menuitem_style"> <strong> 首页 </strong> </a>
+                    </div>
+                    <div class="navbar-item">
+                        <a class="has-text-white menuitem_style"> <strong> 德州扑克术语表 </strong> </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-mobile">
-                    <div class="column">
-                        <p class="center title has-text-white">来玩</p>
+                    <div class="column is-6">
                         <figure class="center">
-                            <img src="/static/img/iphonex.png" id="chicun">
+                            <img src="/static/img/img-phone.png" id="screen">
                         </figure>
                     </div>
-                    <div class="column is-1">
-                        <figure class="center">
-                            <img src="/static/img/divided.png">
-                        </figure>
-                    </div>
-                    <div class="column">
-                        <p class="center title has-text-white is-size-7-mobile">斗地主 &nbsp;&nbsp;&nbsp;德州扑克</p>
-                        <p class="center subtitle has-text-white is-size-7-mobile">和朋友一起玩</p>
-                        <div class="column">
-                            <figure class="center">
+                    <div class="column is-mobile is-4 change_size">
+                        <div class="columns is-mobile">
+                            <div class="column flex_erweima">
                                 <img src="{{ qrcode_path }}">
-                            </figure>
+                            </div>
+                            <div class="column">
+                                <div class="flex_apple">
+                                    <a href="{{ ios_download_url }}"> <img src="/static/img/apple.png" class="apple_style"> </a>
+                                </div>
+                                <div class="flex_android">
+                                    <a href="{{ android_download_url }}"> <img src="/static/img/android.png" class="android_style"> </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="column center">
-                            <figure class="b">
-                                <a href="{{ ios_download_url }}">
-                                    <img src="/static/img/apple.png">
-                                </a>
-                            </figure>
-                            <figure class="b">
-                                <a href="{{ android_download_url }}">
-                                    <img src="/static/img/android.png">
-                                </a>
-                            </figure>
+                        <div>
+                            <a href="{{ google_download_url }}"> <img src="/static/img/google.png" class="google_style"> </a>
                         </div>
-                        <div class="column">
-                            <figure class="center">
-                                <a href="{{ google_download_url }}">
-                                    <img src="/static/img/google.png">
-                                </a>
-                            </figure>
+                        <br>
+                        <div>
+                            <a href="/"> <img src="/static/img/neice.png" class="neice_style"> </a>
+                        </div>
+                        <div>
+                            <a href="" class="center"> <img src="/static/img/icon-doubt.png"> <p class="has-text-white">
+                                    安装教程
+                                </p> </a>
                         </div>
                     </div>
                 </div>
@@ -90,5 +170,4 @@
         </div>
     </section>
 </body>
-
 </html>
