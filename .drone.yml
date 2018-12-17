@@ -9,6 +9,14 @@ pipeline:
     when:
       event: push
 
+  code_inspection_html:
+    image: node:6.11.5
+    commands:
+      - npm install htmlhint -g
+      - htmlhint src
+    when:
+      event: push
+
   build_app_image:
     image: plugins/docker
     registry: registry.cn-hongkong.aliyuncs.com

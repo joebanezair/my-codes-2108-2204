@@ -21,7 +21,6 @@
 
     .center {
         display: flex;
-
         align-items: center;
         justify-content: center;
     }
@@ -37,18 +36,18 @@
 
     .menuitem_style {
         border: none;
+        color: #d9d7ff;
     }
 
     .menuitem_style:hover {
-        border-bottom: 2px solid #cfcfcf;
+        border-bottom: 2px solid #fff;
+        color: #fff;
     }
 
     .flex_apple {
         display: flex;
         width: 100%;
-        height: 50%;
-
-        align-items: center;
+        height: 53%;
         justify-content: flex-end;
     }
 
@@ -56,16 +55,28 @@
         display: flex;
         width: 100%;
         height: 50%;
-
-        align-items: center;
+        align-items: flex-end;
         justify-content: flex-end;
     }
 
     .flex_erweima {
         display: flex;
-
+        padding-right: 1.9rem;
+        padding-left: .35rem;
         align-items: center;
-        justify-content: flex-start;
+    }
+
+    .download_style {
+        padding: 0 .75rem 0 0rem;
+    }
+
+    .erweima_style {
+        border: 8px solid #ddd;
+        border-radius: 10%;
+    }
+
+    .margin_bottom {
+        margin-bottom: 10%;
     }
 
     .google_style {
@@ -79,19 +90,55 @@
     }
 
     .change_size {
-        display: block;
+        margin-top: 7%;
     }
 
+    .footer_height {
+        padding: 1rem 1.5rem 1rem;
+        background-color: #121010;
+    }
 
+    .footer_text {
+        display: flex;
+        color: #ece9f2;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .margin_neice_top {
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 1472px) {
+        .flex_erweima {
+            display: flex;
+            padding-left: 1rem;
+            align-items: center;
+        }
+    }
     @media(min-width:769px) {
         #screen {
             max-width: 300px;
         }
     }
+
+    @media (max-width:768px) {
+        #footer_display {
+            display: none;
+        }
+
+        .change_size {
+            margin-top: 17%;
+        }
+
+        .margin_neice_top {
+            margin-top: .5rem;
+        }
+    }
     </style>
     <script>
     $(document).ready(function () {
-        if ($(window).width() < 768) {
+        if ($(window).width() <= 768) {
             $('.change_size').removeClass('is-4').addClass('is-6');
         }
 
@@ -122,10 +169,10 @@
                 </div>
                 <div class="navbar-start">
                     <div class="navbar-item">
-                        <a class="has-text-white menuitem_style"> <strong> 首页 </strong> </a>
+                        <a class=" menuitem_style"> <strong> 首页 </strong> </a>
                     </div>
                     <div class="navbar-item">
-                        <a class="has-text-white menuitem_style"> <strong> 德州扑克术语表 </strong> </a>
+                        <a class=" menuitem_style"> <strong> 德州扑克术语表 </strong> </a>
                     </div>
                 </div>
             </div>
@@ -139,24 +186,24 @@
                         </figure>
                     </div>
                     <div class="column is-mobile is-4 change_size">
-                        <div class="columns is-mobile">
-                            <div class="column flex_erweima">
-                                <img src="{{ qrcode_path }}">
+                        <div class="columns is-mobile margin_bottom">
+                            <div class="column flex_erweima center">
+                                <img src="{{ qrcode_path }}" class="erweima_style">
                             </div>
-                            <div class="column">
+                            <div class="column download_style">
                                 <div class="flex_apple">
                                     <a href="{{ ios_download_url }}"> <img src="/static/img/apple.png" class="apple_style"> </a>
                                 </div>
                                 <div class="flex_android">
-                                    <a href="{{ android_download_url }}"> <img src="/static/img/android.png" class="android_style"> </a>
+                                    <a href="{{ android_download_url }}"> <img src="/static/img/android.png"> </a>
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <div>
                             <a href="{{ google_download_url }}"> <img src="/static/img/google.png" class="google_style"> </a>
                         </div>
-                        <br>
-                        <div>
+                        <div class="margin_neice_top">
                             <a href="/"> <img src="/static/img/neice.png" class="neice_style"> </a>
                         </div>
                         <div>
@@ -168,6 +215,13 @@
                 </div>
             </div>
         </div>
+        <footer class="footer footer_height" id="footer_display">
+            <div class="footer_text subtitle">
+                <p>
+                    2018©laiwan&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </p>
+            </div>
+        </footer>
     </section>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 {% extends "prime.html" %}
 
 {% block head %}
@@ -5,12 +6,15 @@
     <title>来玩</title>
     <script type="text/javascript">
         var doudizhu_h5_url = {{ doudizhu_h5_url|tojson }}
-
         document.addEventListener("DOMContentLoaded", function(event) {
         if (window.location.host != "apple-app-site-association.laiwan.io"){
             window.location.href = doudizhu_h5_url
         }
         });
+
+        document.getElementsByName('submit').addEventListener("click",function(event){
+            window.open({{ app_store_url }})
+        })
 </script>
 {% endblock %}
 
@@ -19,16 +23,15 @@
                         <div class="icon-container wrapper">
                             <i class="icon-icon_path bg-path"></i>
                             <span class="icon">
-                                    <img src="/static/img/laiwan_icon.png">
-                                </span>
+                                <img src="/static/img/laiwan_icon.png">
+                            </span>
                         <h1 align="center" class="name wrapper">
                             来玩
                         </h1>
                         </div>
                         <p>房间号：{{ room_pin }}</p>
                         <div id="actions" class="actions type-android">
-                            <input class="button" name="submit" type="image" value="" src="/static/img/download.png"
-                            onclick=window.open("{{app_store_url}}") />
+                            <input class="button" name="submit" src="/static/img/download.png">
                         </div>
                     </div>
 {% endblock %}
