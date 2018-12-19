@@ -69,6 +69,8 @@
         padding-right: 1.9rem;
         padding-left: .35rem;
         align-items: center;
+        background: url(/static/img/erweima.png) no-repeat;
+        background-size: 240px 225px;
     }
 
     .download_style {
@@ -76,6 +78,8 @@
     }
 
     .erweima_style {
+        position: relative;
+        left:0.5rem;
         border: 8px solid #ddd;
         border-radius: 10%;
     }
@@ -114,20 +118,84 @@
         margin-top: 1rem;
     }
 
-    @media (max-width: 1472px) {
+    @media (max-width:1280px) {
         .flex_erweima {
             display: flex;
-            padding-left: 1rem;
+            padding-right: 1.9rem;
+            padding-left: .35rem;
             align-items: center;
-        }
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 170px 168px;
     }
-    @media(min-width:769px) {
+
+        .erweima_style {
+            position: relative;
+            left:0.5rem;
+            border: 8px solid #ddd;
+            border-radius: 4%;
+    }
+
+    }
+
+    @media (min-width:1025px) {
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 235px 225px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid #ddd;
+            border-radius: 4%;
+        }
+
         #screen {
             max-width: 300px;
         }
     }
 
+    @media (max-width:1024px) {
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 171px 165px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid #ddd;
+            border-radius: 4%;
+        }
+
+        #screen {
+            max-width: 300px;
+        }
+        
+    }
+
     @media (max-width:768px) {
+        #screen {
+            max-width: 300px;
+        }
+
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 190px 189px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid #ddd;
+            border-radius: 4%;
+        }
+    }
+
+    @media (max-width:414px) {
         #footer_display {
             display: none;
         }
@@ -139,7 +207,76 @@
         .margin_neice_top {
             margin-top: .5rem;
         }
+
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 100px 94px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid white;
+            border-radius: 4%;
+            width:90px;
+            height:70px;
+        }
+
+        #screen {
+            max-width: 200px;
+        }
+
     }
+
+    @media (max-width:375px) {
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 90px 94px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid white;
+            border-radius: 4%;
+            min-width:60px;
+            min-height:40px;
+        }
+
+        #screen {
+            max-width: 180px;
+        }
+
+        
+    }
+
+    @media (max-width:320px) {
+        .flex_erweima {
+            display: flex;
+            align-items: center;
+            background: url(/static/img/erweima.png) no-repeat;
+            background-size: 90px 81px;
+            margin-left: 0.4rem;
+        }
+
+        .erweima_style {
+            border: 8px solid white;
+            border-radius: 4%;
+            width:110px;
+            height:60px;
+        }
+
+        #screen {
+            max-width: 160px;
+        }
+
+    }
+
+
+
+
     </style>
     <script>
     $(document).ready(function () {
