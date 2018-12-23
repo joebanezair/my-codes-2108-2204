@@ -64,7 +64,7 @@
         justify-content: flex-end;
     }
 
-    .flex_erweima {
+    .flex_qrcode {
         display: flex;
         padding-right: 1.9rem;
         padding-left: .35rem;
@@ -75,7 +75,7 @@
         padding: 0 .75rem 0 0rem;
     }
 
-    .erweima_style {
+    .qrcode_style {
         border: 3px solid #ddd;
         border-radius: 5%;
     }
@@ -89,7 +89,7 @@
         height: 100%;
     }
 
-    .neice_style {
+    .internal_measurement_style {
         width: 100%;
         height: 100%;
     }
@@ -115,7 +115,7 @@
     }
 
     @media (max-width: 1472px) {
-        .flex_erweima {
+        .flex_qrcode {
             display: flex;
             padding-left: 1rem;
 
@@ -199,8 +199,8 @@
                     </div>
                     <div class="column is-mobile is-4 change_size">
                         <div class="columns is-mobile margin_bottom">
-                            <div class="column flex_erweima center">
-                                <img src="{{ qrcode_path }}" class="erweima_style">
+                            <div class="column flex_qrcode center">
+                                <img src="{{ qrcode_path }}" class="qrcode_style">
                             </div>
                             <div class="column download_style">
                                 <div class="flex_apple">
@@ -216,10 +216,10 @@
                             <a href="{{ google_download_url }}"> <img src="/static/img/home/google.png" class="google_style"> </a>
                         </div>
                         <div class="margin_neice_top">
-                            <a href="/"> <img src="/static/img/home/neice.png" class="neice_style"> </a>
+                            <a href="/"> <img src="/static/img/home/internal_measurement.png" class="internal_measurement_style"> </a>
                         </div>
                         <div>
-                            <a href="" class="center"> <img src="/static/img/home/icon-doubt.png"> <p class="has-text-white">
+                            <a href="" class="center"> <img src="/static/img/home/icon_doubt.png"> <p class="has-text-white">
                                     安装教程
                                 </p> </a>
                         </div>

@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>来玩</title>
-    <meta name="viewport"
-          content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="/static/css/download.css">
+    <meta charset="utf-8">
+    <title>【来玩官网】—德州扑克斗地主约局神器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="来玩，是全民娱乐的专业棋牌在线竞技平台，拥有众多游戏全终端覆盖iOS、安卓端，包括斗地主、德州扑克等棋牌游戏，同时还有欢乐答题等休闲游戏。以竞技为核心，让您在紧张刺激中享受游戏的乐趣。送钻石！送房卡！进入《来玩》，下载游戏体验原汁原味的俱乐部玩法">
+    <meta name="keywords" content="真人德扑圈,德扑圈,德州扑克圈,德扑社交游戏,约局,组局,扑克,德扑,德友圈,天天德州,大鱼扑克,俱乐部,免房卡">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
     {% block head %}{% endblock %}
 </head>
-
-<body class="app">
-
-<img class="topImg" src="/static/img/top.png">
-<img class="bottomImg" src="/static/img/bottom.png">
-
-<div class="out-container">
-    <div class="main">
-        <header>
-            <div class="table-container">
-                <div class="cell-container">
-                    {% block content %}{% endblock %}
+<body>
+    <section class="hero is-fullheight">
+        <nav class="navbar">
+            <div class="navbar-brand brand_style">
+                <a class="navbar-item"> <img src="/static/img/home/logo.png" class="logo_style center"> </a>
+                <a class="navbar-burger burger"> <span class="has-text-white"></span> <span class="has-text-white"></span> <span class="has-text-white"></span> </a>
+            </div>
+            <div class="navbar-menu" id="burger">
+                <div class="navbar-start">
+                    <p class="title has-text-white is-4 center">
+                        {% block navbar_start %}{% endblock %}
+                    </p>
+                </div>
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <a class=" menuitem_style menu_item_underline_home"> <strong> {% block navbar_item_one %}{% endblock %} </strong> </a>
+                    </div>
+                    <div class="navbar-item">
+                        <a class=" menuitem_style menu_item_underline_glossary" href="/glossary"> <strong> {% block navbar_item_two %}{% endblock %} </strong> </a>
+                    </div>
                 </div>
             </div>
-        </header>
-    </div>
-</div>
+        </nav>
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer_height" id="footer_display">
+            <div class="footer_text subtitle">
+                <p>
+                    2018©laiwan&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </p>
+            </div>
+        </footer>
+    </section>
 </body>
 </html>
