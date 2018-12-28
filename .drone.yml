@@ -19,9 +19,9 @@ pipeline:
 
   build_app_image:
     image: plugins/docker
-    registry: registry.cn-hongkong.aliyuncs.com
+    registry: registry.eu-central-1.aliyuncs.com
     secrets: [ docker_username, docker_password ]
-    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
+    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
     tags:
       - latest
       - ${DRONE_COMMIT_SHA}
@@ -33,9 +33,9 @@ pipeline:
 
   build_docker_image_with_tag:
     image: plugins/docker
-    registry: registry.cn-hongkong.aliyuncs.com
+    registry: registry.eu-central-1.aliyuncs.com
     secrets: [ docker_username, docker_password ]
-    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
+    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
     dockerfile: Dockerfile
     tags: ${DRONE_TAG##v}
     build_args:
@@ -43,8 +43,8 @@ pipeline:
     when:
       event: tag
 
-  test:
-    image: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web
+  unittest:
+    image: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web:${DRONE_COMMIT_SHA}
     pull: true
     commands:
       - python src/manage.py test

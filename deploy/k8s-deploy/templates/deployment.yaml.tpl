@@ -14,7 +14,7 @@ spec:
         stage: {{ stage }}
       containers:
       - name: {{ project_dns_name }}
-        image: registry.cn-hongkong.aliyuncs.com/laiwanio/{{ project }}:{{ docker_tag }}
+        image: registry.eu-central-1.aliyuncs.com/laiwanio/{{ project }}:{{ docker_tag }}
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
