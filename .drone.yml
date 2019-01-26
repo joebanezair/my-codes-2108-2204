@@ -62,6 +62,18 @@ pipeline:
       event: push
       branch: master
 
+  telegram_staging_change_log:
+    image: appleboy/drone-telegram
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001149803042
+    message: >
+      {{#success build.status}}
+        Staging部署 {{repo.name}}: {{commit.message}} by {{ commit.author }}
+      {{/success}}
+    when:
+      event: push
+      branch: master
+
   deploy_staging_by_tag:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
@@ -72,6 +84,17 @@ pipeline:
     when:
       event: tag
 
+  telegram_staging_change_log_by_tag:
+    image: appleboy/drone-telegram
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001149803042
+    message: >
+      {{#success build.status}}
+        Staging部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
+      {{/success}}
+    when:
+      event: tag
+
   deploy_production:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
@@ -79,6 +102,18 @@ pipeline:
     playbook: deploy/production.yml
     flush_cache: true
     extra_vars: docker_tag=${DRONE_TAG##v}
+    when:
+      event: tag
+      branch: master
+
+  telegram_production_change_log:
+    image: appleboy/drone-telegram
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001149803042
+    message: >
+      {{#success build.status}}
+        Production部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
+      {{/success}}
     when:
       event: tag
       branch: master
