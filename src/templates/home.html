@@ -34,6 +34,10 @@
         min-height: 3rem;
     }
 
+    .prompt{
+        display: none;
+    }
+
     .menuitem_style {
         border: none;
         color: #d9d7ff;
@@ -144,6 +148,15 @@
         .margin_neice_top {
             margin-top: .5rem;
         }
+
+        .prompt{
+            display: none;
+        }
+
+        .prompt img{
+            border-radius: 2rem;
+        }
+
     }
     </style>
     <script>
@@ -167,11 +180,22 @@
             $('.menu_item_underline_home').css('border', '');
         });
 
+        var user_agent = window.navigator.userAgent
+     
+        if (user_agent.match(/MicroMessenger/i) == 'micromessenger') { 
+            $(".prompt").css('display','inline');
+        }
+
     });
     </script>
 </head>
 <body>
     <section class="hero is-fullheight">
+        <div class="container">
+            <div class="prompt center">
+                <img src="static/img/home/img-prompt.jpg">
+            </div>
+        </div>
         <nav class="navbar">
             <div class="navbar-brand brand_style">
                 <a class="navbar-item"> <img src="/static/img/home/logo.png" class="logo_style center"> </a>
