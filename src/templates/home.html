@@ -180,11 +180,11 @@
             $('.menu_item_underline_home').css('border', '');
         });
 
-        var user_agent = window.navigator.userAgent
-     
-        if (user_agent.match(/MicroMessenger/i) == 'micromessenger') { 
-            $(".prompt").css('display','inline');
-        }
+        var user_agent = window.navigator.userAgent.toLowerCase()
+         
+            if (user_agent.indexOf('micromessenger') != -1) { 
+                $(".prompt").css('display','inline');
+            }
 
     });
     </script>
