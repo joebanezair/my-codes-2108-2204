@@ -31,7 +31,7 @@ class JoinDoudiZhuPage(HTTPMethodView):
     """加入房间
     """
     TEMPLATE_FILE = 'join_room.html'
-    APP_STORE_URL = 'itms-apps://itunes.apple.com/cn/app/id1394482339?mt=8'
+    APP_STORE_URL = 'itms-apps://itunes.apple.com/app/id1394482339?mt=8'
     DOUDIZHU_H5_URL = 'https://www.laiwan.io/download'
 
     async def get(self, request):
