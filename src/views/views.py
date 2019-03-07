@@ -3,6 +3,7 @@ import logging
 from sanic.views import HTTPMethodView
 from sanic.response import html, text
 from jinja2 import Environment, PackageLoader, select_autoescape
+from urllib.parse import urlparse
 
 # jiaja2 配置
 env = Environment(
@@ -82,6 +83,7 @@ class HomePage(HTTPMethodView):
 
     ANDROID_DOWNLOAD_URI = 'https://{host}/download/android.json'
     IOS_DOWNLOAD_URI = 'https://{host}/download/ios.json'
+    CDN_DOMAIN = 'http://app.production.laiwan.shafayouxi.com'
 
     async def get_ios_download_url(self, request):
         try:
@@ -119,12 +121,14 @@ class HomePage(HTTPMethodView):
             qrcode_path = '/static/img/qrcode_production.png'
             ios_download_url = ('itms-apps://itunes.apple.com'
                                 '/cn/app/id1394482339')
-        android_download_url = await self.get_android_url(request)
+        android_download_old_url = await self.get_android_url(request)
+        android_download_cdn_url = self.CDN_DOMAIN + \
+            urlparse(android_download_old_url).path
 
         return template(
             self.TEMPLATE_FILE,
             ios_download_url=ios_download_url,
-            android_download_url=android_download_url,
+            android_download_url=android_download_cdn_url,
             google_download_url=self.GOOGLE_DOWNLOAD_URL,
             qrcode_path=qrcode_path)
 
