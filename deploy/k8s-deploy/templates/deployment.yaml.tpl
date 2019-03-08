@@ -16,6 +16,13 @@ spec:
       - name: {{ project_dns_name }}
         image: registry.eu-central-1.aliyuncs.com/laiwanio/{{ project }}:{{ docker_tag }}
         imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 5m
+            memory: 50Mi
+          limits:
+            cpu: 50m
+            memory: 300Mi
         ports:
         - containerPort: 8000
         env:
