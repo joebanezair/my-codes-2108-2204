@@ -109,7 +109,7 @@ pipeline:
   telegram_production_change_log:
     image: appleboy/drone-telegram
     token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
-    to: -1001149803042
+    to: -1001451355077
     message: >
       {{#success build.status}}
         Production部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
