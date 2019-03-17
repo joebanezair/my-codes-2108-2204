@@ -122,6 +122,8 @@ class HomePage(HTTPMethodView):
             ios_download_url = ('itms-apps://itunes.apple.com'
                                 '/cn/app/id1394482339')
         android_download_old_url = await self.get_android_url(request)
+        if request.host == 'shafayouxi.org':
+            self.CDN_DOMAIN = 'http://app.staging.laiwan.shafayouxi.com'
         android_download_cdn_url = self.CDN_DOMAIN + \
             urlparse(android_download_old_url).path
 
