@@ -83,7 +83,7 @@ class HomePage(HTTPMethodView):
 
     ANDROID_DOWNLOAD_URI = 'https://{host}/download/android.json'
     IOS_DOWNLOAD_URI = 'https://{host}/download/ios.json'
-    CDN_DOMAIN = 'http://app.production.laiwan.shafayouxi.com'
+    CDN_DOMAIN = 'https://app.production.laiwan.shafayouxi.com'
 
     async def get_ios_download_url(self, request):
         try:
@@ -123,7 +123,7 @@ class HomePage(HTTPMethodView):
                                 '/cn/app/id1394482339')
         android_download_old_url = await self.get_android_url(request)
         if "shafayouxi.org" in request.host:
-            self.CDN_DOMAIN = 'http://app.staging.laiwan.shafayouxi.com'
+            self.CDN_DOMAIN = 'https://app.staging.laiwan.shafayouxi.com'
         android_download_cdn_url = self.CDN_DOMAIN + \
             urlparse(android_download_old_url).path
 
