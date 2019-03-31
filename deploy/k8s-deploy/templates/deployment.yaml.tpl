@@ -36,11 +36,6 @@ spec:
             cpu: 100m
             memory: 200Mi
 {% endif %}
-            cpu: 5m
-            memory: 50Mi
-          limits:
-            cpu: 50m
-            memory: 300Mi
         ports:
         - containerPort: 8000
         env:
