@@ -6,26 +6,29 @@ from views import views
 doc_blueprint = Blueprint('doc')
 doc_blueprint.static('/privacy.html', '/opt/app/doc/privacy.html')
 doc_blueprint.static('/agreement.html', '/opt/app/doc/agreement.html')
-doc_blueprint.add_route(
-    views.RobotsView.as_view(), '/robots.txt', methods=['GET'])
+doc_blueprint.add_route(views.RobotsView.as_view(),
+                        '/robots.txt',
+                        methods=['GET'])
 
 # 来玩的 邀请链接、分享链接
 invitation_blueprint = Blueprint('invitation')
 invitation_blueprint.static('/static/css', '/opt/app/static/css')
 invitation_blueprint.static('/static/img', '/opt/app/static/img')
-invitation_blueprint.add_route(
-    views.AppleAppSiteAssociation.as_view(),
-    '/apple-app-site-association',
-    methods=['GET'])
-invitation_blueprint.add_route(
-    views.JoinDoudiZhuPage.as_view(), '/doudizhu/room', methods=['GET'])
-invitation_blueprint.add_route(
-    views.JoinTexasHoldemPage.as_view(), '/texas/room', methods=['GET'])
+invitation_blueprint.add_route(views.AppleAppSiteAssociation.as_view(),
+                               '/apple-app-site-association',
+                               methods=['GET'])
+invitation_blueprint.add_route(views.JoinDoudiZhuPage.as_view(),
+                               '/doudizhu/room',
+                               methods=['GET'])
+invitation_blueprint.add_route(views.JoinTexasHoldemPage.as_view(),
+                               '/texas/room',
+                               methods=['GET'])
 
 # 首页
 home_blueprint = Blueprint('home')
 home_blueprint.add_route(views.HomePage.as_view(), '/', methods=['GET'])
 
 # 用户支持页面
-home_blueprint.add_route(
-    views.AppSupportView.as_view(), '/support', methods=['GET'])
+home_blueprint.add_route(views.AppSupportView.as_view(),
+                         '/support',
+                         methods=['GET'])

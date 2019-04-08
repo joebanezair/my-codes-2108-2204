@@ -10,11 +10,10 @@ from app.server import run_server, app
 
 @click.command()
 @click.argument('command')
-@click.option(
-    '--config',
-    default=None,
-    help='default: configs, 所有的 config 都在 configs 目录下,'
-    ' example: configs.local_settings')
+@click.option('--config',
+              default=None,
+              help='default: configs, 所有的 config 都在 configs 目录下,'
+              ' example: configs.local_settings')
 def manage(command, config):
     """
     python manage.py [command]

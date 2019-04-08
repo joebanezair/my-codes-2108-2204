@@ -9,8 +9,7 @@ app.blueprint(home_blueprint)
 def run_server():
     """启动服务器
     """
-    app.run(
-        host=app.config.HOST,
-        port=app.config.PORT,
-        workers=app.config.WORKERS,
-        debug=app.config.DEBUG)
+    app.run(host=app.config.HOST,
+            port=app.config.PORT,
+            workers=app.config.WORKERS,
+            debug=app.config.DEBUG)

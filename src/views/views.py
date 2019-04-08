@@ -6,9 +6,8 @@ from jinja2 import Environment, PackageLoader, select_autoescape
 from urllib.parse import urlparse
 
 # jiaja2 配置
-env = Environment(
-    loader=PackageLoader('views.routers', '../templates'),
-    autoescape=select_autoescape(['html', 'xml', 'tpl']))
+env = Environment(loader=PackageLoader('views.routers', '../templates'),
+                  autoescape=select_autoescape(['html', 'xml', 'tpl']))
 
 logger = logging.getLogger('root')
 
@@ -127,12 +126,11 @@ class HomePage(HTTPMethodView):
         android_download_cdn_url = self.CDN_DOMAIN + \
             urlparse(android_download_old_url).path
 
-        return template(
-            self.TEMPLATE_FILE,
-            ios_download_url=ios_download_url,
-            android_download_url=android_download_cdn_url,
-            google_download_url=self.GOOGLE_DOWNLOAD_URL,
-            qrcode_path=qrcode_path)
+        return template(self.TEMPLATE_FILE,
+                        ios_download_url=ios_download_url,
+                        android_download_url=android_download_cdn_url,
+                        google_download_url=self.GOOGLE_DOWNLOAD_URL,
+                        qrcode_path=qrcode_path)
 
 
 class RobotsView(HTTPMethodView):
