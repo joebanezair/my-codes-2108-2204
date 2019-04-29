@@ -157,12 +157,38 @@
             border-radius: 2rem;
         }
 
+        .flex_qrcode{
+            display:none
+        }
+
+        .flex_android{
+            display: flex;
+            width: 45%;
+            height: 30%;
+            margin-right:-10px;
+        }
+
+        .flex_apple{
+            display: flex;
+            width: 45%;
+            height: 30%;
+        }
+
+        .download_style {
+            width:100%;
+            height:60%;
+            display: flex;
+            align-items: space-between;
+            justify-content: space-between;
+        }
+
     }
     </style>
     <script>
     $(document).ready(function () {
         if ($(window).width() <= 768) {
             $('.change_size').removeClass('is-4').addClass('is-6');
+            $('.margin_bottom').removeClass('columns');
         }
 
         else {
