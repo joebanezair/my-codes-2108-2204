@@ -72,6 +72,15 @@ class AppSupportView(HTTPMethodView):
         )
 
 
+class GameMallPage(HTTPMethodView):
+    """游戏商城
+    """
+    TEMPLATE_FILE = 'mall.html'
+
+    async def get(self, request):
+        return template(self.TEMPLATE_FILE)
+
+
 class HomePage(HTTPMethodView):
     """首页
     """
