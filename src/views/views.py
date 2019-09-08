@@ -62,7 +62,6 @@ class JoinTexasHoldemPage(HTTPMethodView):
 class AppSupportView(HTTPMethodView):
     """用户支持页面
     """
-
     async def get(self, request, **kwargs):
         return template(
             'support.html',
@@ -145,7 +144,6 @@ class HomePage(HTTPMethodView):
 class RobotsView(HTTPMethodView):
     """robots.txt
     """
-
     async def get(self, request):
         # 判断站点
         if request.host == 'shafayouxi.org':
