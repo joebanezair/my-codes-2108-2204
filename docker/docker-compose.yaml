@@ -5,5 +5,5 @@ services:
     volumes:
       - ../src:/opt/app
     ports:
-      - "8000:8000"
+      - "8312:8000"
     command: sleep 999999999
