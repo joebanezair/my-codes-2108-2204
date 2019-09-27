@@ -69,7 +69,6 @@
         color: #ece9f2;
         align-items: center;
         justify-content: center;
-        opacity: 0.5;
     }
 
     .apple_button {
@@ -111,10 +110,15 @@
     }
 
     .android_download_prompt {
+        margin-bottom: 5px;
+    }
+
+    .android_download_prompt_text {
         display:flex;
         align-items: center;
         justify-content: flex-end;
         color:#f8e6ff;
+        margin-right:15px;
     }
 
     </style>
@@ -255,8 +259,8 @@
             </div>
         </div>
         <footer>
-            <div>
-                <p class="android_download_prompt">*来玩仅支持10.1版本以上的苹果手机及7.0版本以上的安卓手机</p>
+            <div class="android_download_prompt">
+                <p class="android_download_prompt_text">*来玩仅支持10.1版本以上的苹果手机及7.0版本以上的安卓手机</p>
             </div>
         </footer>
         <footer class="footer footer_height" id="footer_display">
