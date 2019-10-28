@@ -27,6 +27,9 @@ invitation_blueprint.add_route(views.JoinTexasHoldemPage.as_view(),
 # 首页
 home_blueprint = Blueprint('home')
 home_blueprint.add_route(views.HomePage.as_view(), '/', methods=['GET'])
+home_blueprint.add_route(views.AppealFile.as_view(),
+                         '/tencent1091602168595806649.txt',
+                         methods=['GET'])
 
 # 游戏商城
 home_blueprint.add_route(views.GameMallPage.as_view(),

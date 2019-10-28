@@ -151,3 +151,8 @@ class RobotsView(HTTPMethodView):
         else:
             rule = 'Allow'
         return text(f'User-agent: *\n{rule}: /')
+
+
+class AppealFile(HTTPMethodView):
+    async def get(self, request):
+        return text('676733200703562368')
