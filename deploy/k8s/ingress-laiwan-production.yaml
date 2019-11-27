@@ -13,7 +13,9 @@ spec:
     - laiwan.io
     - www.laiwan.io
     - apple-app-site-association.laiwan.io
-    - laiwanpai.com.www.laiwan.io
+    - laiwanpai.com
+    - www.laiwanpai.com
+
   rules:
   - host: laiwan.io
     http:
@@ -40,7 +42,15 @@ spec:
           servicePort: 80
 
   # 镜像站点
-  - host: laiwanpai.com.www.laiwan.io
+  - host: laiwanpai.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: laiwan-io-web
+          servicePort: 80
+
+  - host: www.laiwanpai.com
     http:
       paths:
       - path: /
