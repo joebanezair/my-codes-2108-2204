@@ -88,16 +88,14 @@ class HomePage(HTTPMethodView):
     GOOGLE_DOWNLOAD_URL = ('https://play.google.com'
                            '/store/apps/details?id=com.ac.laiwan')
 
-    ANDROID_DOWNLOAD_URI = 'https://{host}/download/android.json'
-    IOS_DOWNLOAD_URI = 'https://{host}/download/ios.json'
-    CDN_DOMAIN = 'https://app.production.laiwan.shafayouxi.com'
+    ANDROID_DOWNLOAD_URI = '{host}/download/android.json'
+    IOS_DOWNLOAD_URI = '{host}/download/ios.json'
 
-    async def get_ios_download_url(self, request):
+    async def get_ios_download_url(self, host):
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(
-                        self.IOS_DOWNLOAD_URI.format(
-                            host=request.host)) as response:
+                        self.IOS_DOWNLOAD_URI.format(host=host)) as response:
                     result_json = await response.json()
             return result_json['result']['download_url']
         except Exception as e:
@@ -105,13 +103,13 @@ class HomePage(HTTPMethodView):
             # 获取不到下载地址，主页点击下载链接的时候，不跳转
             return ''
 
-    async def get_android_url(self, request):
+    async def get_android_url(self, host):
         # 通过内部 api 获取最新的下载链接地址
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(
                         self.ANDROID_DOWNLOAD_URI.format(
-                            host=request.host)) as response:
+                            host=host)) as response:
                     result_json = await response.json()
             return result_json['result']['download_url']
         except Exception as e:
@@ -119,19 +117,21 @@ class HomePage(HTTPMethodView):
             return ''
 
     async def get(self, request):
-        ios_download_url = await self.get_ios_download_url(request)
-
         # staging 上，ios 下载指向企业版
         if request.app.config.ENV == 'staging':
             qrcode_path = '/static/img/qrcode_staging.png'
+            host = 'https://shafayouxi.org'
+            ios_download_url = await self.get_ios_download_url(host)
+            cdn_domain = 'https://app.staging.laiwan.shafayouxi.com'
         else:
             qrcode_path = '/static/img/qrcode_production.png'
+            host = 'https://laiwan.io'
             ios_download_url = ('itms-apps://itunes.apple.com'
                                 '/cn/app/id1394482339')
-        android_download_old_url = await self.get_android_url(request)
-        if "shafayouxi.org" in request.host:
-            self.CDN_DOMAIN = 'https://app.staging.laiwan.shafayouxi.com'
-        android_download_cdn_url = self.CDN_DOMAIN + \
+            cdn_domain = 'https://app.production.laiwan.shafayouxi.com'
+
+        android_download_old_url = await self.get_android_url(host)
+        android_download_cdn_url = cdn_domain + \
             urlparse(android_download_old_url).path
 
         return template(self.TEMPLATE_FILE,

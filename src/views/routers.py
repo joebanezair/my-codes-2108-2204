@@ -14,8 +14,14 @@ doc_blueprint.add_route(views.RobotsView.as_view(),
 invitation_blueprint = Blueprint('invitation')
 invitation_blueprint.static('/static/css', '/opt/app/static/css')
 invitation_blueprint.static('/static/img', '/opt/app/static/img')
+
+# https://stackoverflow.com/questions/42370867/configure-apple-app-site-association-file-and-upload-on-server
+# 让 apple-app-site-association 文件通过这两个 url 都可以被获取
 invitation_blueprint.add_route(views.AppleAppSiteAssociation.as_view(),
                                '/apple-app-site-association',
+                               methods=['GET'])
+invitation_blueprint.add_route(views.AppleAppSiteAssociation.as_view(),
+                               '/.well-known/apple-app-site-association',
                                methods=['GET'])
 invitation_blueprint.add_route(views.JoinDoudiZhuPage.as_view(),
                                '/doudizhu/room',
