@@ -65,7 +65,7 @@ class AppSupportView(HTTPMethodView):
     async def get(self, request, **kwargs):
         return template(
             'support.html',
-            support_wechat='laiwankefu',
+            support_wechat='laiwankefu2',
         )
 
 
