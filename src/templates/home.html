@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="utf-8">
     <title>来玩</title>
@@ -9,188 +10,227 @@
     <script src="/static/css/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/static/css/bulma.min.css">
     <style>
-    body {
-        background-color: #241250;
-    }
+        body {
+            background-color: #241250;
+        }
 
-    .hero {
-        background: url(/static/img/home/bg_web.jpg);
-        background-size: 100% 100%;
-    }
+        .hero {
+            background: url(/static/img/home/bg_web.jpg);
+            background-size: 100% 100%;
+        }
 
-    .center {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .wechat_prompt{
-        display: none;
-    }
+        .space_between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .navbar-brand {
-        margin-left: 200px;
-    }
+        .wechat_prompt {
+            display: none;
+        }
 
-    .logo {
-        min-width: 2rem;
-        min-height: 3rem;
-    }
+        .navbar-brand {
+            margin-left: 200px;
+        }
 
-    .menu_item_style {
-        border: none;
-        color: #d9d7ff;
-    }
+        .logo {
+            min-width: 2rem;
+            min-height: 3rem;
+        }
 
-    .menu_item_style:hover {
-        border-bottom: 2px solid #fff;
-        color: #fff;
-    }
+        .menu_item_style {
+            border: none;
+            color: #d9d7ff;
+        }
 
-    .menu_item_underline_homepage {
-        border-bottom: 2px solid #fff;
-        color: #fff;
-    }
+        .menu_item_style:hover {
+            border-bottom: 2px solid #fff;
+            color: #fff;
+        }
 
-    .qrcode {
-        border: 3px solid #ddd;
-        border-radius: 5%;
-    }
+        .menu_item_underline_homepage {
+            border-bottom: 2px solid #fff;
+            color: #fff;
+        }
 
-    .footer_height {
-        padding: 1rem 1.5rem 1rem;
-        background-color: #121010;
-    }
+        .qrcode {
+            border: 3px solid #ddd;
+            border-radius: 5%;
+        }
 
-    .footer_text {
-        display: flex;
-        color: #ece9f2;
-        align-items: center;
-        justify-content: center;
-    }
+        .footer_height {
+            padding: 1rem 1.5rem 1rem;
+            background-color: #121010;
+        }
 
-    .apple_button {
-        background-color: #0cc2d2;
-        width:300px;
-        height:50px;
-        margin-top: 50px;
-        border-radius: 10px;
-    }
+        .footer_text {
+            display: flex;
+            color: #ece9f2;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .apple_icon {
-        width: 30px;
-        margin-right: 10px;
-    }
+        .apple_button {
+            background-color: #0cc2d2;
+            width: 300px;
+            height: 50px;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
 
-    .apple_download_text {
-        font-size: 22px;
-        color:#ffffff;
-        font-weight: bold;
-    }
+        .apple_icon {
+            width: 30px;
+            margin-right: 10px;
+        }
 
-    .android_button {
-        background-color: #0cc2d2;
-        width:300px;
-        height:50px;
-        margin-top: 30px;
-        border-radius: 10px;
-    }
+        .apple_download_text {
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: bold;
+        }
 
-    .android_icon {
-        width:30px;
-        margin-right: 10px;
-    }
+        .android_button {
+            width: 300px;
+            height: 50px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
 
-    .android_download_text {
-        font-size: 22px;
-        color:#ffffff;
-        font-weight: bold;
-    }
+        .android_mall_button {
+            background-color: #0cc2d2;
+            height: 50px;
+            width: 130px;
+            border-radius: 5px;
+        }
 
-    .android_download_prompt {
-        margin-bottom: 5px;
-    }
+        .android_local_button {
+            background-color: #55a1ff;
+            height: 50px;
+            width: 130px;
+            border-radius: 5px;
+        }
 
-    .android_download_prompt_text {
-        display:flex;
-        align-items: center;
-        justify-content: flex-end;
-        color:#f8e6ff;
-        margin-right:15px;
-    }
+        .android_mall_icon {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .android_local_icon {
+            width: 20px;
+            margin-right: 5px;
+        }
+
+        .android_mall_download_text {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .android_local_download_text {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .android_download_prompt {
+            margin-bottom: 5px;
+        }
+
+        .android_download_prompt_text {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: #f8e6ff;
+            margin-right: 15px;
+        }
 
     </style>
     <script>
-    $(document).ready(function () {
-        //给burger添加下滑列表
-        $('.navbar-burger').click(function () {
-            $('.navbar-burger').toggleClass('is-active');
-            $('.navbar-menu').toggleClass('is-active');
-        });
+        $(document).ready(function () {
+            var yearNow = new Date().getFullYear()
+            $('.footer_text').text(yearNow + '@来玩')
+            //给burger添加下滑列表
+            $('.navbar-burger').click(function () {
+                $('.navbar-burger').toggleClass('is-active');
+                $('.navbar-menu').toggleClass('is-active');
+            });
 
-        //给菜单选项列表添加下划线
-        $('.menu_item_underline_glossary').hover(function () {
-            $('.menu_item_underline_homepage').css('border', 'none');
-        }, function () {
-            $('.menu_item_underline_homepage').css('border', '');
-        });
+            //给菜单选项列表添加下划线
+            $('.menu_item_underline_glossary').hover(function () {
+                $('.menu_item_underline_homepage').css('border', 'none');
+            }, function () {
+                $('.menu_item_underline_homepage').css('border', '');
+            });
 
-            if(window.navigator.userAgent.match(/mobile/i)){
+            if (window.navigator.userAgent.match(/mobile/i)) {
                 //移动端下
 
                 //微信内置浏览器显示右上角提示
                 var user_agent = window.navigator.userAgent.toLowerCase()
-                if (user_agent.indexOf('micromessenger') != -1) { 
-                    $(".wechat_prompt").css("display","inline");
-                    $(".wechat_prompt img").css({"border-radius":"15px"})
+                if (user_agent.indexOf('micromessenger') != -1) {
+                    $(".wechat_prompt").css("display", "inline");
+                    $(".wechat_prompt img").css({ "border-radius": "15px" })
                 }
 
                 //下滑列表背景
-                $("#burger").css({"background-color":"transparent"})
+                $("#burger").css({ "background-color": "transparent" })
 
 
                 //logo位置
-                $(".navbar-brand").css({"margin-left":"0"})
-                
+                $(".navbar-brand").css({ "margin-left": "0" })
+
                 //改变column大小
                 $(".download").removeClass('is-4').addClass('is-6')
 
                 //二维码隐藏
-                $(".qrcode_display").css("display","none") 
+                $(".qrcode_display").css("display", "none")
 
                 //苹果下载
-                $(".apple_button").css({"width":"130px","height":"40px"});
-                $('.apple_download_text').css({"font-size":"15px"})
-                $('.apple_icon').css({"width":"20px"})
+                $(".apple_button").css({ "width": "130px", "height": "40px" });
+                $('.apple_download_text').css({ "font-size": "15px" })
+                $('.apple_icon').css({ "width": "20px" })
 
                 //安卓下载
-                $(".android_button").css({"width":"130px","height":"40px"});
-                $('.android_download_text').css({"font-size":"15px"})
-                $('.android_icon').css({"width":"20px"})
-                $('.android_download_prompt').css({"font-size":"5px"})
+                $(".android_button").css({ "width": "130px", "height": "40px" });
+                $(".android_mall_button").css({ "width": "60px","height": "40px"})
+                $('.android_mall_download_text').css({ "font-size": "2px" })
+                $('.android_mall_icon').css({ "width": "15px" })
+                $(".android_local_button").css({ "width": "60px","height": "40px"})
+                $('.android_local_download_text').css({ "font-size": "2px" })
+                $('.android_local_icon').css({ "width": "15px" })
+                $('.android_download_prompt').css({ "font-size": "5px" })
 
                 //footer隐藏
-                $("#footer_display").css({"display":"none"})
+                $("#footer_display").css({ "display": "none" })
 
                 //ipad下
-                if(window.navigator.userAgent.match(/ipad/i)){
+                if (window.navigator.userAgent.match(/ipad/i)) {
                     //苹果下载
-                    $(".apple_button").css({"width":"250px","height":"50px"});
-                    $('.apple_download_text').css({"font-size":"21px"})
-                    $('.apple_icon').css({"width":"23px"})
+                    $(".apple_button").css({ "width": "250px", "height": "50px" });
+                    $('.apple_download_text').css({ "font-size": "21px" })
+                    $('.apple_icon').css({ "width": "23px" })
 
                     //安卓下载
-                    $(".android_button").css({"width":"250px","height":"50px"});
-                    $('.android_download_text').css({"font-size":"21px"})
-                    $('.android_icon').css({"width":"23px"})
-                    
+                    $(".android_button").css({ "width": "250px", "height": "50px" });
+                    $('.android_mall_download_text').css({ "font-size": "21px" })
+                    $('.android_mall_icon').css({ "width": "23px" })
+                    $('.android_local_download_text').css({ "font-size": "21px" })
+                    $('.android_local_icon').css({ "width": "23px" })
+
                 }
 
             }
-        
-    });
+
+        });
     </script>
 </head>
+
 <body>
     <section class="hero is-fullheight">
         <div class="container">
@@ -227,7 +267,7 @@
                             <img src="/static/img/home/img-phone.png" class="game_screen">
                         </figure>
                     </div>
-                    <div class="column is-4 center download">  
+                    <div class="column is-4 center download">
                         <div>
                             <div class="center qrcode_display">
                                 <img src="{{ qrcode_path }}" class="qrcode">
@@ -238,17 +278,25 @@
                                         <img src="/static/img/home/icon_web_ios.png" class="apple_icon">
                                         <p class="apple_download_text">苹果手机下载</p>
                                     </div>
-                                </a> 
-                            </div>
-                            <div>
-                                <a href="{{ android_download_url }}">
-                                   <div class="android_button center">
-                                        <img src="/static/img/home/icon_web_android.png" class="android_icon">
-                                        <p class="android_download_text">安卓手机下载</p>
-                                    </div> 
                                 </a>
                             </div>
-                        </div>                                                       
+                            <div>
+                                <div class="android_button space_between">
+                                    <a href="https://play.google.com/store/apps/details?id=com.ac.laiwan">
+                                        <div class="center android_mall_button">
+                                            <img src="/static/img/home/icon_web_android.png" class="android_mall_icon">
+                                            <p class="android_mall_download_text">安卓商店下载</p>
+                                        </div>
+                                    </a>
+                                    <a href="{{ android_download_url}}">
+                                        <div class="center android_local_button">
+                                            <img src="/static/img/home/local_download.png" class="android_local_icon">
+                                            <p class="android_local_download_text">安卓本地下载</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -259,10 +307,9 @@
             </div>
         </footer>
         <footer class="footer footer_height" id="footer_display">
-            <div class="footer_text subtitle">
-                <p>2019©来玩</p>
-            </div>
+            <div class="footer_text subtitle"></div>
         </footer>
     </section>
 </body>
+
 </html>
