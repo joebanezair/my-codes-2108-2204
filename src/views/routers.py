@@ -42,7 +42,7 @@ home_blueprint.add_route(views.GameMallPage.as_view(),
                          '/mall',
                          methods=['GET'])
 
-# 用户支持页面
-home_blueprint.add_route(views.AppSupportView.as_view(),
-                         '/support',
+# mobile页面
+home_blueprint.add_route(views.AppMobileView.as_view(),
+                         '/mobile',
                          methods=['GET'])

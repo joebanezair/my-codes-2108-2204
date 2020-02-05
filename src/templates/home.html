@@ -2,21 +2,29 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>来玩</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="icon" href="/static/img/home/laiwan_icon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script>
+    function check_is_pc() {
+        if (window.navigator.userAgent.match(/mobile/i)) {
+            window.location = "/mobile";
+        }
+    }
+    check_is_pc();
+</script>
+    <link rel="icon" href="/static/img/home/laiwan_icon.png" type="image/png" />
     <script src="/static/css/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="/static/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/css/bulma.min.css" />
     <style>
         body {
             background-color: #241250;
         }
 
         .hero {
-            background: url(/static/img/home/bg_web.jpg);
-            background-size: 100% 100%;
+            background: url(/static/img/home/bg_web.jpg) no-repeat center center fixed;
+            background-size: cover;
         }
 
         .center {
@@ -156,13 +164,19 @@
     <section class="hero is-fullheight">
         <div class="container">
             <div class="wechat_prompt center">
-                <img src="static/img/home/img-prompt.jpg">
+                <img src="static/img/home/img-prompt.jpg" />
             </div>
         </div>
         <nav class="navbar">
             <div class="navbar-brand">
-                <a class="navbar-item"> <img src="/static/img/home/logo.png" class="logo center"> </a>
-                <a class="navbar-burger burger"> <span class="has-text-white"></span> <span class="has-text-white"></span> <span class="has-text-white"></span> </a>
+                <a class="navbar-item">
+                    <img src="/static/img/home/logo.png" class="logo center" />
+                </a>
+                <a class="navbar-burger burger">
+                    <span class="has-text-white"></span>
+                    <span class="has-text-white"></span>
+                    <span class="has-text-white"></span>
+                </a>
             </div>
             <div class="navbar-menu" id="burger">
                 <div class="navbar-start">
@@ -172,10 +186,14 @@
                 </div>
                 <div class="navbar-start">
                     <div class="navbar-item">
-                        <a class="menu_item_style menu_item_underline_homepage"> <strong> 首页 </strong> </a>
+                        <a class="menu_item_style menu_item_underline_homepage">
+                            <strong> 首页 </strong>
+                        </a>
                     </div>
                     <div class="navbar-item">
-                        <a class="menu_item_style menu_item_underline_glossary" href="/glossary"> <strong> 德州扑克术语表 </strong> </a>
+                        <a class="menu_item_style menu_item_underline_glossary" href="/glossary">
+                            <strong> 德州扑克术语表 </strong>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -185,18 +203,19 @@
                 <div class="columns is-mobile">
                     <div class="column is-6">
                         <figure class="center">
-                            <img src="/static/img/home/img-phone.png" class="game_screen">
+                            <img src="/static/img/home/img-phone.png" class="game_screen" />
                         </figure>
                     </div>
                     <div class="column is-4 center download">
                         <div>
                             <div class="center qrcode_display">
-                                <img src="{{ qrcode_path }}" class="qrcode">
+                                <img src="{{ qrcode_path }}" class="qrcode" />
                             </div>
                             <div>
-                                <a href="https://apps.apple.com/app/%E6%9D%A5%E7%8E%A9-%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E7%BA%A6%E5%B1%80%E7%A5%9E%E5%99%A8/id1394482339">
+                                <a
+                                    href="https://apps.apple.com/app/%E6%9D%A5%E7%8E%A9-%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E7%BA%A6%E5%B1%80%E7%A5%9E%E5%99%A8/id1394482339">
                                     <div class="apple_button center">
-                                        <img src="/static/img/home/icon_web_ios.png" class="apple_icon">
+                                        <img src="/static/img/home/icon_web_ios.png" class="apple_icon" />
                                         <p class="apple_download_text">苹果手机下载</p>
                                     </div>
                                 </a>
@@ -205,13 +224,16 @@
                                 <div class="android_button space_between">
                                     <a href="https://play.google.com/store/apps/details?id=com.ac.laiwan">
                                         <div class="center android_mall_button">
-                                            <img src="/static/img/home/icon_web_android.png" class="android_mall_icon">
-                                            <p class="android_mall_download_text">Google player下载</p>
+                                            <img src="/static/img/home/icon_web_android.png"
+                                                class="android_mall_icon" />
+                                            <p class="android_mall_download_text">
+                                                Google player下载
+                                            </p>
                                         </div>
                                     </a>
                                     <a href="{{ android_download_url}}">
                                         <div class="center android_local_button">
-                                            <img src="/static/img/home/local_download.png" class="android_local_icon">
+                                            <img src="/static/img/home/local_download.png" class="android_local_icon" />
                                             <p class="android_local_download_text">安卓本地下载</p>
                                         </div>
                                     </a>
@@ -224,7 +246,9 @@
         </div>
         <footer>
             <div class="android_download_prompt">
-                <p class="android_download_prompt_text">* 来玩支持苹果10.1以上版本或安卓7.1以上的手机</p>
+                <p class="android_download_prompt_text">
+                    * 来玩支持苹果10.1以上版本或安卓7.1以上的手机
+                </p>
             </div>
         </footer>
         <footer class="footer footer_height" id="footer_display">
@@ -234,81 +258,23 @@
 </body>
 <script>
     $(document).ready(function () {
-        var yearNow = new Date().getFullYear()
-        $('.footer_text').text(yearNow + '@来玩')
+        var yearNow = new Date().getFullYear();
+        $(".footer_text").text(yearNow + "@来玩");
         //给burger添加下滑列表
-        $('.navbar-burger').click(function () {
-            $('.navbar-burger').toggleClass('is-active');
-            $('.navbar-menu').toggleClass('is-active');
+        $(".navbar-burger").click(function () {
+            $(".navbar-burger").toggleClass("is-active");
+            $(".navbar-menu").toggleClass("is-active");
         });
 
         //给菜单选项列表添加下划线
-        $('.menu_item_underline_glossary').hover(function () {
-            $('.menu_item_underline_homepage').css('border', 'none');
-        }, function () {
-            $('.menu_item_underline_homepage').css('border', '');
-        });
-
-        if (window.navigator.userAgent.match(/mobile/i)) {
-            //移动端下
-
-            //微信内置浏览器显示右上角提示
-            var user_agent = window.navigator.userAgent.toLowerCase()
-            if (user_agent.indexOf('micromessenger') != -1) {
-                $(".wechat_prompt").css("display", "inline");
-                $(".wechat_prompt img").css({ "border-radius": "15px" })
+        $(".menu_item_underline_glossary").hover(
+            function () {
+                $(".menu_item_underline_homepage").css("border", "none");
+            },
+            function () {
+                $(".menu_item_underline_homepage").css("border", "");
             }
-
-            //下滑列表背景
-            $("#burger").css({ "background-color": "transparent" })
-
-
-            //logo位置
-            $(".navbar-brand").css({ "margin-left": "0" })
-
-            //改变column大小
-            $(".download").removeClass('is-4').addClass('is-6')
-
-            //二维码隐藏
-            $(".qrcode_display").css("display", "none")
-
-            //苹果下载
-            $(".apple_button").css({ "width": "150px", "height": "40px" });
-            $('.apple_download_text').css({ "font-size": "15px" })
-            $('.apple_icon').css({ "width": "20px" })
-
-            //安卓下载
-            $(".android_button").css({ "width": "150px", "height": "40px" });
-            $(".android_mall_button").css({ "width": "60px","height": "40px"})
-            $('.android_mall_download_text').css({ "font-size": "8px" })
-            $('.android_mall_icon').css({ "width": "15px" })
-            $(".android_local_button").css({ "width": "60px","height": "40px"})
-            $('.android_local_download_text').css({ "font-size": "10px" })
-            $('.android_local_icon').css({ "width": "15px" })
-            $('.android_download_prompt').css({ "font-size": "5px" })
-
-            //footer隐藏
-            $("#footer_display").css({ "display": "none" })
-
-            //ipad下
-            if (window.navigator.userAgent.match(/ipad/i)) {
-                //苹果下载
-                $(".apple_button").css({ "width": "250px", "height": "50px" });
-                $('.apple_download_text').css({ "font-size": "21px" })
-                $('.apple_icon').css({ "width": "23px" })
-
-                //安卓下载
-                $(".android_button").css({ "width": "250px", "height": "50px" });
-                $('.android_mall_download_text').css({ "font-size": "21px" })
-                $('.android_mall_icon').css({ "width": "23px" })
-                $('.android_local_download_text').css({ "font-size": "21px" })
-                $('.android_local_icon').css({ "width": "23px" })
-
-            }
-
-        }
-
+        );
     });
 </script>
-
 </html>
