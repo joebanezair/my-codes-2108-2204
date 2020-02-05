@@ -34,6 +34,20 @@
         align-items: center;
         flex-direction: column;
     }
+
+    .glossary-text {
+        color:white;
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+
+    #burger {
+        background: transparent;
+    }
+
+    .wechat_prompt {
+        display: none;
+    }
 </style>
 
 <body>
@@ -52,25 +66,26 @@
             <div class="navbar-menu" id="burger">
                 <div class="navbar-start">
                     <div class="navbar-item">
-                        <a class="menu_item_style menu_item_underline_homepage"> <strong> 首页 </strong> </a>
-                    </div>
-                    <div class="navbar-item">
-                        <a class="menu_item_style menu_item_underline_glossary" href="/glossary"> <strong> 德州扑克术语表
-                            </strong> </a>
+                        <a href="/glossary"> 
+                            <p class="glossary-text"> 德州扑克术语表</p> 
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
+        <div class="wechat_prompt">
+            <img src="/static/img/home/img-prompt.jpg">
+        </div>
         <div class="center download-box">
             <div class="download-button center">
                 <a href="{{ android_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/btn_android_on.png">
+                    <img src="/static/img/phone/bt_android.png">
                 </a>
                 <a href="{{ google_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/btn_google_on.png">
+                    <img src="/static/img/phone/bt_google.png">
                 </a>
                 <a href="{{ ios_download_url }}">
-                    <img src="/static/img/phone/btn_ios.png">
+                    <img src="/static/img/phone/bt_ios.png">
                 </a>
             </div>
         </div>
@@ -89,6 +104,14 @@
             $('.navbar-burger').toggleClass('is-active');
             $('.navbar-menu').toggleClass('is-active');
         });
+
+        //微信内置浏览器
+        var user_agent = window.navigator.userAgent.toLowerCase()
+            if (user_agent.indexOf('micromessenger') != -1) {
+                $(".navbar").css({"display":"none"})
+                $(".wechat_prompt").css({"display":"inline"})
+                $(".wechat_prompt img").css({ "border-radius": "1rem"})
+            }
     });
 </script>
 
