@@ -36,7 +36,7 @@
     }
 
     .glossary-text {
-        color:white;
+        color: white;
         font-size: 1.2rem;
         font-weight: 800;
     }
@@ -66,8 +66,8 @@
             <div class="navbar-menu" id="burger">
                 <div class="navbar-start">
                     <div class="navbar-item">
-                        <a href="/glossary"> 
-                            <p class="glossary-text"> 德州扑克术语表</p> 
+                        <a href="/glossary">
+                            <p class="glossary-text"> 德州扑克术语表</p>
                         </a>
                     </div>
                 </div>
@@ -79,13 +79,13 @@
         <div class="center download-box">
             <div class="download-button center">
                 <a href="{{ android_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/bt_android.png">
+                    <img src="/static/img/phone/btn-android-on.png" class="android">
                 </a>
                 <a href="{{ google_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/bt_google.png">
+                    <img src="/static/img/phone/btn-google-on.png" class="google">
                 </a>
                 <a href="{{ ios_download_url }}">
-                    <img src="/static/img/phone/bt_ios.png">
+                    <img src="/static/img/phone/btn-ios-on.png" class="ios">
                 </a>
             </div>
         </div>
@@ -107,11 +107,32 @@
 
         //微信内置浏览器
         var user_agent = window.navigator.userAgent.toLowerCase()
-            if (user_agent.indexOf('micromessenger') != -1) {
-                $(".navbar").css({"display":"none"})
-                $(".wechat_prompt").css({"display":"inline"})
-                $(".wechat_prompt img").css({ "border-radius": "1rem"})
-            }
+        if (user_agent.indexOf('micromessenger') != -1) {
+            $(".navbar").css({
+                "display": "none"
+            })
+            $(".wechat_prompt").css({
+                "display": "inline"
+            })
+            $(".wechat_prompt img").css({
+                "border-radius": "1rem"
+            })
+        }
+
+        //安卓button点击更换图片
+        $(".android").click(function (event) {
+            $(".android").attr('src', "/static/img/phone/btn-android.png")
+        })
+
+        //苹果button点击更换图片p
+        $(".ios").click(function (event) {
+            $(".ios").attr('src', "/static/img/phone/btn-ios.png")
+        })
+
+        //Google play button点击更换图片
+        $(".google").click(function (event) {
+            $(".google").attr('src', "/static/img/phone/btn-google.png")
+        })
     });
 </script>
 
