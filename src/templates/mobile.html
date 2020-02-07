@@ -24,10 +24,6 @@
         margin-bottom: 16rem;
     }
 
-    .download-button-img {
-        margin-bottom: 1rem;
-    }
-
     .center {
         display: flex;
         justify-content: center;
@@ -78,14 +74,14 @@
         </div>
         <div class="center download-box">
             <div class="download-button center">
-                <a href="{{ android_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/btn-android-on.png" class="android">
+                <a href="{{ android_download_url }}" >
+                    <img src="/static/img/phone/btn-android-on.png">
                 </a>
-                <a href="{{ google_download_url }}" class="download-button-img">
-                    <img src="/static/img/phone/btn-google-on.png" class="google">
+                <a href="{{ google_download_url }}" >
+                    <img src="/static/img/phone/btn-google-on.png">
                 </a>
-                <a href="{{ ios_download_url }}">
-                    <img src="/static/img/phone/btn-ios-on.png" class="ios">
+                <a href="{{ ios_download_url }}" >
+                    <img src="/static/img/phone/btn-ios-on.png">
                 </a>
             </div>
         </div>
@@ -118,21 +114,6 @@
                 "border-radius": "1rem"
             })
         }
-
-        //安卓button点击更换图片
-        $(".android").click(function (event) {
-            $(".android").attr('src', "/static/img/phone/btn-android.png")
-        })
-
-        //苹果button点击更换图片p
-        $(".ios").click(function (event) {
-            $(".ios").attr('src', "/static/img/phone/btn-ios.png")
-        })
-
-        //Google play button点击更换图片
-        $(".google").click(function (event) {
-            $(".google").attr('src', "/static/img/phone/btn-google.png")
-        })
     });
 </script>
 
