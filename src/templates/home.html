@@ -9,7 +9,7 @@
     <script>
         function check_is_pc() {
             var user_agent = window.navigator.userAgent.toLowerCase()
-            if (user_agent.match(/mobile/i)) {
+            if (/mobile|android|iphone|ipad|phone/i.test(user_agent)){
                 window.location = "/mobile";
             }
         }
