@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/static/css/bulma.min.css">
 </head>
 <style>
-
     .hero {
         background: url(/static/img/phone/bg.png) no-repeat center center fixed;
         background-size: cover;
@@ -76,13 +75,13 @@
         <div class="center download-box">
             <div class="download-button center">
                 <a href="{{ android_download_url }}" >
-                    <img src="/static/img/phone/btn-android-on.png" id="android">
+                    <img src="/static/img/phone/btn-android-on.png">
                 </a>
                 <a href="{{ google_download_url }}" >
-                    <img src="/static/img/phone/btn-google-on.png" id="googlePlay">
+                    <img src="/static/img/phone/btn-google-on.png">
                 </a>
                 <a href="{{ ios_download_url }}" >
-                    <img src="/static/img/phone/btn-ios-on.png" id="ios">
+                    <img src="/static/img/phone/btn-ios-on.png">
                 </a>
             </div>
         </div>
@@ -116,30 +115,6 @@
             })
         }
     });
-</script>
-<script>
-    var android = document.getElementById("android")
-    var ios = document.getElementById("ios")
-    var googlePlay = document.getElementById("googlePlay")
-
-        android.onclick = function(){
-            android.src="/static/img/phone/btn-android.png"
-            ios.src="/static/img/phone/btn-ios-on.png"
-            googlePlay="/static/img/phone/btn-google-on.png"
-        }
-
-        ios.onclick = function(){
-            android.src="/static/img/phone/btn-android-on.png"
-            ios.src="/static/img/phone/btn-ios.png"
-            googlePlay.src="/static/img/phone/btn-google-on.png"
-        }
-
-        googlePlay.onclick = function(){
-            android.src="/static/img/phone/btn-android-on.png"
-            ios.src="/static/img/phone/btn-ios-on.png"
-            googlePlay.src="/static/img/phone/btn-google.png"
-        }
-
 </script>
 
 </html>
