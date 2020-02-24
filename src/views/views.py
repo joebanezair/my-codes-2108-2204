@@ -201,3 +201,10 @@ class RobotsView(HTTPMethodView):
 class AppealFile(HTTPMethodView):
     async def get(self, request):
         return text('676733200703562368')
+
+
+class AppSupportView(HTTPMethodView):
+    """用户支持页面
+    """
+    async def get(self, request, **kwargs):
+        return template('support.html')
