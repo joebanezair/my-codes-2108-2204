@@ -156,29 +156,41 @@
 {% block content %}
 <div class="container">
     <div class="field">
-        <label class="label has-text-white">Phone Number</label>
+        <label class="label has-text-white ">手机号码:</label>
         <div class="control">
-            <input class="input" type="text" placeholder="phone Number">
+            <input class="input" type="text" placeholder="+86" id="phone">
         </div>
     </div>
-
     <div class="field">
-        <label class="label has-text-white">Email</label>
+        <label class="label has-text-white ">内容反馈:</label>
         <div class="control">
-            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+            <textarea class="textarea" placeholder="请输入您的反馈建议" id="content"></textarea>
         </div>
     </div>
     <div class="field">
         <p class="control center submit_button">
-          <button class="button is-success" onclick="submit()">
-            确认提交
-          </button>
+            <button class="button is-primary" onclick="numberChecker()">
+                确认提交
+            </button>
         </p>
-      </div>
+    </div>
 </div>
 <script>
-    function submit(){
+    var phone = document.getElementById('phone')
+    var content = document.getElementById('content')
+    function submit() {
+        phone.value = '';
+        content.value = '';
         alert('提交成功');
+    }
+    function numberChecker() {
+        var re = /^[0-9]+.?[0-9]*/;
+        if(re.test(phone.value)){
+            submit();
+        }else{
+            alert('请输入正确的手机号码')
+            phone.value = '';
+        }
     }
 </script>
 {% endblock %}
