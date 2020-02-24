@@ -193,10 +193,9 @@ class RobotsView(HTTPMethodView):
     async def get(self, request):
         # 判断站点
         if request.host == 'shafayouxi.org':
-            rule = 'Disallow'
+            return text("User-agent: *\nDisallow: /\n")
         else:
-            rule = 'Allow'
-        return text(f'User-agent: *\n{rule}: /')
+            return text('User-agent: *\nDisallow:\n')
 
 
 class AppealFile(HTTPMethodView):
