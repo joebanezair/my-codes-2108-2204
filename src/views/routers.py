@@ -51,3 +51,6 @@ home_blueprint.add_route(views.AppMobileView.as_view(),
 home_blueprint.add_route(views.AppSupportView.as_view(),
                          '/support',
                          methods=['GET'])
+
+# 分享页面
+home_blueprint.add_route(views.ShareView.as_view(), '/share', methods=['GET'])

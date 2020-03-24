@@ -208,3 +208,10 @@ class AppSupportView(HTTPMethodView):
     """
     async def get(self, request, **kwargs):
         return template('support.html')
+
+
+class ShareView(HTTPMethodView):
+    """分享页面
+    """
+    async def get(self, request, **kwargs):
+        return template('share.html')

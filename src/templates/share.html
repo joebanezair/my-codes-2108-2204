@@ -50,6 +50,9 @@
 
 <body>
     <div class="hero is-fullheight">
+        <div class="wechat_prompt">
+            <img src="/static/img/home/img-prompt.jpg">
+        </div>
         <nav class="navbar">
             <div class="navbar-brand">
                 <a class="navbar-item logo">
@@ -71,18 +74,15 @@
                 </div>
             </div>
         </nav>
-        <div class="wechat_prompt">
-            <img src="/static/img/home/img-prompt.jpg">
-        </div>
         <div class="center download-box">
-            <div class="download-button center">
-                <a href="{{ android_download_url }}" >
+            <div class="center">
+                <a href="{{ android_download_url }}" id="android">
                     <img src="/static/img/phone/btn-android-on.png">
                 </a>
-                <a href="{{ google_download_url }}" >
+                <a href="{{ google_download_url }}" id="google">
                     <img src="/static/img/phone/btn-google-on.png">
                 </a>
-                <a href="{{ ios_download_url }}" >
+                <a href="{{ ios_download_url }}" id="ios">
                     <img src="/static/img/phone/btn-ios-on.png">
                 </a>
             </div>
@@ -102,6 +102,13 @@
             $('.navbar-burger').toggleClass('is-active');
             $('.navbar-menu').toggleClass('is-active');
         });
+
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            $('#android').css({"display":"none"});
+            $('#google').css({"display":"none"})
+        } else {
+            $('#ios').css({"display":"none"});
+        }
 
         //微信内置浏览器
         var user_agent = window.navigator.userAgent.toLowerCase()
