@@ -41,8 +41,6 @@ spec:
         env:
         - name: STAGE
           value: {{ stage }}
-        command: ["/bin/sh"]
-        args: ["-c", "python manage.py runserver --config configs.$STAGE"]
       imagePullSecrets:
       - name: docker-registry-secret
 ---
@@ -53,6 +51,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 8000
+    targetPort: 80
   selector:
     server: {{ project_dns_name }}

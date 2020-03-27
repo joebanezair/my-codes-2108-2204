@@ -1,10 +1,8 @@
-FROM python:3.6
+FROM node
 
-COPY src/ /opt/app
-WORKDIR /opt/app
+EXPOSE 3000
 
-RUN curl -s http://ip-api.com | grep China > /dev/null && \
-    pip install -r requirements.txt -i https://pypi.doubanio.com/simple --trusted-host pypi.doubanio.com || \
-    pip install -r requirements.txt 
+COPY react_laiwan_com/ /opt/app
+RUN cd /opt/app && yarn install --verbose
 
-RUN python optimize_jpg_file.py
+WORKDIR /opt/app/src

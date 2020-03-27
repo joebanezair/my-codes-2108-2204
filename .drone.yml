@@ -1,23 +1,28 @@
 pipeline:
 
-  code_inspection:
-    image: python:3.6
+  build_staging_by_push_master:
+    image: node:8
     commands:
-      - pip install -q pylama yapf
-      - yapf -dr . | (! grep '.')
-      - pylama --skip '*/configs/*'
+      - cd react_laiwan_com
+      - yarn install --ignore-engines
+      - yarn build
     when:
       event: push
+      branch: master
 
-  code_inspection_html:
-    image: node:6.11.5
+  build_staging_by_tag:
+    image: node:8
     commands:
-      - npm install --save -g htmlhint@0.10.1
-      - htmlhint src
+      - cd react_laiwan_com
+      - yarn install --ignore-engines
+      - yarn build
     when:
-      event: push
+      event: tag
+      branch:
+        exclude:
+          - master
 
-  build_app_image:
+  build_staging_docker_image_by_push_master:
     image: plugins/docker
     registry: registry.eu-central-1.aliyuncs.com
     secrets: [ docker_username, docker_password ]
@@ -25,51 +30,33 @@ pipeline:
     tags:
       - latest
       - ${DRONE_COMMIT_SHA}
-    dockerfile: Dockerfile
-    build_args:
-      - "--no-cache"
+    dockerfile: Dockerfile-release
     when:
       event: push
+      branch: master
 
-  build_docker_image_with_tag:
+  build_staging_docker_image_by_tag:
     image: plugins/docker
     registry: registry.eu-central-1.aliyuncs.com
     secrets: [ docker_username, docker_password ]
     repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
-    dockerfile: Dockerfile
-    tags: ${DRONE_TAG##v}
-    build_args:
-      - "--no-cache"
+    dockerfile: Dockerfile-release
+    tags:
+      - latest
+      - ${DRONE_TAG##v}
     when:
       event: tag
+      branch:
+        exclude:
+          - master
 
-  unittest:
-    image: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web:${DRONE_COMMIT_SHA}
-    pull: true
-    commands:
-      - python src/manage.py test
-    when:
-      event: push
-
-  deploy_staging_by_commit:
+  deploy_staging_by_push_master:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
     inventory: deploy/staging.hosts
     playbook: deploy/staging.yml
     flush_cache: true
     extra_vars: docker_tag=${DRONE_COMMIT_SHA}
-    when:
-      event: push
-      branch: master
-
-  telegram_staging_change_log:
-    image: appleboy/drone-telegram
-    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
-    to: -1001149803042
-    message: >
-      {{#success build.status}}
-        Staging部署 {{repo.name}}: {{commit.message}} by {{ commit.author }}
-      {{/success}}
     when:
       event: push
       branch: master
@@ -83,19 +70,35 @@ pipeline:
     extra_vars: docker_tag=${DRONE_TAG##v}
     when:
       event: tag
+      branch:
+        exclude:
+          - master
 
-  telegram_staging_change_log_by_tag:
-    image: appleboy/drone-telegram
-    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
-    to: -1001149803042
-    message: >
-      {{#success build.status}}
-        Staging部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
-      {{/success}}
+  build_production_by_tag_master:
+    image: node:8
+    commands:
+      - cd react_laiwan_com
+      - yarn install --ignore-engines
+      - cp src/config_production.json src/config.json
+      - yarn build
     when:
       event: tag
+      branch: master
 
-  deploy_production:
+  build_production_docker_image_by_tag_master:
+    image: plugins/docker
+    registry: registry.eu-central-1.aliyuncs.com
+    secrets: [ docker_username, docker_password ]
+    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
+    dockerfile: Dockerfile-release
+    tags:
+      - latest
+      - ${DRONE_TAG##v}
+    when:
+      event: tag
+      branch: master
+
+  deploy_production_by_tag_master:
     image: plugins/ansible
     secrets: [ ansible_private_key ]
     inventory: deploy/production.hosts
@@ -105,22 +108,3 @@ pipeline:
     when:
       event: tag
       branch: master
-
-  telegram_production_change_log:
-    image: appleboy/drone-telegram
-    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
-    to: -1001451355077
-    message: >
-      {{#success build.status}}
-        Production部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
-      {{/success}}
-    when:
-      event: tag
-      branch: master
-
-  telegram:
-    image: appleboy/drone-telegram
-    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
-    to: -1001188725759
-    when:
-      status: [ failure ]

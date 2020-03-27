@@ -1,0 +1,96 @@
+
+
+a {
+    text-decoration:none;
+}
+
+
+.page {
+    background-image: url('../../source/web_bg.jpg');
+    background-size: cover;
+    background-position: 50%;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.mobile_navigation_bar {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.mobile_logo {
+    width: 5vh;
+    height: 5.5vh;
+}
+
+.mobile_row_center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile_nav_title {
+    color: white;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.mobile_download {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+}
+
+.mobile_title {
+    color: white;
+    font-size: 2rem !important;
+    line-height: 2.5rem;
+}
+
+.mobile_subtitle {
+    color:white;
+    font-size: 1.3rem !important;
+    line-height: 2.5rem;
+}
+
+.mobile_title_content { 
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    padding-top: 0.2rem;
+}
+
+.mobile_img_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile_download_content {
+    display: flex;
+    justify-content: center;
+    height: 25vh;
+}
+
+.mobile_img_content img {
+    margin-top: 3vh;
+    width: 40vw;
+    height: 7.5vh;
+}
+
+.bottom_tips {
+    position: absolute;
+    bottom: 0;
+    width:100vw;
+}
+
+.tips {
+    text-align: center;
+    font-size: 0.8rem;
+    color:#eeeeee;
+}

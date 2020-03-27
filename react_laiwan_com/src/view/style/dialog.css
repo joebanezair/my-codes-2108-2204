@@ -1,0 +1,21 @@
+
+
+.text {
+    color: white;
+    font-size: 0.4rem !important;
+}
+
+.title_content { 
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 16px 24px;
+}
+
+.title_text {
+    color:black;
+    font-size: 0.2rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+}
