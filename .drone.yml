@@ -79,7 +79,6 @@ pipeline:
     commands:
       - cd react_laiwan_com
       - yarn install --ignore-engines
-      - cp src/config_production.json src/config.json
       - yarn build
     when:
       event: tag
