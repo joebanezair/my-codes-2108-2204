@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
-import config from '../config.json';
+import config from './config.json';
 import iosStore from './source/btn-app-store.png';
 import googleStore from './source/btn-googel.png';
 import local from './source/btn-local-download.png';
@@ -26,11 +26,8 @@ export default class Mobile extends Component {
     async componentDidMount() {
         const url = window.location.href;
         const userAgent = window.navigator.userAgent.toLowerCase();
-        console.log(url);
-        const isIOS = !!userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        console.log(isIOS);
         if (url.indexOf('share') !== -1) {
-            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            if (/(iPhone|iPad|iPod|iOS)/i.test(userAgent)) {
                 this.setState({ isPhone: true });
             }
         }
@@ -50,7 +47,6 @@ export default class Mobile extends Component {
                 axios(url).then((res) => {
                     if (res.data.ok) {
                         reslove(res.data.result.download_url);
-                        console.log(res.data.result);
                     } else {
                         console.log('请求地址失败');
                     }

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
-import config from '../config.json';
+import config from './config.json';
 import iosStore from './source/btn-app-store.png';
 import googleStore from './source/btn-googel.png';
 import local from './source/btn-local-download.png';
@@ -39,7 +39,6 @@ export default class Mobile extends Component {
                 axios(url).then((res) => {
                     if (res.data.ok) {
                         reslove(res.data.result.download_url);
-                        console.log(res.data.result);
                     } else {
                         console.log('请求地址失败');
                     }

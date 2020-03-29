@@ -10,7 +10,7 @@ import qrcode from './source/qrcode.png';
 import iosStore from './source/btn-app-store.png';
 import googleStore from './source/btn-googel.png';
 import local from './source/btn-local-download.png';
-import config from '../config.json';
+import config from './config.json';
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';
 const androidProduction = 'https://api.laiwan.io/v1/app/com.ac.laiwan/android';
@@ -48,7 +48,6 @@ export default class App extends Component {
                 axios(url).then((res) => {
                     if (res.data.ok) {
                         reslove(res.data.result.download_url);
-                        console.log(res.data.result);
                     } else {
                         console.log('请求地址失败');
                     }
