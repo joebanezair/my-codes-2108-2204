@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash].js', // 每次修改了文件内容以后.会更改主入口的名字.不会去命中强缓存
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
