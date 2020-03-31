@@ -121,7 +121,7 @@ export default class Mobile extends Component {
                     </div>
                 </div>
                 <div className="bottom_tips">
-                    <p className="tips">*来玩仅支持10.1版本以上的苹果手机及7.0版本以上的安卓手机</p>
+                    <p className="tips">*来玩仅支持10.1版本以上的苹果手机及7.1版本以上的安卓手机</p>
                 </div>
             </div>
         );
