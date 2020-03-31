@@ -7,9 +7,9 @@ import bigPhone from './source/img-phone.png';
 import smallPhone from './source/small-phone.png';
 import logo from './source/logo.png';
 import qrcode from './source/qrcode.jpeg';
-import iosStore from './source/btn-appstore.png';
-import googleStore from './source/btn-googel.png';
-import local from './source/btn-local-download.png';
+import iosStore from './source/btn_appstore.png';
+import googleStore from './source/btn_googel.png';
+import local from './source/btn_local_download.png';
 import config from './config.json';
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';

@@ -47,7 +47,6 @@ a {
 }
 
 .nav_title {
-    font-family: 'STSongti-SC-Bold';
     color: white;
     font-size: 0.3rem;
     margin-left: 0.6rem;
@@ -120,7 +119,7 @@ a {
 
 .qrcode_content p {
     color: #ffffff;
-    margin-top: 0.1rem;
+    margin-top: 0.2rem;
     font-size: 0.3rem !important;
 }
 

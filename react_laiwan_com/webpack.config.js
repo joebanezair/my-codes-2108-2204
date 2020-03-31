@@ -46,8 +46,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            title: 'Set Up Project', // title
+            title: '来玩', // title
             template: 'index.html', // 模版文件
+            favicon: './src/source/icon.png',
+            meta: { viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
         }),
     ],
 };

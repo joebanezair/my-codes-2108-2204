@@ -7,9 +7,9 @@ import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn-mobile-appstore.png';
-import googleStore from './source/btn-mobile-googel.png';
-import local from './source/btn-mobile-local-download.png';
+import iosStore from './source/btn_mobile_appstore.png';
+import googleStore from './source/btn_mobile_googel.png';
+import local from './source/btn_mobile_local_download.png';
 
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';

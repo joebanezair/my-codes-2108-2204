@@ -7,9 +7,9 @@ import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn-mobile-appstore.png';
-import googleStore from './source/btn-mobile-googel.png';
-import local from './source/btn-mobile-local-download.png';
+import iosStore from './source/btn_mobile_appstore.png';
+import googleStore from './source/btn_mobile_googel.png';
+import local from './source/btn_mobile_local_download.png';
 
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';
@@ -17,7 +17,7 @@ const androidProduction = 'https://api.laiwan.io/v1/app/com.ac.laiwan/android';
 const iosStoreLink = 'https://apps.apple.com/app/%E6%9D%A5%E7%8E%A9-%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E7%BA%A6%E5%B1%80%E7%A5%9E%E5%99%A8/id1394482339';
 const googleStoreLink = 'https://play.google.com/store/apps/details?id=com.ac.laiwan';
 
-export default class Mobile extends Component {
+export default class Share extends Component {
     constructor(props) {
         super(props);
         this.state = {
