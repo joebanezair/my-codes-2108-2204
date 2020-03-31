@@ -1,12 +1,15 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn-app-store.png';
-import googleStore from './source/btn-googel.png';
-import local from './source/btn-local-download.png';
+import iosStore from './source/btn-mobile-appstore.png';
+import googleStore from './source/btn-mobile-googel.png';
+import local from './source/btn-mobile-local-download.png';
 
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';
@@ -25,6 +28,29 @@ export default class Mobile extends Component {
     async componentDidMount() {
         const localLink = await this._getAndroidAddress();
         this.setState({ localLink });
+    }
+
+    _isAvailableAndroidVersion = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        const versionInfo = userAgent.match(/android [\d._]+/gi);
+        const version = (`${versionInfo}`).replace(/[^0-9|_.]/ig, '').replace(/_/ig, '.');
+        console.log(version);
+        if (version[0] > 7) {
+            return true;
+        }
+        if (version[0] >= 7 && version[2] >= 1) {
+            return true;
+        }
+        return false;
+    }
+
+    _onClickAndroidDownload = () => {
+        const { localLink } = this.state;
+        if (this._isAvailableAndroidVersion()) {
+            window.location.href = localLink;
+            return;
+        }
+        alert('来玩仅支持10.1版本以上的苹果手机及7.1版本以上的安卓手机');
     }
 
     _getAndroidAddress = () => {
@@ -51,7 +77,6 @@ export default class Mobile extends Component {
 
 
     render() {
-        const { localLink } = this.state;
         return (
             <div className="page">
                 <div className="mobile_navigation_bar">
@@ -62,8 +87,7 @@ export default class Mobile extends Component {
                 </div>
                 <div className="mobile_download">
                     <div className="mobile_title_content">
-                        <p className="mobile_title">来玩App</p>
-                        <p className="mobile_subtitle">downnload</p>
+                        <p className="mobile_title">来玩APP</p>
                         <p className="mobile_title">德州扑克约局神器</p>
                         <p className="mobile_title">斗地主私人房间</p>
                     </div>
@@ -75,14 +99,14 @@ export default class Mobile extends Component {
                             <a href={googleStoreLink}>
                                 <img src={googleStore} />
                             </a>
-                            <a href={localLink}>
+                            <a onClick={() => { this._onClickAndroidDownload(); }}>
                                 <img src={local} />
                             </a>
                         </div>
                     </div>
                 </div>
                 <div className="bottom_tips">
-                    <p className="tips">*来玩仅支持10.1版本以上的苹果手机及7.0版本以上的安卓手机</p>
+                    <p className="tips">*来玩仅支持10.1版本以上的苹果手机及7.1版本以上的安卓手机</p>
                 </div>
             </div>
         );

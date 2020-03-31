@@ -6,8 +6,8 @@ import axios from 'axios';
 import bigPhone from './source/img-phone.png';
 import smallPhone from './source/small-phone.png';
 import logo from './source/logo.png';
-import qrcode from './source/qrcode.png';
-import iosStore from './source/btn-app-store.png';
+import qrcode from './source/qrcode.jpeg';
+import iosStore from './source/btn-appstore.png';
 import googleStore from './source/btn-googel.png';
 import local from './source/btn-local-download.png';
 import config from './config.json';
@@ -83,14 +83,14 @@ export default class App extends Component {
                     </div>
                     <div className="download">
                         <div className="title_content">
-                            <p className="title">来玩App</p>
-                            <p className="subtitle">downnload</p>
+                            <p className="title">来玩APP</p>
                             <p className="title">德州扑克约局神器</p>
                             <p className="title">斗地主私人房间</p>
                         </div>
                         <div className="download_content">
                             <div className="qrcode_content">
                                 <img src={qrcode} className="qrcode" />
+                                <p>手机扫码下载</p>
                             </div>
                             <div className="img_content">
                                 <a href={iosStoreLink}>

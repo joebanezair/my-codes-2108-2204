@@ -34,8 +34,9 @@ a {
 }
 
 .mobile_nav_title {
+    font-weight: '600';
     color: white;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-left: 1rem;
 }
 
@@ -80,13 +81,13 @@ a {
 .mobile_img_content img {
     margin-top: 3vh;
     width: 40vw;
-    height: 7.5vh;
+    height: 5.5vh;
 }
 
 .bottom_tips {
     position: absolute;
     bottom: 0;
-    width:100vw;
+    width: 100vw;
 }
 
 .tips {

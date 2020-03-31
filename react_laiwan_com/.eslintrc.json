@@ -38,6 +38,7 @@
         "no-shadow" : "off",
         "react/jsx-props-no-spreading":"off",//禁止传播jsx道具
         "react/prefer-stateless-function":"off", //强制将无状态组件变为纯函数
-        "react/no-find-dom-node": "off" // 可以使用ReactDom
+        "react/no-find-dom-node": "off", // 可以使用ReactDom
+        "no-alert": "off"
     }
 }
