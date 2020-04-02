@@ -10,6 +10,7 @@ import config from './config.json';
 import iosStore from './source/btn_mobile_appstore.png';
 import googleStore from './source/btn_mobile_googel.png';
 import local from './source/btn_mobile_local_download.png';
+import getAndroidVersion from './utils/GetAndroidVersion';
 
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';
@@ -31,10 +32,7 @@ export default class Mobile extends Component {
     }
 
     _isAvailableAndroidVersion = () => {
-        const userAgent = window.navigator.userAgent.toLowerCase();
-        const versionInfo = userAgent.match(/android [\d._]+/gi);
-        const version = (`${versionInfo}`).replace(/[^0-9|_.]/ig, '').replace(/_/ig, '.');
-        console.log(version);
+        const version = getAndroidVersion();
         if (version[0] > 7) {
             return true;
         }
