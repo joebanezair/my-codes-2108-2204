@@ -11,6 +11,7 @@ import iosStore from './source/btn_mobile_appstore.png';
 import googleStore from './source/btn_mobile_googel.png';
 import local from './source/btn_mobile_local_download.png';
 import getAndroidVersion from './utils/GetAndroidVersion';
+import wechatPrompt from './source/img-prompt.png';
 
 
 const androidStaging = 'https://api.shafayouxi.org/v1/app/com.ac.laiwanDev/android';
@@ -24,10 +25,12 @@ export default class Share extends Component {
         this.state = {
             localLink: '',
             isPhone: false,
+            isWechatBrowser: false,
         };
     }
 
     async componentDidMount() {
+        this._isWechatBrowser();
         const url = window.location.href;
         const userAgent = window.navigator.userAgent.toLowerCase();
         if (url.indexOf('share') !== -1) {
@@ -39,13 +42,11 @@ export default class Share extends Component {
         this.setState({ localLink });
     }
 
-    _onClickAndroidDownload = () => {
-        const { localLink } = this.state;
-        if (this._isAvailableAndroidVersion()) {
-            window.location.href = localLink;
-            return;
+    _isWechatBrowser = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        if (userAgent.indexOf('micromessenger') !== -1) {
+            this.setState({ isWechatBrowser: true });
         }
-        alert('来玩仅支持10.1版本以上的苹果手机及7.1版本以上的安卓手机');
     }
 
     _isAvailableAndroidVersion = () => {
@@ -81,45 +82,63 @@ export default class Share extends Component {
         }
     }
 
+    _renderNavigationBar = () => (
+        <div className="mobile_navigation_bar">
+            <div className="mobile_row_center">
+                <img src={logo} className="mobile_logo" />
+                <p className="mobile_nav_title">来玩</p>
+            </div>
+        </div>
+    )
+
+    _renderTitleContet = () => (
+        <div className="mobile_title_content">
+            <p className="mobile_title">来玩APP</p>
+            <p className="mobile_title">德州扑克约局神器</p>
+            <p className="mobile_title">斗地主私人房间</p>
+        </div>
+    )
+
+    _renderDownloadContent = () => {
+        const { isPhone, localLink } = this.state;
+        return (
+            <div className="mobile_download_content">
+                <div className="mobile_img_content">
+                    {isPhone ? (
+                        <a href={iosStoreLink}>
+                            <img src={iosStore} />
+                        </a>
+                    ) : null}
+                    {!isPhone ? (
+                        <a href={googleStoreLink}>
+                            <img src={googleStore} />
+                        </a>
+                    ) : null}
+                    {!isPhone ? (
+                        <a href={localLink}>
+                            <img src={local} />
+                        </a>
+                    ) : null}
+                </div>
+            </div>
+        );
+    }
+
+    _renderWechatPrompt = () => (
+        <div className="wechat_prompt">
+            <img src={wechatPrompt} />
+        </div>
+    )
+
 
     render() {
-        const { isPhone } = this.state;
+        const { isWechatBrowser } = this.state;
         return (
             <div className="page">
-                <div className="mobile_navigation_bar">
-                    <div className="mobile_row_center">
-                        <img src={logo} className="mobile_logo" />
-                        <p className="mobile_nav_title">来玩</p>
-                    </div>
-                </div>
+                { !isWechatBrowser ? this._renderNavigationBar() : this._renderWechatPrompt()}
                 <div className="mobile_download">
-                    <div className="mobile_title_content">
-                        <p className="mobile_title">来玩APP</p>
-                        <p className="mobile_title">德州扑克约局神器</p>
-                        <p className="mobile_title">斗地主私人房间</p>
-                    </div>
-                    <div className="mobile_download_content">
-                        <div className="mobile_img_content">
-                            {isPhone ? (
-                                <a href={iosStoreLink}>
-                                    <img src={iosStore} />
-                                </a>
-                            ) : null}
-                            {!isPhone ? (
-                                <a href={googleStoreLink}>
-                                    <img src={googleStore} />
-                                </a>
-                            ) : null}
-                            {!isPhone ? (
-                                <a onClick={() => { this._onClickAndroidDownload(); }}>
-                                    <img src={local} />
-                                </a>
-                            ) : null}
-                        </div>
-                    </div>
-                </div>
-                <div className="bottom_tips">
-                    <p className="tips">*来玩仅支持10.1版本以上的苹果手机及7.1版本以上的安卓手机</p>
+                    {this._renderTitleContet()}
+                    {!isWechatBrowser ? this._renderDownloadContent() : null}
                 </div>
             </div>
         );
