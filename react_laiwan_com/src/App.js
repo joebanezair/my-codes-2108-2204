@@ -45,7 +45,7 @@ export default class App extends Component {
             return new Promise((reslove) => {
                 axios(url).then((res) => {
                     if (res.data.ok) {
-                        reslove(res.data.result.download_url);
+                        reslove(res.data.result.cdn_download_url);
                     } else {
                         console.log('请求地址失败');
                     }
