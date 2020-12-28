@@ -81,9 +81,18 @@ export default class App extends Component {
                     </div>
                     <div className="download">
                         <div className="title_content">
-                            <p className="title">来玩APP</p>
-                            <p className="title">德州扑克约局神器</p>
-                            <p className="title">斗地主私人房间</p>
+                            <p className="title">来玩德州扑克约局社区</p>
+                            <p className="title">您的私人好友房</p>
+                        </div>
+                        <div className="subtitle_content">
+                            <div>
+                                <p className="subtitle">德州扑克</p>
+                                <p className="subtitle">斗地主</p>
+                            </div>
+                            <div>
+                                <p className="subtitle">德州短牌</p>
+                                <p className="subtitle">拼三张</p>
+                            </div>
                         </div>
                         <div className="download_content">
                             <div className="qrcode_content">

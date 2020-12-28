@@ -69,7 +69,6 @@ a {
     color:white;
     font-size: 0.4rem !important;
     margin-left: 1.3rem !important;
-    line-height: 1rem;
 }
 
 .content {
@@ -101,6 +100,11 @@ a {
 
 .title_content { 
     padding-top: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle_content { 
+    display: flex;
 }
 
 .download_content {
