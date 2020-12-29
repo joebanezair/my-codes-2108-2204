@@ -56,7 +56,7 @@ steps:
   image: python
   pull: if-not-exists
   commands:
-    - cd laiwan-io-web
+    - cd react_laiwan_com
     - cp src/config_production.json src/config.json
   when:
     event: tag
