@@ -1,5 +1,0 @@
-FROM nginx
-COPY react_laiwan_com/dist /usr/share/nginx/html
-COPY react_laiwan_com/privacy.html /usr/share/nginx/html
-COPY react_laiwan_com/agreement.html /usr/share/nginx/html
-COPY react_laiwan_com/robots.txt /usr/share/nginx/html

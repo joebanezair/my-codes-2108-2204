@@ -1,110 +1,175 @@
-pipeline:
+kind: pipeline
+type: docker
+name: default
 
-  build_staging_by_push_master:
-    image: node:8
-    commands:
-      - cd react_laiwan_com
-      - yarn install --ignore-engines
-      - yarn build
-    when:
-      event: push
-      branch: master
 
-  build_staging_by_tag:
-    image: node:8
-    commands:
-      - cd react_laiwan_com
-      - yarn install --ignore-engines
-      - yarn build
-    when:
-      event: tag
-      branch:
-        exclude:
-          - master
+trigger:
+  event:
+  - push
+  - tag
 
-  build_staging_docker_image_by_push_master:
-    image: plugins/docker
-    registry: registry.eu-central-1.aliyuncs.com
-    secrets: [ docker_username, docker_password ]
-    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
+
+image_pull_secrets:
+- aliyun_hongkong_docker_config
+
+
+steps:
+- name: Build docker image
+  image: plugins/docker
+  pull: if-not-exists
+  settings:
+    registry: registry.cn-hongkong.aliyuncs.com
+    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web_staging
+    username:
+      from_secret: aliyun_docker_username
+    password:
+      from_secret: aliyun_docker_password
     tags:
-      - latest
-      - ${DRONE_COMMIT_SHA}
-    dockerfile: Dockerfile-release
-    when:
-      event: push
-      branch: master
+    - ${DRONE_COMMIT_SHA}
+    build_args:
+    - "--no-cache"
+  when:
+    event: push
+    branch: master
 
-  build_staging_docker_image_by_tag:
-    image: plugins/docker
-    registry: registry.eu-central-1.aliyuncs.com
-    secrets: [ docker_username, docker_password ]
-    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
-    dockerfile: Dockerfile-release
+- name: Build staging docker image by tag
+  image: plugins/docker
+  pull: if-not-exists
+  settings:
+    registry: registry.cn-hongkong.aliyuncs.com
+    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web_staging
+    username:
+      from_secret: aliyun_docker_username
+    password:
+      from_secret: aliyun_docker_password
     tags:
-      - latest
       - ${DRONE_TAG##v}
-    when:
-      event: tag
-      branch:
-        exclude:
-          - master
+    build_args:
+    - "--no-cache"
+  when:
+    event: tag
+    branch:
+      exclude:
+        - master
 
-  deploy_staging_by_push_master:
-    image: plugins/ansible
-    secrets: [ ansible_private_key ]
-    inventory: deploy/staging.hosts
+- name: Set production config
+  image: python
+  pull: if-not-exists
+  commands:
+    - cd laiwan-io-web
+    - cp src/config_production.json src/config.json
+  when:
+    event: tag
+    branch: master
+
+- name: Build production docker image by tag
+  image: plugins/docker
+  pull: if-not-exists
+  settings:
+    registry: registry.cn-hongkong.aliyuncs.com
+    repo: registry.cn-hongkong.aliyuncs.com/laiwanio/laiwan_io_web_production
+    username:
+      from_secret: aliyun_docker_username
+    password:
+      from_secret: aliyun_docker_password
+    tags:
+      - ${DRONE_TAG##v}
+    build_args:
+    - "--no-cache"
+  when:
+    event: tag
+    branch: master
+
+- name: Deploy staging by push master
+  image: plugins/ansible
+  pull: if-not-exists
+  settings:
     playbook: deploy/staging.yml
+    inventory: deploy/staging.hosts
     flush_cache: true
+    private_key:
+      from_secret: aliyun_k8s_ssh_key
     extra_vars: docker_tag=${DRONE_COMMIT_SHA}
-    when:
-      event: push
-      branch: master
+  when:
+    event: push
+    branch: master
 
-  deploy_staging_by_tag:
-    image: plugins/ansible
-    secrets: [ ansible_private_key ]
-    inventory: deploy/staging.hosts
+- name: Telegram staging change log
+  image: appleboy/drone-telegram
+  pull: if-not-exists
+  settings:
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001149803042
+    message: >
+      {{#success build.status}}
+        Staging部署 {{repo.name}}: {{commit.message}} by {{ commit.author }}
+      {{/success}}
+  when:
+    event: push
+    branch: master
+
+- name: Deploy staging by tag
+  image: plugins/ansible
+  pull: if-not-exists
+  settings:
     playbook: deploy/staging.yml
+    inventory: deploy/staging.hosts
     flush_cache: true
+    private_key:
+      from_secret: aliyun_k8s_ssh_key
     extra_vars: docker_tag=${DRONE_TAG##v}
-    when:
-      event: tag
-      branch:
-        exclude:
-          - master
+  when:
+    event: tag
+    branch:
+      exclude:
+        - master
 
-  build_production_by_tag_master:
-    image: node:8
-    commands:
-      - cd react_laiwan_com
-      - yarn install --ignore-engines
-      - cp src/config_production.json src/config.json
-      - yarn build
-    when:
-      event: tag
-      branch: master
+- name: Telegram staging change log by tag
+  image: appleboy/drone-telegram
+  pull: if-not-exists
+  settings:
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001149803042
+    message: >
+      {{#success build.status}}
+        Staging部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
+      {{/success}}
+  when:
+    event: tag
 
-  build_production_docker_image_by_tag_master:
-    image: plugins/docker
-    registry: registry.eu-central-1.aliyuncs.com
-    secrets: [ docker_username, docker_password ]
-    repo: registry.eu-central-1.aliyuncs.com/laiwanio/laiwan_io_web
-    dockerfile: Dockerfile-release
-    tags:
-      - latest
-      - ${DRONE_TAG##v}
-    when:
-      event: tag
-      branch: master
-
-  deploy_production_by_tag_master:
-    image: plugins/ansible
-    secrets: [ ansible_private_key ]
-    inventory: deploy/production.hosts
+- name: Deploy production by tag
+  image: plugins/ansible
+  pull: if-not-exists
+  settings:
     playbook: deploy/production.yml
+    inventory: deploy/production.hosts
     flush_cache: true
+    private_key:
+      from_secret: aliyun_k8s_ssh_key
     extra_vars: docker_tag=${DRONE_TAG##v}
-    when:
-      event: tag
-      branch: master
+  when:
+    event: tag
+    branch: master
+
+- name: Telegram production change log
+  image: appleboy/drone-telegram
+  pull: if-not-exists
+  settings:
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001451355077
+    message: >
+      {{#success build.status}}
+        Production部署 {{repo.name}} [{{ build.tag }}]: {{commit.message}} by {{ commit.author }}
+      {{/success}}
+  when:
+    event: tag
+    branch: master
+
+- name: Telegram when failure
+  image: appleboy/drone-telegram
+  pull: if-not-exists
+  settings:
+    token: 483423532:AAFwMDyTAJF1Mbzmm7PA-2LSK4w-9bwFh3I
+    to: -1001188725759
+  when:
+    status: [ failure ]

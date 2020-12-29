@@ -1,13 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  namespace: {{ k8s_namespace }}
   name: {{ project_dns_name }}
 spec:
-{% if stage == 'production' %}
-  replicas: 3
-{% else %}
-  replicas: 2
-{% endif %}
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,35 +15,20 @@ spec:
         stage: {{ stage }}
       containers:
       - name: {{ project_dns_name }}
-        image: registry.eu-central-1.aliyuncs.com/laiwanio/{{ project }}:{{ docker_tag }}
+        image: {{ docker_registry }}/laiwanio/{{ project }}_{{ stage }}:{{ docker_tag }}
         imagePullPolicy: Always
-        resources:
-{% if stage == 'production' %}
-          requests:
-            cpu: 5m
-            memory: 100Mi
-          limits:
-            cpu: 500m
-            memory: 200Mi
-{% else %}
-          requests:
-            cpu: 1m
-            memory: 50Mi
-          limits:
-            cpu: 100m
-            memory: 200Mi
-{% endif %}
-        ports:
-        - containerPort: 8000
         env:
         - name: STAGE
           value: {{ stage }}
+        ports:
+        - containerPort: 80
       imagePullSecrets:
-      - name: docker-registry-secret
+      - name: docker-registry-vpc-hk-laiwanio
 ---
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: {{ k8s_namespace }}
   name: {{ project_dns_name }}
 spec:
   ports:

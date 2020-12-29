@@ -2,12 +2,20 @@
 - hosts: all
   remote_user: root
   become: yes
-  vars:
-    ansible_ssh_pipelining: true
-  gather_facts: false
   roles:
-    - {role: k8s-deploy,
-      project: laiwan_io_web,
-      project_dns_name: laiwan-io-web,
-      k8s_namespace: laiwan-production,
-      stage: production}
+    - role: k8s-deploy
+      project: laiwan_io_web
+      project_dns_name: laiwan-io-web
+      k8s_namespace: laiwan-production
+      stage: production
+      docker_registry: registry-vpc.cn-hongkong.aliyuncs.com
+      kong_url: "http://qipai-production-kong-kong-admin.qipai-production-kong.svc.cluster.local"
+      kong_config: "/opt/app/configs/production_kong.yaml"
+      server:
+        replicas: 2
+        requests:
+          cpu: 1m
+          memory: 100Mi
+        limits:
+          cpu: 1000m
+          memory: 400Mi
