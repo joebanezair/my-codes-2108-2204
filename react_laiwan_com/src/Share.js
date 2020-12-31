@@ -7,9 +7,9 @@ import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn_mobile_appstore.png';
-import googleStore from './source/btn_mobile_googel.png';
-import local from './source/btn_mobile_local_download.png';
+import iosStore from './source/btn_appstore.png';
+import googleStore from './source/btn_googel.png';
+import local from './source/btn_local_download.png';
 import getAndroidVersion from './utils/GetAndroidVersion';
 import wechatPrompt from './source/img-prompt.png';
 import {
