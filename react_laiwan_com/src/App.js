@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import BackgroundImage from 'react-background-image';
 import './view/style/home.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import bigPhone from './source/img-phone.png';
 import smallPhone from './source/small-phone.png';
 import logo from './source/logo.png';
@@ -56,7 +57,6 @@ export default class App extends Component {
         }
     }
 
-
     render() {
         const { localLink } = this.state;
         return (
@@ -69,6 +69,7 @@ export default class App extends Component {
                     <div className="row_center">
                         <a href="/"><p className="nav_subtitle">首页</p></a>
                         <a href="/glossary"><p className="nav_subtitle">德州术语表</p></a>
+                        <Link to="/tutorial"><p className="nav_subtitle">注册其他/国家苹果账号教程</p></Link>
                     </div>
                 </div>
                 <div className="content">

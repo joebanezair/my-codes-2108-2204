@@ -1,6 +1,6 @@
 import Mobile from '../Mobile';
 import Share from '../Share';
-
+import Tutorial from '../Tutorial';
 
 const routers = [
     {
@@ -11,6 +11,10 @@ const routers = [
     {
         path: '/share',
         component: Share,
+    },
+    {
+        path: '/tutorial',
+        component: Tutorial,
     },
 ];
 

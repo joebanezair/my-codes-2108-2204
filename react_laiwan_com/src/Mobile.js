@@ -15,6 +15,7 @@ import getAndroidVersion from './utils/GetAndroidVersion';
 import {
     androidStagingUrl, androidProductionUrl, iosStoreLink, googleStoreLink,
 } from './constant/Constant';
+import TemporaryDrawer from './TemporaryDrawer';
 
 export default class Mobile extends Component {
     constructor(props) {
@@ -113,11 +114,11 @@ export default class Mobile extends Component {
         </div>
     )
 
-
     render() {
         const { isWechatBrowser } = this.state;
         return (
             <div className="page">
+                <TemporaryDrawer className="temporary_drawer" />
                 { !isWechatBrowser ? this._renderNavigationBar() : this._renderWechatPrompt()}
                 <div className="mobile_download">
                     {this._renderTitleContent()}
