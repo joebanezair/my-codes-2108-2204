@@ -4,7 +4,8 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: '[name].[chunkhash].js', // 每次修改了文件内容以后.会更改主入口的名字.不会去命中强缓存
+        // 打包后的文件改成固定名.命中缓存
+        filename: 'laiwanpai.js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
