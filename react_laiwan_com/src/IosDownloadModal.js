@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     description: {
-        fontSize: '4px',
+        fontSize: '10px',
         color: 'red',
         letterSpacing: '1.8px',
         textAlign: 'center',

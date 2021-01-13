@@ -6,6 +6,7 @@ import TemporaryDrawer from './TemporaryDrawer';
 import logo from './source/logo.png';
 import NavigatorJudge from './utils/navigatorJudge';
 import tutorialMd from './md/tutorial.md';
+import laiWan from './view/image/laiWan.png';
 
 export default class Tutorial extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ export default class Tutorial extends Component {
                             <div className="reactMarkDown">
                                 <ReactMarkdown plugins={[gfm]} source={tutorialMd} />
                             </div>
+                            <img src={laiWan} alt="laiwan" />
                         </div>
                     </div>
                 ) : <div />
