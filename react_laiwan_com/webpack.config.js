@@ -37,6 +37,17 @@ module.exports = {
                 ],
             },
             {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                    },
+                    {
+                        loader: 'remark-loader',
+                    },
+                ],
+            },
+            {
                 test: /\.css$/,
                 loader: 'style-loader',
             }, {

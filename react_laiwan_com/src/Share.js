@@ -127,7 +127,6 @@ export default class Share extends Component {
         </div>
     )
 
-
     render() {
         const { isWechatBrowser } = this.state;
         return (

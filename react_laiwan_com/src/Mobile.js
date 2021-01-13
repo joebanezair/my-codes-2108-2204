@@ -7,15 +7,15 @@ import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn_appstore.png';
 import googleStore from './source/btn_googel.png';
 import local from './source/btn_local_download.png';
 import wechatPrompt from './source/img-prompt.png';
 import getAndroidVersion from './utils/GetAndroidVersion';
 import {
-    androidStagingUrl, androidProductionUrl, iosStoreLink, googleStoreLink,
+    androidStagingUrl, androidProductionUrl, googleStoreLink,
 } from './constant/Constant';
 import TemporaryDrawer from './TemporaryDrawer';
+import IosDownloadModal from './IosDownloadModal';
 
 export default class Mobile extends Component {
     constructor(props) {
@@ -94,9 +94,7 @@ export default class Mobile extends Component {
         return (
             <div className="mobile_download_content">
                 <div className="mobile_img_content">
-                    <a href={iosStoreLink}>
-                        <img src={iosStore} />
-                    </a>
+                    <IosDownloadModal />
                     <a href={googleStoreLink}>
                         <img src={googleStore} />
                     </a>

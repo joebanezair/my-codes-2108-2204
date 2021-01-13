@@ -3,18 +3,17 @@ import React, { Component } from 'react';
 import BackgroundImage from 'react-background-image';
 import './view/style/home.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import bigPhone from './source/img-phone.png';
 import smallPhone from './source/small-phone.png';
 import logo from './source/logo.png';
 import qrcode from './source/qrcode.jpeg';
-import iosStore from './source/btn_appstore.png';
 import googleStore from './source/btn_googel.png';
 import local from './source/btn_local_download.png';
 import config from './config.json';
 import {
-    androidStagingUrl, androidProductionUrl, iosStoreLink, googleStoreLink,
+    androidStagingUrl, androidProductionUrl, googleStoreLink,
 } from './constant/Constant';
+import IosDownloadModal from './IosDownloadModal';
 
 export default class App extends Component {
     constructor(props) {
@@ -63,13 +62,12 @@ export default class App extends Component {
             <div className="page">
                 <div className="navigation_bar">
                     <div className="row_center">
-                        <img src={logo} className="logo" />
-                        <p className="nav_title">来玩</p>
+                        <a href="/" label="laiwan"><img src={logo} className="logo" /></a>
+                        <a href="/" label="laiwan"><p className="nav_title">来玩</p></a>
                     </div>
                     <div className="row_center">
                         <a href="/"><p className="nav_subtitle">首页</p></a>
                         <a href="/glossary"><p className="nav_subtitle">德州术语表</p></a>
-                        <Link to="/tutorial"><p className="nav_subtitle">注册其他/国家苹果账号教程</p></Link>
                     </div>
                 </div>
                 <div className="content">
@@ -101,9 +99,7 @@ export default class App extends Component {
                                 <p>手机扫码下载</p>
                             </div>
                             <div className="img_content">
-                                <a href={iosStoreLink}>
-                                    <img src={iosStore} />
-                                </a>
+                                <IosDownloadModal />
                                 <a href={googleStoreLink}>
                                     <img src={googleStore} />
                                 </a>
