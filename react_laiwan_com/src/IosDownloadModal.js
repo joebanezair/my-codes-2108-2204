@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
     linkButton: {
         backgroundColor: 'RoyalBlue',
-        width: NavigatorJudge.isMobile() ? 70 : 100,
+        width: NavigatorJudge.isMobile() ? 90 : 100,
         height: NavigatorJudge.isMobile() ? 30 : 40,
         border: '2px solid RoyalBlue',
         borderRadius: '0.2rem',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     downloadTitle: {
-        fontSize: '0.13rem',
+        fontSize: NavigatorJudge.isMobile() ? '7px' : '10px',
         color: 'white',
     },
     logo: {
@@ -80,17 +80,16 @@ export default function IosDownloadModal() {
         <div className={classes.paper}>
             <img src={close} alt="close" className={classes.close} onClick={handleClose} onKeyDown={handleClose} />
             <img src={logo} alt="logo" className={classes.logo} />
-            <p className={classes.description}>(中国大陆地区暂时无法下载)</p>
-            <p className={classes.title}>已有其他地区、国家AppleID，前往下载来玩</p>
+            <p className={classes.title}>您在非中国大陆地区</p>
             <a href={iosStoreLink}>
                 <div className={classes.linkButton}>
-                    <p className={classes.downloadTitle}>苹果下载</p>
+                    <p className={classes.downloadTitle}>非中国大陆下载</p>
                 </div>
             </a>
-            <p className={classes.title}>注册其他地区、国家AppleID, 并下载来玩</p>
+            <p className={classes.title}>您在中国大陆</p>
             <Link to="tutorial">
                 <div className={classes.linkButton}>
-                    <p className={classes.downloadTitle}>注册并下载</p>
+                    <p className={classes.downloadTitle}>中国大陆下载</p>
                 </div>
             </Link>
         </div>

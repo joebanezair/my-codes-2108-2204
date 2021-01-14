@@ -42,3 +42,9 @@
     justify-content: space-around;
     align-items: center
 }
+
+.can_not_download_text {
+    color: red;
+    margin-top: 2px;
+    font-size: larger;
+}

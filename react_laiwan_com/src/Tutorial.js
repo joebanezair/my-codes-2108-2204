@@ -47,6 +47,7 @@ export default class Tutorial extends Component {
                         {NavigatorJudge.isMobile() ? <TemporaryDrawer className="temporary_drawer" />
                         : this._renderPcNavigator()}
                         <div className="tutorial_content">
+                            <p className="can_not_download_text">(中国大陆暂时无法下载)</p>
                             <div className="reactMarkDown">
                                 <ReactMarkdown plugins={[gfm]} source={tutorialMd} />
                             </div>
