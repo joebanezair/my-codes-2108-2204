@@ -7,14 +7,14 @@ import axios from 'axios';
 import './view/style/mobile.css';
 import logo from './source/logo.png';
 import config from './config.json';
-import iosStore from './source/btn_appstore.png';
 import googleStore from './source/btn_googel.png';
 import local from './source/btn_local_download.png';
 import getAndroidVersion from './utils/GetAndroidVersion';
 import wechatPrompt from './source/img-prompt.png';
 import {
-    androidStagingUrl, androidProductionUrl, iosStoreLink, googleStoreLink,
+    androidStagingUrl, androidProductionUrl, googleStoreLink,
 } from './constant/Constant';
+import IosDownloadModal from './IosDownloadModal';
 
 export default class Share extends Component {
     constructor(props) {
@@ -102,9 +102,7 @@ export default class Share extends Component {
             <div className="mobile_download_content">
                 <div className="mobile_img_content">
                     {isPhone ? (
-                        <a href={iosStoreLink}>
-                            <img src={iosStore} />
-                        </a>
+                        <IosDownloadModal />
                     ) : null}
                     {!isPhone ? (
                         <a href={googleStoreLink}>
