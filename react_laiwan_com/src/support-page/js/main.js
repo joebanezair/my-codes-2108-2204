@@ -18,6 +18,17 @@
 	});
 
 	$(function() {
+        var send_button = $('input[id=sendButton]');
+        send_button.on('click', function (event) {
+            var userName = $('input[name=name]').val();
+            var userEmail = $('input[name=email]').val();
+            if (!userName || !userEmail) {
+                alert('Please complete form');
+                return;
+			}
+            alert('You have sent successfully.');
+            document.getElementById('support_form').reset();
+        });
 
 		var	$window = $(window),
 			$body = $('body'),
