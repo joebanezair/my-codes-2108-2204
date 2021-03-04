@@ -19,12 +19,6 @@
 
 	$(function() {
 
-        $("#sendButton").on('click', function(){
-            setTimeout(function () {
-                alert('Sent');
-            }, 500);
-        });
-
 		var	$window = $(window),
 			$body = $('body'),
 			$wrapper = $('#wrapper'),
