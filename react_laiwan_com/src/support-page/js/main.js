@@ -417,6 +417,9 @@
 							$main._show(location.hash.substr(1), true);
 						});
 
+		$('.faq-list h3').click(function() {
+			$(this).next().toggleClass('active')
+		})
 	});
 
 })(jQuery);
