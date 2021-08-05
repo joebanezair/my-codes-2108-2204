@@ -18,6 +18,14 @@ spec:
   - host: shafayouxi.org
     http:
       paths:
+      - path: /.well-known/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
+      - path: /laiwan/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
       - path: /
         backend:
           serviceName: laiwan-io-web
@@ -26,6 +34,14 @@ spec:
   - host: www.shafayouxi.org
     http:
       paths:
+      - path: /.well-known/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
+      - path: /laiwan/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
       - path: /
         backend:
           serviceName: laiwan-io-web

@@ -17,6 +17,14 @@ spec:
   - host: laiwan.io
     http:
       paths:
+      - path: /.well-known/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
+      - path: /laiwan/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
       - path: /
         backend:
           serviceName: laiwan-io-web
@@ -25,6 +33,14 @@ spec:
   - host: www.laiwan.io
     http:
       paths:
+      - path: /.well-known/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
+      - path: /laiwan/
+        backend:
+          serviceName: deep-link
+          servicePort: 80
       - path: /
         backend:
           serviceName: laiwan-io-web
