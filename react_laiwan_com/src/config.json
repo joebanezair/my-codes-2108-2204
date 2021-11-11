@@ -1,3 +1,5 @@
 {
-    "server_type": "staging"
+    "server_type": "staging",
+    "h5_version_url": "https://h5.shafayouxi.org/",
+    "android_download_url": "https://api.shafayouxi.org/v1/app_metadata/com.ac.laiwanDev/android"
 }

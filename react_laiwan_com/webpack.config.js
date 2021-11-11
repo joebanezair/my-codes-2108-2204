@@ -38,10 +38,22 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style-loader',
-            }, {
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                        },
+                    },
+                ],
+                include: /\.module\.css$/,
+            },
+            {
                 test: /\.css$/,
-                loader: 'css-loader',
+                use: ['style-loader', 'css-loader'],
+                exclude: /\.module\.css$/,
             },
         ],
     },

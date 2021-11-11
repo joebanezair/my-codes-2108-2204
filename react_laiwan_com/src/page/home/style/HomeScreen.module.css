@@ -1,0 +1,63 @@
+.background {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../image/background.jpg');
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.phoneScreenshot {
+    width: 425px;
+    height: 788px;
+}
+
+.h5News {
+    width: 265px;
+    height: 114px;
+}
+
+.title {
+    margin-top: 78px;
+    font-size: 60px;
+}
+
+.subtitle {
+    margin-top: 28px;
+    font-size: 56px;
+}
+
+.downloadMethod {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    width: 540px;
+    height: 210px;
+    margin-top: 78px;
+}
+
+.qrcodeImage {
+    width: 260px;
+    height: 260px;
+}
+
+.qrcodeText {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+}

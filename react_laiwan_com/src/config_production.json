@@ -1,3 +1,5 @@
 {
-    "server_type": "production"
+    "server_type": "production",
+    "h5_version_url": "https://h5.laiwan.life/",
+    "android_download_url": "https://api.laiwan.io/v1/app_metadata/com.ac.laiwan/android"
 }

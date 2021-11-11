@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    color: #fff;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logoText {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logoImage {
+    width: 48px;
+    height: 57px;
+    margin-right: 16px;
+}
+
+.navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 260px;
+}
+
+.navItem {
+    color: #fff;
+    font-size: 24px;
+}
