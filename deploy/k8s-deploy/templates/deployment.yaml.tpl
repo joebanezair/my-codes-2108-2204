@@ -1,10 +1,14 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ k8s_namespace }}
   name: {{ project_dns_name }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ project_dns_name }}
+      server: {{ project_dns_name }}
   template:
     metadata:
       labels:
