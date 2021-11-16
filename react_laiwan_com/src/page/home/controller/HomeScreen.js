@@ -41,18 +41,18 @@ const HomeScreen = () => {
                         <div className={styles.subtitle}>一起，来玩</div>
                         <div className={styles.downloadMethod}>
                             <a href={h5VersionUrl}>
-                                <img src={h5Version} alt="H5 版本" />
+                                <img className={styles.buttonImage} src={h5Version} alt="H5 版本" />
                             </a>
                             <a href={googleStoreLink}>
-                                <img src={googleDownload} alt="谷歌下载" />
+                                <img className={styles.buttonImage} src={googleDownload} alt="谷歌下载" />
                             </a>
                             <IosDownloadModal />
                             <a href={localDownloadUrl}>
-                                <img src={localDownload} alt="本地下载" />
+                                <img className={styles.buttonImage} src={localDownload} alt="本地下载" />
                             </a>
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.qrcodeContainer}>
                         <img className={styles.qrcodeImage} src={qrcodeDownload} alt="二维码" />
                         <div className={styles.qrcodeText}>手机扫码下载</div>
                     </div>

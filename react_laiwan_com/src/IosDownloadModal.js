@@ -62,6 +62,10 @@ const useStyles = makeStyles((theme) => ({
         right: '1px',
         top: '1px',
     },
+    downloadImage: {
+        width: '14.37rem',
+        height: ' 4.87rem',
+    },
 }));
 
 export default function IosDownloadModal() {
@@ -98,7 +102,7 @@ export default function IosDownloadModal() {
     return (
         <div>
             <div onClick={handleOpen} role="presentation" onKeyDown={handleOpen}>
-                <img src={iosStore} alt="ios_store" />
+                <img className={classes.downloadImage} src={iosStore} alt="ios_store" />
             </div>
             <Modal
                 open={open}
