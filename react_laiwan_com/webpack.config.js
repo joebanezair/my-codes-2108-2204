@@ -4,8 +4,7 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        // 打包后的文件改成固定名.命中缓存
-        filename: 'laiwanpai.js',
+        filename: '[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
     },
     module: {
