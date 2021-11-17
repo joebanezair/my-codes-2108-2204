@@ -53,15 +53,21 @@
 }
 
 @keyframes wave {
-    from {
+    0% {
         width: 13rem;
         height: 13rem;
         opacity: 0.3;
     }
 
-    to {
+    95% {
         width: 39.75rem;
         height: 39.75rem;
+        opacity: 0;
+    }
+
+    100% {
+        width: 13rem;
+        height: 13rem;
         opacity: 0;
     }
 }
