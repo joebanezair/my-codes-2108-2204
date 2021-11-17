@@ -34,7 +34,12 @@ const HomeScreen = () => {
             <div className={styles.container}>
                 <NavBar />
                 <div className={styles.content}>
-                    <img className={styles.phoneScreenshot} src={phoneScreenshot} alt="应用截图" />
+                    <div className={styles.screenshotContainer}>
+                        <div className={styles.circle} />
+                        <div className={`${styles.circle} ${styles.second}`} />
+                        <div className={`${styles.circle} ${styles.third}`} />
+                        <img className={styles.screenshot} src={phoneScreenshot} alt="应用截图" />
+                    </div>
                     <div>
                         <img className={styles.h5News} src={h5News} alt="H5 版上线" />
                         <div className={styles.title}>德州扑克约局社区</div>

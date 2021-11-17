@@ -23,9 +23,47 @@
     color: #fff;
 }
 
-.phoneScreenshot {
+.screenshotContainer {
+    position: relative;
+}
+
+.screenshot {
+    position: relative;
+    display: block;
     width: 26.56rem;
     height: 49.25rem;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: #e9e4ff;
+    transform: translateX(-50%) translateY(-50%);
+    animation: wave 3s ease-in-out infinite;
+}
+
+.circle.second {
+    animation-delay: 1s;
+}
+
+.circle.third {
+    animation-delay: 2s;
+}
+
+@keyframes wave {
+    from {
+        width: 13rem;
+        height: 13rem;
+        opacity: 0.3;
+    }
+
+    to {
+        width: 39.75rem;
+        height: 39.75rem;
+        opacity: 0;
+    }
 }
 
 .h5News {
@@ -73,7 +111,7 @@
 }
 
 @media screen and (max-width: 1400px) {
-    .phoneScreenshot {
+    .screenshotContainer {
         display: none;
     }
 
