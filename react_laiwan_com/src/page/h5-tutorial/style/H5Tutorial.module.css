@@ -1,0 +1,94 @@
+.container {
+    background-color: #f8f8f8;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner {
+    display: block;
+    width: 75rem;
+    height: 17.5rem;
+}
+
+.section {
+    margin-top: 2.5rem;
+    padding: 2.5rem 8%;
+    background-color: #fff;
+}
+
+.section .title {
+    margin: 0 0 2.5rem;
+    font-size: 2.25rem;
+}
+
+.section .content {
+    font-size: 2rem;
+}
+
+.purpleyBlueText {
+    color: #5d38e9;
+}
+
+.tutorialList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tutorialList .title {
+    margin: 2rem 0;
+    font-weight: normal;
+    font-size: 1.75rem;
+}
+
+.tutorialList>li>img {
+    display: block;
+    margin: 0 auto;
+}
+
+.tutorial1Link {
+    display: block;
+    margin: 2rem 0;
+    color: #5d38e9;
+    font-size: 1.75rem;
+}
+
+.tutorialImage1 {
+    width: 46.87rem;
+    height: 83.37rem;
+}
+
+.tutorialImage2 {
+    width: 46.87rem;
+    height: 12.19rem;
+}
+
+.tutorialImage3 {
+    width: 46.87rem;
+    height: 69.37rem;
+}
+
+.tutorialImage4 {
+    width: 48.44rem;
+    height: 32rem;
+}
+
+.tutorialImage5 {
+    width: 46.87rem;
+    height: 24rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .banner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .tutorialList>li>img {
+        width: 100%;
+    }
+}
