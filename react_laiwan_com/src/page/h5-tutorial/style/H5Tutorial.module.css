@@ -1,5 +1,17 @@
 .container {
-    background-color: #f8f8f8;
+    background-color: #f3f3f3;
+}
+
+.navbarContainer {
+    box-shadow: -1px 1.7px 4px 0 rgba(0, 0, 0, 0.17);
+    background-color: #fff;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    padding-bottom: 1rem;
+    color: #191919;
 }
 
 .main {
@@ -14,7 +26,7 @@
 }
 
 .section {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     padding: 2.5rem 8%;
     background-color: #fff;
 }
@@ -90,5 +102,10 @@
 @media screen and (max-width: 800px) {
     .tutorialList>li>img {
         width: 100%;
+    }
+
+    .navbar {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }

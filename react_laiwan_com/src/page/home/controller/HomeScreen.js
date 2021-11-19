@@ -6,7 +6,7 @@ import h5Version from '../image/btn-h-5.png';
 import googleDownload from '../image/btn-googel.png';
 import localDownload from '../image/btn-local-download.png';
 import qrcodeDownload from '../image/qrcode.jpg';
-import NavBar from '../view/NavBar';
+import NavBar from '../../../common/view/NavBar';
 import { googleStoreLink } from '../../../constant/Constant';
 import {
     h5_version_url as h5VersionUrl,

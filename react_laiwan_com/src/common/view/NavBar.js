@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../style/NavBar.module.css';
-import logo from '../../../source/logo.png';
+import logo from '../../source/logo.png';
 
-const NavBar = () => (
-    <div className={styles.container}>
+const NavBar = ({ className = '' }) => (
+    <div className={`${styles.container} ${className}`}>
         <div className={styles.logoContainer}>
             <img className={styles.logoImage} src={logo} alt="logo" />
             <h2 className={styles.logoText}>来玩</h2>

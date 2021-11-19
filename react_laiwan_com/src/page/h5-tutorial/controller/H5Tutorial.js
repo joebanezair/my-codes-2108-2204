@@ -1,5 +1,6 @@
 import React from 'react';
 import { h5_version_url as h5VersionUrl } from '../../../config.json';
+import NavBar from '../../../common/view/NavBar';
 import imgBannerH5 from '../image/img-banner-h5.png';
 import imgTutorial1 from '../image/img-tutorials-1.png';
 import imgTutorial2 from '../image/img-tutorials-2.png';
@@ -10,6 +11,9 @@ import styles from '../style/H5Tutorial.module.css';
 
 const H5Tutorial = () => (
     <div className={styles.container}>
+        <div className={styles.navbarContainer}>
+            <NavBar className={styles.navbar} />
+        </div>
         <div className={styles.main}>
             <img className={styles.banner} src={imgBannerH5} alt="横幅" />
             <div className={styles.section}>
