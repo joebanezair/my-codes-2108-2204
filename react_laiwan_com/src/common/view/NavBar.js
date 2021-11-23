@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from '../style/NavBar.module.css';
 import logo from '../../source/logo.png';
 
@@ -12,7 +11,6 @@ const NavBar = ({ className = '' }) => (
         <div className={styles.navList}>
             <a className={styles.navItem} href="/">首页</a>
             <a className={styles.navItem} href="/glossary">德州扑克术语表</a>
-            <Link className={styles.navItem} to="/h5-tutorial">H5手机版</Link>
         </div>
     </div>
 );

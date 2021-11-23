@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../style/HomeScreen.module.css';
 import phoneScreenshot from '../image/img-phone.png';
 import h5News from '../image/img-news.png';
@@ -56,6 +57,7 @@ const HomeScreen = () => {
                                 <img className={styles.buttonImage} src={localDownload} alt="本地下载" />
                             </a>
                         </div>
+                        <Link className={styles.h5Tutorual} to="/h5-tutorial">如何将网页版安装到手机</Link>
                     </div>
                     <div className={styles.qrcodeContainer}>
                         <img className={styles.qrcodeImage} src={qrcodeDownload} alt="二维码" />
