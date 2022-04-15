@@ -3,11 +3,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Link } from 'react-router-dom';
-import iosStore from './source/btn_appstore.png';
-import { iosStoreLink } from './constant/Constant';
-import logo from './source/logo.png';
-import close from './view/image/icon_close.png';
-import NavigatorJudge from './utils/navigatorJudge';
+import iosStore from '../image/btn-app-store.png';
+import { iosStoreLink } from '../../../constant/Constant';
+import logo from '../../../source/logo.png';
+import close from '../../../view/image/icon_close.png';
+import NavigatorJudge from '../../../utils/navigatorJudge';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function IosDownloadModal() {
+export default function IOSDownloadModal() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 

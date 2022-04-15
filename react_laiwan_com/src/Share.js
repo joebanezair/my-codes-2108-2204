@@ -14,7 +14,7 @@ import wechatPrompt from './source/img-prompt.png';
 import {
     androidStagingUrl, androidProductionUrl, googleStoreLink,
 } from './constant/Constant';
-import IosDownloadModal from './IosDownloadModal';
+import DownloadModalForIOS from './page/home/view/DownloadIOSModal';
 
 export default class Share extends Component {
     constructor(props) {
@@ -102,7 +102,7 @@ export default class Share extends Component {
             <div className="mobile_download_content">
                 <div className="mobile_img_content">
                     {isPhone ? (
-                        <IosDownloadModal />
+                        <DownloadModalForIOS />
                     ) : null}
                     {!isPhone ? (
                         <a href={googleStoreLink}>

@@ -95,11 +95,11 @@
     justify-content: space-between;
     align-items: center;
     max-width: 520px;
-    margin-top: 3rem;
+    margin-top: 0.5rem;
 }
 
 .downloadMethod>* {
-    margin-top: 1.8rem;
+    margin-top: 1rem;
 }
 
 .downloadMethod .buttonImage {
@@ -109,10 +109,9 @@
 
 .h5Tutorual {
     display: block;
-    margin-top: 2.2rem;
-    color: #ff8e20;
+    margin-top: 0.5rem;
+    color: #188bfb;
     font-size: 1.25rem;
-    text-align: center;
     text-decoration: underline;
 }
 

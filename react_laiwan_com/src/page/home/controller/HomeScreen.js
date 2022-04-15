@@ -13,7 +13,7 @@ import {
     h5_version_url as h5VersionUrl,
     android_download_url as androidDownloadUrl,
 } from '../../../config.json';
-import IosDownloadModal from '../../../IosDownloadModal';
+import DownloadModalForIOS from '../view/DownloadIOSModal';
 
 const HomeScreen = () => {
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
@@ -49,15 +49,17 @@ const HomeScreen = () => {
                             <a href={h5VersionUrl}>
                                 <img className={styles.buttonImage} src={h5Version} alt="H5 版本" />
                             </a>
+                        </div>
+                        <Link className={styles.h5Tutorual} to="/h5-tutorial">如何将来玩网页版添加至手机主屏</Link>
+                        <div className={styles.downloadMethod}>
+                            <DownloadModalForIOS />
                             <a href={googleStoreLink}>
                                 <img className={styles.buttonImage} src={googleDownload} alt="谷歌下载" />
                             </a>
-                            <IosDownloadModal />
                             <a href={localDownloadUrl}>
                                 <img className={styles.buttonImage} src={localDownload} alt="本地下载" />
                             </a>
                         </div>
-                        <Link className={styles.h5Tutorual} to="/h5-tutorial">如何将网页版安装到手机</Link>
                     </div>
                     <div className={styles.qrcodeContainer}>
                         <img className={styles.qrcodeImage} src={qrcodeDownload} alt="二维码" />

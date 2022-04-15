@@ -15,7 +15,7 @@ import {
     androidStagingUrl, androidProductionUrl, googleStoreLink,
 } from './constant/Constant';
 import TemporaryDrawer from './TemporaryDrawer';
-import IosDownloadModal from './IosDownloadModal';
+import DownloadModalForIOS from './page/home/view/DownloadIOSModal';
 
 export default class Mobile extends Component {
     constructor(props) {
@@ -94,7 +94,7 @@ export default class Mobile extends Component {
         return (
             <div className="mobile_download_content">
                 <div className="mobile_img_content">
-                    <IosDownloadModal />
+                    <DownloadModalForIOS />
                     <a href={googleStoreLink}>
                         <img src={googleStore} />
                     </a>
