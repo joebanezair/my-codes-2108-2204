@@ -5,17 +5,19 @@ import Modal from '@material-ui/core/Modal';
 import { Link } from 'react-router-dom';
 import iosStore from '../image/btn-app-store.png';
 import { iosStoreLink } from '../../../constant/Constant';
-import logo from '../../../source/logo.png';
 import close from '../../../view/image/icon_close.png';
 import NavigatorJudge from '../../../utils/navigatorJudge';
+import BTN_APPLE_DOWNLOAD from '../image/btn-apple-download.png';
+import BTN_TUTORIAL from '../image/btn-tutorial.png';
+import ICON_PROMPT from '../image/img-prompt.png';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        width: NavigatorJudge.isMobile() ? 300 : 400,
-        height: NavigatorJudge.isMobile() ? 200 : 300,
+        width: 750,
+        height: 500,
         backgroundColor: 'white',
         border: '2px solid white',
-        borderRadius: '8px',
+        borderRadius: '30px',
         boxShadow: theme.shadows[5],
         display: 'flex',
         justifyContent: 'space-around',
@@ -24,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
     },
     title: {
-        fontSize: '10px',
+        fontSize: '24px',
         textAlign: 'center',
         letterSpacing: '2.4px',
+        color: '#333333',
     },
     modal: {
         display: 'flex',
@@ -54,17 +57,34 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
     },
     logo: {
-        width: '5vh',
-        height: '5.5vh',
+        width: '71px',
+        height: '58px',
     },
     close: {
         position: 'absolute',
-        right: '1px',
-        top: '1px',
+        right: '15px',
+        top: '15px',
     },
     downloadImage: {
         width: '14.37rem',
         height: ' 4.87rem',
+    },
+    prompt: {
+        marginTop: '30px',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    promptText: {
+        fontSize: '26px',
+        color: '#ff4444',
+        marginLeft: '10px',
+        textAlign: 'center',
+    },
+    downlowdButton: {
+        width: '300px',
+        height: '100px',
     },
 }));
 
@@ -83,18 +103,17 @@ export default function IOSDownloadModal() {
     const body = (
         <div className={classes.paper}>
             <img src={close} alt="close" className={classes.close} onClick={handleClose} onKeyDown={handleClose} />
-            <img src={logo} alt="logo" className={classes.logo} />
-            <p className={classes.title}>您在非中国大陆地区</p>
+            <div className={classes.prompt}>
+                <img src={ICON_PROMPT} alt="logo" className={classes.logo} />
+                <p className={classes.promptText}>中国大陆地区暂时无法下载来玩</p>
+            </div>
+            <p className={classes.title}>已有其他地区AppleID，可直接下载来玩</p>
             <a href={iosStoreLink}>
-                <div className={classes.linkButton}>
-                    <p className={classes.downloadTitle}>非中国大陆下载</p>
-                </div>
+                <img className={classes.downlowdButton} src={BTN_APPLE_DOWNLOAD} alt="iosToreLink" />
             </a>
-            <p className={classes.title}>您在中国大陆</p>
+            <p className={classes.title}>中国大陆地区下载教程</p>
             <Link to="tutorial">
-                <div className={classes.linkButton}>
-                    <p className={classes.downloadTitle}>中国大陆下载</p>
-                </div>
+                <img className={classes.downlowdButton} src={BTN_TUTORIAL} alt="tutorial" />
             </Link>
         </div>
     );
