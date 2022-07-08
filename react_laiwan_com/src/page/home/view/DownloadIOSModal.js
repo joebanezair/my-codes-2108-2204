@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
         top: '15px',
     },
     downloadImage: {
-        width: '14.37rem',
+        width: '17.5rem',
         height: ' 4.87rem',
     },
     prompt: {

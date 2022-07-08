@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import styles from '../style/HomeScreen.module.css';
 import phoneScreenshot from '../image/img-phone.png';
 import h5News from '../image/img-news.png';
-import h5Version from '../image/btn-h-5.png';
+import h5Version1 from '../image/btn-h5-1.png';
+import h5Version2 from '../image/btn-h5-2.png';
+import h5Tutorual from '../image/btn-phone-home.png';
 import googleDownload from '../image/btn-googel.png';
 import localDownload from '../image/btn-local-download.png';
 import qrcodeDownload from '../image/qrcode.jpg';
 import NavBar from '../../../common/view/NavBar';
 import { googleStoreLink } from '../../../constant/Constant';
 import {
-    h5_version_url as h5VersionUrl,
+    h5_version_url_1 as h5VersionUrl1,
+    h5_version_url_2 as h5VersionUrl2,
     android_download_url as androidDownloadUrl,
 } from '../../../config.json';
 import DownloadModalForIOS from '../view/DownloadIOSModal';
@@ -46,11 +49,16 @@ const HomeScreen = () => {
                         <div className={styles.title}>德州扑克约局社区</div>
                         <div className={styles.subtitle}>一起，来玩</div>
                         <div className={styles.downloadMethod}>
-                            <a href={h5VersionUrl}>
-                                <img className={styles.buttonImage} src={h5Version} alt="H5 版本" />
+                            <a href={h5VersionUrl1}>
+                                <img className={styles.buttonImage} src={h5Version1} alt="H5 版本一" />
+                            </a>
+                            <a href={h5VersionUrl2}>
+                                <img className={styles.buttonImage} src={h5Version2} alt="H5 版本二" />
                             </a>
                         </div>
-                        <Link className={styles.h5Tutorual} to="/h5-tutorial">如何将来玩网页版添加至手机主屏</Link>
+                        <Link className={styles.h5Tutorual} to="/h5-tutorial">
+                            <img className={styles.h5TutorualImage} src={h5Tutorual} alt="如何添加到桌面" />
+                        </Link>
                         <div className={styles.downloadMethod}>
                             <DownloadModalForIOS />
                             <a href={googleStoreLink}>

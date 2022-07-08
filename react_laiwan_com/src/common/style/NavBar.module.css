@@ -35,3 +35,9 @@
 .navItem {
     font-size: 1.5rem;
 }
+
+.navItem:nth-child(1) {
+    font-size: 1.5rem;
+    border-bottom: 0.25rem solid white;
+    padding-bottom: 0.87rem;
+}
