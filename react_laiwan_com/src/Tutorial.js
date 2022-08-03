@@ -10,6 +10,12 @@ import editImage from './md/source/img_web_four.png';
 import replaceCountryImage from './md/source/img_web_five.png';
 import payWayImage from './md/source/img_web_six.png';
 import searchLaiWanImage from './md/source/img_web_seven.png';
+import h5Version1 from './page/home/image/btn-h5-1.png';
+import h5Version2 from './page/home/image/btn-h5-2.png';
+import {
+    h5_version_url_1 as h5VersionUrl1,
+    h5_version_url_2 as h5VersionUrl2,
+} from './config.json';
 
 export default class Tutorial extends Component {
     constructor(props) {
@@ -51,7 +57,24 @@ export default class Tutorial extends Component {
                         : this._renderPcNavigator()}
                         <div className="tutorial_content">
                             <div className="tutorial_container">
-                                <p className="can_not_download_text">(中国大陆暂时无法下载)</p>
+                                <p className="can_not_download_text">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;苹果手机中国大陆账号暂时无法下载来玩，您可重新注册一个其他国
+                                    <br />
+                                    家或地区的苹果手机账号进行下载；也可不用下载，直接前往来玩的网页
+                                    <br />
+                                    版本进行娱乐。来玩网页版支持PC、苹果、安卓手机使用。
+                                    <br />
+                                    <br />
+                                    以下是来玩网页版地址，点击网页链接即可前往:
+                                </p>
+                                <div className="web_version">
+                                    <a href={h5VersionUrl1}>
+                                        <img className="web_button" src={h5Version1} alt="H5 版本一" />
+                                    </a>
+                                    <a href={h5VersionUrl2}>
+                                        <img className="web_button" src={h5Version2} alt="H5 版本二" />
+                                    </a>
+                                </div>
                                 <h2>一、注册一个新的AppleID并下载来玩 </h2>
                                 <h4>
                                     电脑打开网页：

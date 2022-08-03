@@ -66,10 +66,13 @@
 }
 
 .can_not_download_text {
-    color: red;
-    margin-top: 2px;
-    font-size: larger;
+    color: #000;
+    margin-top: 40px;
+    font-size: 28px;
     align-self: center;
+    letter-spacing: 1.6px;
+    text-align: left;
+    font-weight: 500;
 }
 
 .tutorial_container  img {
@@ -83,4 +86,23 @@ h4 {
 
 h4 p {
     color: #ef4f47;
+}
+
+.web_version {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 612px;
+    margin-top: 2.75rem;
+}
+
+.web_version>* {
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.web_version .web_button {
+    width: 17.5rem;
+    height: 4rem;
 }
