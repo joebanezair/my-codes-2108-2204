@@ -79,13 +79,14 @@ export default class Tutorial extends Component {
                                 <h4>
                                     电脑打开网页：
                                     <a href="https://appleid.apple.com/">https://appleid.apple.com/</a>
+                                    拉至页面底部，创建新的Apple ID
                                 </h4>
                                 <img src={createAppleIDImage} alt="laiwan" />
                                 <h4>
                                     按照注册要求填写好信息。（注意自己记录一下注册时填写的安全问题）
                                 </h4>
                                 <h4>
-                                    如果大陆区的Apple ID无法正常注册，可能是网络问题，请切换网络或者开关飞行模式后尝试
+                                    如果Apple ID无法正常注册，可能是网络问题，请切换网络或者开关飞行模式后尝试
                                 </h4>
                                 <h2>二、在IOS设备的AppStore上登陆</h2>
                                 <h4>将刚刚注册好的中国大陆地区Apple ID在你iOS设备上的AppStore上登录</h4>
@@ -99,32 +100,26 @@ export default class Tutorial extends Component {
                                 <h4>完成后，将新账号退出登陆</h4>
                                 <h2>三、切换国家</h2>
                                 <h4>
-                                    <a href="http://shenfendaquan.com/Index/index/meiguo_zhenshi_dizhi">
-                                        提前准备好一个美国地址（或您想注册的其他地区/国家地址)
-                                    </a>
-                                    <br />
-                                    <br />
-                                    <a href="http://haoweichi.com/Others/ying_guo_shen_fen_sheng_cheng">
-                                        英国人信息以及地址
-                                    </a>
-                                </h4>
-                                <h4>
                                     再次打开网页：
                                     <a href="https://appleid.apple.com/">https://appleid.apple.com</a>
                                 </h4>
                                 <h4>登陆刚刚注册好的账号，点击右上角【编辑】</h4>
                                 <img src={editImage} alt="edit_page" />
                                 <h4>
-                                    <p>将国家和地区更改成美国（建议您注册香港、澳门或台湾地区账号，繁体中文使用更加方便</p>
+                                    国外地址生成工具：
+                                    <a href="https://shenfendaquan.com/Index/index/meiguo_zhenshi_dizhi">https://shenfendaquan.com</a>
+                                </h4>
+                                <h4>
+                                    <p>将国家和地区更改成美国， 并填入对应信息。信息可以根据上方国外地址生成工具获取</p>
                                 </h4>
                                 <h4> 选择好要更改的国家或地区后，会有下图的弹窗，点击【继续更新】</h4>
                                 <img src={replaceCountryImage} alt="replace_country" />
                                 <h4>然后就可以直接将付款方式选择为【无】</h4>
                                 <img src={payWayImage} alt="pay_way" />
                                 <h4>最后剩下的信息按照提前准备好的地址信息填写好就可以了,然后点击右上角的【存储】</h4>
-                                <h2>四、重新登陆AppStore,下来来玩【GoPlay360】</h2>
-                                <h4>在自己设备的AppStore上重新登陆修改国家/地区的账号，这时的AppStore会转换为对应国家的语言</h4>
-                                <h4>在搜索栏目搜索【GoPlay360】，成功下载来玩</h4>
+                                <h2>四、下载来玩【GoPlay360】</h2>
+                                <h4>登录新注册的Apple ID，这时的AppStore会转换为对应国家的语言。</h4>
+                                <h4>在搜索栏目搜索【GoPlay360】，点击【GET】进行下载</h4>
                                 <h4>
                                     <p>注意：如果您之前用中国区大陆账号下载过【来玩】，请卸载后重新安装</p>
                                 </h4>

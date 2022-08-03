@@ -106,3 +106,11 @@ h4 p {
     width: 17.5rem;
     height: 4rem;
 }
+
+a {
+    color:#0a49e8;
+}
+
+a:hover {
+    color:#1ed905;
+}
