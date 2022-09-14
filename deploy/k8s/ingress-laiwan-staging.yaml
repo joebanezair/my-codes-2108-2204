@@ -9,29 +9,12 @@ metadata:
 
 spec:
   tls:
-  - secretName: www-shafayouxi-org-tls
+  - secretName: web-shafayouxi-org-tls
     hosts:
-    - shafayouxi.org
-    - www.shafayouxi.org
+    - web.shafayouxi.org
 
   rules:
-  - host: shafayouxi.org
-    http:
-      paths:
-      - path: /.well-known/
-        backend:
-          serviceName: deep-link
-          servicePort: 80
-      - path: /laiwan/
-        backend:
-          serviceName: deep-link
-          servicePort: 80
-      - path: /
-        backend:
-          serviceName: laiwan-io-web
-          servicePort: 80
-
-  - host: www.shafayouxi.org
+  - host: web.shafayouxi.org
     http:
       paths:
       - path: /.well-known/
