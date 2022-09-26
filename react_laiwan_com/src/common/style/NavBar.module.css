@@ -34,6 +34,11 @@
 
 .navItem {
     font-size: 1.5rem;
+    color: #fff;
+}
+
+.navItem:hover {
+    color: #fff;
 }
 
 .navItem:nth-child(1) {

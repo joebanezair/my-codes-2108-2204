@@ -1,5 +1,8 @@
 import React from 'react';
-import { h5_version_url as h5VersionUrl } from '../../../config.json';
+import {
+    h5_version_url_1 as h5VersionUrl1,
+    h5_version_url_2 as h5VersionUrl2,
+} from '../../../config.json';
 import NavBar from '../../../common/view/NavBar';
 import imgBannerH5 from '../image/img-banner-h5.png';
 import imgTutorial1 from '../image/img-tutorials-1.png';
@@ -31,22 +34,45 @@ const H5Tutorial = () => (
                     <span className={styles.purpleyBlueText}>手机</span>
                     浏览器打开来玩H5手机版链接
                 </h2>
-                <a className={`${styles.content} ${styles.purpleyBlueText}`} href={h5VersionUrl}>{h5VersionUrl}</a>
+                <a
+                    className={`${styles.content} ${styles.purpleyBlueText}`}
+                    href={h5VersionUrl1}
+                >
+                    {h5VersionUrl1}
+                </a>
+                <br />
+                <a
+                    className={`${styles.content} ${styles.purpleyBlueText}`}
+                    href={h5VersionUrl2}
+                >
+                    {h5VersionUrl2}
+                </a>
             </div>
             <div className={styles.section}>
                 <h2 className={styles.title}>将来玩H5添加至手机主屏幕</h2>
                 <ol className={styles.tutorialList}>
                     <li>
-                        <h3 className={styles.title}>一、在手机浏览器中（苹果机使用Safari）打开来玩网页：</h3>
-                        <a className={styles.tutorial1Link} href={h5VersionUrl}>{h5VersionUrl}</a>
+                        <h3 className={styles.title}>
+                            一、在手机浏览器中（苹果机使用Safari）打开来玩网页：
+                        </h3>
+                        <div className={styles.tutorial1Link}>
+                            <a href={h5VersionUrl1}>{h5VersionUrl1}</a>
+                            <br />
+                            <a href={h5VersionUrl2}>{h5VersionUrl2}</a>
+                        </div>
+
                         <img src={imgTutorial1} alt="教程图片1" />
                     </li>
                     <li>
-                        <h3 className={styles.title}>二、点击页面下方分享图标</h3>
+                        <h3 className={styles.title}>
+                            二、点击页面下方分享图标
+                        </h3>
                         <img src={imgTutorial2} alt="教程图片2" />
                     </li>
                     <li>
-                        <h3 className={styles.title}>三、下滑页面，点击【添加到主屏幕】</h3>
+                        <h3 className={styles.title}>
+                            三、下滑页面，点击【添加到主屏幕】
+                        </h3>
                         <img src={imgTutorial3} alt="教程图片3" />
                     </li>
                     <li>
@@ -54,7 +80,9 @@ const H5Tutorial = () => (
                         <img src={imgTutorial4} alt="教程图片4" />
                     </li>
                     <li>
-                        <h3 className={styles.title}>五、回到手机主屏幕就能看到来玩的图标了</h3>
+                        <h3 className={styles.title}>
+                            五、回到手机主屏幕就能看到来玩的图标了
+                        </h3>
                         <img src={imgTutorial5} alt="教程图片5" />
                     </li>
                 </ol>

@@ -42,35 +42,67 @@ const HomeScreen = () => {
                         <div className={styles.circle} />
                         <div className={`${styles.circle} ${styles.second}`} />
                         <div className={`${styles.circle} ${styles.third}`} />
-                        <img className={styles.screenshot} src={phoneScreenshot} alt="应用截图" />
+                        <img
+                            className={styles.screenshot}
+                            src={phoneScreenshot}
+                            alt="应用截图"
+                        />
                     </div>
                     <div>
-                        <img className={styles.h5News} src={h5News} alt="H5 版上线" />
+                        <img
+                            className={styles.h5News}
+                            src={h5News}
+                            alt="H5 版上线"
+                        />
                         <div className={styles.title}>德州扑克约局社区</div>
                         <div className={styles.subtitle}>一起，来玩</div>
                         <div className={styles.downloadMethod}>
                             <a href={h5VersionUrl1}>
-                                <img className={styles.buttonImage} src={h5Version1} alt="H5 版本一" />
+                                <img
+                                    className={styles.buttonImage}
+                                    src={h5Version1}
+                                    alt="H5 版本一"
+                                />
                             </a>
                             <a href={h5VersionUrl2}>
-                                <img className={styles.buttonImage} src={h5Version2} alt="H5 版本二" />
+                                <img
+                                    className={styles.buttonImage}
+                                    src={h5Version2}
+                                    alt="H5 版本二"
+                                />
                             </a>
                         </div>
                         <Link className={styles.h5Tutorual} to="/h5-tutorial">
-                            <img className={styles.h5TutorualImage} src={h5Tutorual} alt="如何添加到桌面" />
+                            <img
+                                className={styles.h5TutorualImage}
+                                src={h5Tutorual}
+                                alt="如何添加到桌面"
+                            />
                         </Link>
                         <div className={styles.downloadMethod}>
                             <DownloadModalForIOS />
                             <a href={googleStoreLink}>
-                                <img className={styles.buttonImage} src={googleDownload} alt="谷歌下载" />
+                                <img
+                                    className={styles.buttonImage}
+                                    src={googleDownload}
+                                    alt="谷歌下载"
+                                />
                             </a>
                             <a href={localDownloadUrl}>
-                                <img className={styles.buttonImage} src={localDownload} alt="本地下载" />
+                                <img
+                                    className={styles.buttonImage}
+                                    src={localDownload}
+                                    alt="本地下载"
+                                />
                             </a>
                         </div>
                     </div>
                     <div className={styles.qrcodeContainer}>
-                        <img className={styles.qrcodeImage} src={qrcodeDownload} alt="二维码" />
+                        <img
+                            className={styles.qrcodeImage}
+                            src={qrcodeDownload}
+                            alt="二维码"
+                        />
                         <div className={styles.qrcodeText}>手机扫码下载</div>
                     </div>
                 </div>
