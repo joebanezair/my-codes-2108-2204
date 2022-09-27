@@ -1,0 +1,26 @@
+name: test-before-merge-pr
+# 指定在master分支发生pull_request事件时才触发运行工作流程
+on:
+    pull_request:
+        branches: master
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            # 拉取项目代码
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            # 下载node
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '14.x'
+            # 安装依赖
+            - name: Installing Dependencies
+              run: cd react_laiwan_com && yarn
+            # 配置production 环境
+            - name: Set production config
+              run: cd react_laiwan_com/src && rm config.json && cp config_production.json config.json
+            # 运行自动化测试
+            - name: Running Test
+              run: cd react_laiwan_com && yarn test
