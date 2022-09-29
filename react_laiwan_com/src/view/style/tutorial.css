@@ -1,4 +1,4 @@
-.tutorial_content{
+.tutorial_content {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -27,7 +27,7 @@
     }
 }
 
-.tutorial_container img{
+.tutorial_container img {
     max-width: 80%;
     max-height: 100%;
 }
@@ -62,7 +62,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
 }
 
 .can_not_download_text {
@@ -75,9 +75,9 @@
     font-weight: 500;
 }
 
-.tutorial_container  img {
-    display:block;
-    margin:0 auto;
+.tutorial_container img {
+    display: block;
+    margin: 0 auto;
 }
 
 h4 {
@@ -97,20 +97,20 @@ h4 p {
     margin-top: 2.75rem;
 }
 
-.web_version>* {
+.web_version > * {
     margin-top: 0.5rem;
     margin-bottom: 3rem;
 }
 
 .web_version .web_button {
     width: 17.5rem;
-    height: 4rem;
+    height: 5rem;
 }
 
 a {
-    color:#0a49e8;
+    color: #0a49e8;
 }
 
 a:hover {
-    color:#1ed905;
+    color: #1ed905;
 }

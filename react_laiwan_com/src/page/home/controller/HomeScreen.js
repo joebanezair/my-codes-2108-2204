@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import styles from '../style/HomeScreen.module.css';
 import phoneScreenshot from '../image/img-phone.png';
 import h5News from '../image/img-news.png';
-import h5Version1 from '../image/btn-h5-1.png';
-import h5Version2 from '../image/btn-h5-2.png';
-import h5Tutorual from '../image/btn-phone-home.png';
+import h5Version1 from '../image/btn-h-5-blue.png';
+import h5Version2 from '../image/btn-h-5-green.png';
+import h5Tutorial1 from '../image/btn-phone-home-blue.png';
+import h5Tutorial2 from '../image/btn-phone-home-green.png';
 import googleDownload from '../image/btn-googel.png';
 import localDownload from '../image/btn-local-download.png';
 import qrcodeDownload from '../image/qrcode.jpg';
@@ -72,13 +73,29 @@ const HomeScreen = () => {
                                 />
                             </a>
                         </div>
-                        <Link className={styles.h5Tutorual} to="/h5-tutorial">
-                            <img
-                                className={styles.h5TutorualImage}
-                                src={h5Tutorual}
-                                alt="如何添加到桌面"
-                            />
-                        </Link>
+                        <div className={styles.tutorialContainer}>
+                            <Link
+                                className={styles.h5Tutorual}
+                                to="/h5-tutorial/version1"
+                            >
+                                <img
+                                    className={styles.h5TutorualImage}
+                                    src={h5Tutorial1}
+                                    alt="如何添加到桌面"
+                                />
+                            </Link>
+
+                            <Link
+                                className={styles.h5Tutorual}
+                                to="/h5-tutorial/version2"
+                            >
+                                <img
+                                    className={styles.h5TutorualImage}
+                                    src={h5Tutorial2}
+                                    alt="如何添加到桌面"
+                                />
+                            </Link>
+                        </div>
                         <div className={styles.downloadMethod}>
                             <DownloadModalForIOS />
                             <a href={googleStoreLink}>
