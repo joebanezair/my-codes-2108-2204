@@ -96,9 +96,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    column-gap: 2rem;
     align-items: center;
     max-width: 612px;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .downloadMethod > * {
@@ -107,17 +108,22 @@
 
 .downloadMethod .buttonImage {
     width: 17.5rem;
+    height: 4.87rem;
+}
+
+.downloadMethod .h5Button {
+    width: 17.5rem;
     height: 5.54rem;
 }
 
 .tutorialContainer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .h5Tutorual {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.2rem;
 }
 
 .h5TutorualImage {

@@ -58,43 +58,44 @@ const HomeScreen = () => {
                         <div className={styles.title}>德州扑克约局社区</div>
                         <div className={styles.subtitle}>一起，来玩</div>
                         <div className={styles.downloadMethod}>
-                            <a href={h5VersionUrl1}>
-                                <img
-                                    className={styles.buttonImage}
-                                    src={h5Version1}
-                                    alt="H5 版本一"
-                                />
-                            </a>
-                            <a href={h5VersionUrl2}>
-                                <img
-                                    className={styles.buttonImage}
-                                    src={h5Version2}
-                                    alt="H5 版本二"
-                                />
-                            </a>
-                        </div>
-                        <div className={styles.tutorialContainer}>
-                            <Link
-                                className={styles.h5Tutorual}
-                                to="/h5-tutorial/version1"
-                            >
-                                <img
-                                    className={styles.h5TutorualImage}
-                                    src={h5Tutorial1}
-                                    alt="如何添加到桌面"
-                                />
-                            </Link>
-
-                            <Link
-                                className={styles.h5Tutorual}
-                                to="/h5-tutorial/version2"
-                            >
-                                <img
-                                    className={styles.h5TutorualImage}
-                                    src={h5Tutorial2}
-                                    alt="如何添加到桌面"
-                                />
-                            </Link>
+                            <div className={styles.tutorialContainer}>
+                                <a href={h5VersionUrl1}>
+                                    <img
+                                        className={styles.h5Button}
+                                        src={h5Version1}
+                                        alt="H5 版本一"
+                                    />
+                                </a>
+                                <Link
+                                    className={styles.h5Tutorual}
+                                    to="/h5-tutorial/version1"
+                                >
+                                    <img
+                                        className={styles.h5TutorualImage}
+                                        src={h5Tutorial1}
+                                        alt="如何添加到桌面"
+                                    />
+                                </Link>
+                            </div>
+                            <div className={styles.tutorialContainer}>
+                                <a href={h5VersionUrl2}>
+                                    <img
+                                        className={styles.h5Button}
+                                        src={h5Version2}
+                                        alt="H5 版本二"
+                                    />
+                                </a>
+                                <Link
+                                    className={styles.h5Tutorual}
+                                    to="/h5-tutorial/version2"
+                                >
+                                    <img
+                                        className={styles.h5TutorualImage}
+                                        src={h5Tutorial2}
+                                        alt="如何添加到桌面"
+                                    />
+                                </Link>
+                            </div>
                         </div>
                         <div className={styles.downloadMethod}>
                             <DownloadModalForIOS />
