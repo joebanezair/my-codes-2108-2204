@@ -18,13 +18,15 @@ import imgTutorial5 from '../image/img-tutorials-5.png';
 import styles from '../style/H5Tutorial.module.css';
 
 const pageResourceMap = {
-    version1: {
+    // 生产环境下 h5.laiwan.life 的教程图片
+    'laiwan-life': {
         H5URL: H5VersionUrl1,
         imgTutorial1: imgTutorial1LaiwanLife,
         imgTutorial3: imgTutorial3LaiwanLife,
         imgTutorial4: imgTutorial4LaiwanLife,
     },
-    version2: {
+    // 生产环境下 h5.laiwanpai.com 的教程图片
+    'laiwanpai-com': {
         H5URL: h5VersionUrl2,
         imgTutorial1: imgTutorial1Laiwanpai,
         imgTutorial3: imgTutorial3Laiwanpai,
@@ -33,11 +35,11 @@ const pageResourceMap = {
 };
 
 const H5Tutorial = () => {
-    const { version } = useParams();
+    const { url } = useParams();
 
     const PageResource = useMemo(
-        () => pageResourceMap[version] || pageResourceMap.version1,
-        [version]
+        () => pageResourceMap[url] || pageResourceMap['laiwan-life'],
+        [url]
     );
 
     return (

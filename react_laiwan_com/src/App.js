@@ -13,7 +13,7 @@ const App = () => (
     <Router>
         <Switch>
             <Route path="/" component={HomeScreen} exact />
-            <Route path="/h5-tutorial/:version" component={H5Tutorial} />
+            <Route path="/h5-tutorial/:url" component={H5Tutorial} />
             <Route path="/tutorial" component={Tutorial} />
             <Redirect to="/" />
         </Switch>

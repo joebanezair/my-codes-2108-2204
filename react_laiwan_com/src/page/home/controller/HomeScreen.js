@@ -68,7 +68,7 @@ const HomeScreen = () => {
                                 </a>
                                 <Link
                                     className={styles.h5Tutorual}
-                                    to="/h5-tutorial/version1"
+                                    to="/h5-tutorial/laiwan-life"
                                 >
                                     <img
                                         className={styles.h5TutorualImage}
@@ -87,7 +87,7 @@ const HomeScreen = () => {
                                 </a>
                                 <Link
                                     className={styles.h5Tutorual}
-                                    to="/h5-tutorial/version2"
+                                    to="/h5-tutorial/laiwanpai-com"
                                 >
                                     <img
                                         className={styles.h5TutorualImage}
