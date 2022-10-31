@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import QRCode from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 import icon from '../source/icon.png';
 
 // const icon = require('./source/icon.png');
 
+
 export default class Qrcode extends Component {
     render() {
+        const { downloadUrl } = this.props
         return (
-            <QRCode
-                value="https://laiwan.io/download/qrcode"
-                size={207}
-                renderAs="svg"
+            <QRCodeSVG
+                value={downloadUrl}
+                size={120}
+
+                style={{border: '#fff solid 4px'}}
                 imageSettings={{
                     src: icon,
                     excavate: true,
-                    height: 30,
-                    width: 30,
+                    height: 25,
+                    width: 25,
                 }}
             />
         );

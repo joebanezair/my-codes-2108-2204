@@ -57,7 +57,7 @@
         "file-loader": "5.1.0",
         "husky": "4.2.3",
         "lint-staged": "10.0.8",
-        "qrcode.react": "1.0.0",
+        "qrcode.react": "3.1.0",
         "react": "16.13.0",
         "react-background-image": "1.2.0",
         "react-dom": "16.13.0",

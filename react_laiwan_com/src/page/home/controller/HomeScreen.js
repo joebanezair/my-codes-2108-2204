@@ -9,7 +9,6 @@ import h5Tutorial1 from '../image/btn-phone-home-blue.png';
 import h5Tutorial2 from '../image/btn-phone-home-green.png';
 import googleDownload from '../image/btn-googel.png';
 import localDownload from '../image/btn-local-download.png';
-import qrcodeDownload from '../image/qrcode.jpg';
 import NavBar from '../../../common/view/NavBar';
 import { googleStoreLink } from '../../../constant/Constant';
 import {
@@ -18,9 +17,11 @@ import {
     android_download_url as androidDownloadUrl,
 } from '../../../config.json';
 import DownloadModalForIOS from '../view/DownloadIOSModal';
+import Qrcode from '../../../view/Qrcode';
 
 const HomeScreen = () => {
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
+    const [qrcodeDownloadUrl,setQrcodeDownloadUrl] = useState('')
 
     useEffect(() => {
         fetch(androidDownloadUrl)
@@ -29,6 +30,7 @@ const HomeScreen = () => {
                 const { ok, result } = data;
                 if (ok) {
                     setLocalDownloadUrl(result.cdn_download_url);
+                    setQrcodeDownloadUrl(result.download_url)
                 }
                 // TODO: 缺少错误反馈，之后加
             });
@@ -116,11 +118,7 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className={styles.qrcodeContainer}>
-                        <img
-                            className={styles.qrcodeImage}
-                            src={qrcodeDownload}
-                            alt="二维码"
-                        />
+                        <Qrcode downloadUrl={qrcodeDownloadUrl} />
                         <div className={styles.qrcodeText}>手机扫码下载</div>
                     </div>
                 </div>
