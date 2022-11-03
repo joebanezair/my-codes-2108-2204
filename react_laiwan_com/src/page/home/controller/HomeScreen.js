@@ -12,16 +12,20 @@ import localDownload from '../image/btn-local-download.png';
 import NavBar from '../../../common/view/NavBar';
 import { googleStoreLink } from '../../../constant/Constant';
 import {
+    server_type as serverType,
     h5_version_url_1 as h5VersionUrl1,
     h5_version_url_2 as h5VersionUrl2,
     android_download_url as androidDownloadUrl,
+    android_huawei_download_url as androidHuaweiDownloadUrl
 } from '../../../config.json';
 import DownloadModalForIOS from '../view/DownloadIOSModal';
 import Qrcode from '../../../view/Qrcode';
+import DownloadButton from '../view/DownloadButton';
 
 const HomeScreen = () => {
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
-    const [qrcodeDownloadUrl,setQrcodeDownloadUrl] = useState('')
+    const [qrcodeDownloadUrl, setQrcodeDownloadUrl] = useState('')
+    const [huaweiDownloadUrl, setHuaweiDownloadUrl] = useState('')
 
     useEffect(() => {
         fetch(androidDownloadUrl)
@@ -34,6 +38,18 @@ const HomeScreen = () => {
                 }
                 // TODO: 缺少错误反馈，之后加
             });
+        
+        if (serverType === 'staging') {
+            fetch(androidHuaweiDownloadUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                    const { ok, result } = data;
+                    if (ok) {
+                        setHuaweiDownloadUrl(result.cdn_download_url)
+                    }
+                // TODO: 缺少错误反馈，之后加
+                });
+        }
     }, []);
 
     return (
@@ -115,6 +131,10 @@ const HomeScreen = () => {
                                     alt="本地下载"
                                 />
                             </a>
+                            {serverType === 'staging' ?
+                                <DownloadButton href={huaweiDownloadUrl} title="华为版下载" subtitle="(支持华为)" />
+                                : <></>
+                            }
                         </div>
                     </div>
                     <div className={styles.qrcodeContainer}>

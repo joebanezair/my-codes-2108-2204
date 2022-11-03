@@ -116,6 +116,19 @@
     height: 5.54rem;
 }
 
+.downloadButton{
+    box-sizing: border-box;
+    width: 17.5rem;
+    height: 4.87rem;
+    border: 3px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: '25px';
+    color:'white'
+}
+
 .tutorialContainer {
     display: flex;
     flex-direction: column;
