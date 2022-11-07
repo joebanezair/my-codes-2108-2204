@@ -9,6 +9,7 @@ COPY --from=build-stage /opt/app/default.conf /etc/nginx/conf.d/default.conf
 
 # privacy / agreement / support 等界面
 COPY --from=build-stage /opt/app/privacy.html /usr/share/nginx/html
+COPY --from=build-stage /opt/app/privacy-en.html /usr/share/nginx/html
 COPY --from=build-stage /opt/app/agreement.html /usr/share/nginx/html
 COPY --from=build-stage /opt/app/src /usr/share/nginx/html/src
 COPY --from=build-stage /opt/app/support.html /usr/share/nginx/html
