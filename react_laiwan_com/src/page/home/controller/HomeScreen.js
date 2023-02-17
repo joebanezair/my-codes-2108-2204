@@ -21,6 +21,7 @@ import {
 import DownloadModalForIOS from '../view/DownloadIOSModal';
 import Qrcode from '../../../view/Qrcode';
 import DownloadButton from '../view/DownloadButton';
+import getLocalDownloadVersion from '../../../utils/getLocalDownloadVersion';
 
 const HomeScreen = () => {
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
@@ -124,13 +125,16 @@ const HomeScreen = () => {
                                     alt="谷歌下载"
                                 />
                             </a>
-                            <a href={localDownloadUrl}>
-                                <img
-                                    className={styles.buttonImage}
-                                    src={localDownload}
-                                    alt="本地下载"
-                                />
-                            </a>
+                            <div className={styles.localContainer}>
+                                <a href={localDownloadUrl}>
+                                    <img
+                                        className={styles.buttonImage}
+                                        src={localDownload}
+                                        alt="本地下载"
+                                    />
+                                </a>
+                                <span>{`最新版本: ${getLocalDownloadVersion(localDownloadUrl)}`}</span>
+                            </div>
                             {serverType === 'staging' ?
                                 <DownloadButton href={huaweiDownloadUrl} title="华为版下载" subtitle="(支持华为)" />
                                 : <></>

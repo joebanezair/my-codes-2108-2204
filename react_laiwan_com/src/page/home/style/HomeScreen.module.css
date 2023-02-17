@@ -129,6 +129,14 @@
     color:'white'
 }
 
+.localContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    margin-top: 35px;
+}
+
 .tutorialContainer {
     display: flex;
     flex-direction: column;
