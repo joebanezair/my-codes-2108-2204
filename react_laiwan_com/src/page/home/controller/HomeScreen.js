@@ -24,9 +24,12 @@ import DownloadButton from '../view/DownloadButton';
 import getLocalDownloadVersion from '../../../utils/getLocalDownloadVersion';
 
 const LOCAL_DOWNLOAD_URL = '/apk/laiwan_2306021136.apk'
+const QRCODE_DOWNLOAD_URL = `https://${  window.location.hostname  }${LOCAL_DOWNLOAD_URL}`
 
 const HomeScreen = () => {
+    // eslint-disable-next-line no-unused-vars
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
+    // eslint-disable-next-line no-unused-vars
     const [qrcodeDownloadUrl, setQrcodeDownloadUrl] = useState('')
     const [huaweiDownloadUrl, setHuaweiDownloadUrl] = useState('')
 
@@ -144,7 +147,7 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className={styles.qrcodeContainer}>
-                        <Qrcode downloadUrl={LOCAL_DOWNLOAD_URL} />
+                        <Qrcode downloadUrl={QRCODE_DOWNLOAD_URL} />
                         <div className={styles.qrcodeText}>手机扫码下载</div>
                     </div>
                 </div>
