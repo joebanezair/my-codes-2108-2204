@@ -23,6 +23,8 @@ import Qrcode from '../../../view/Qrcode';
 import DownloadButton from '../view/DownloadButton';
 import getLocalDownloadVersion from '../../../utils/getLocalDownloadVersion';
 
+const LOCAL_DOWNLOAD = '/apk/laiwan_2306021136.apk'
+
 const HomeScreen = () => {
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
     const [qrcodeDownloadUrl, setQrcodeDownloadUrl] = useState('')
@@ -39,7 +41,7 @@ const HomeScreen = () => {
                 }
                 // TODO: 缺少错误反馈，之后加
             });
-        
+
         if (serverType === 'staging') {
             fetch(androidHuaweiDownloadUrl)
                 .then((response) => response.json())
@@ -126,14 +128,14 @@ const HomeScreen = () => {
                                 />
                             </a>
                             <div className={styles.localContainer}>
-                                <a href={localDownloadUrl}>
+                                <a href={LOCAL_DOWNLOAD}>
                                     <img
                                         className={styles.buttonImage}
                                         src={localDownload}
                                         alt="本地下载"
                                     />
                                 </a>
-                                <span>{`最新版本: ${getLocalDownloadVersion(localDownloadUrl)}`}</span>
+                                <span>{`最新版本: ${getLocalDownloadVersion(LOCAL_DOWNLOAD)}`}</span>
                             </div>
                             {serverType === 'staging' ?
                                 <DownloadButton href={huaweiDownloadUrl} title="华为版下载" subtitle="(支持华为)" />
