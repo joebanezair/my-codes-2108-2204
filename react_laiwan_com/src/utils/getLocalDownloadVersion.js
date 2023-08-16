@@ -4,7 +4,7 @@ export default function getLocalDownloadVersion(url = '') {
         return '';
     }
     let version = '';
-    const firstIndex = url.lastIndexOf('_');
+    const firstIndex = url.lastIndexOf('-');
     const secondIndex = url.lastIndexOf('.');
     version = url.substring(firstIndex + 1, secondIndex);
     return version;

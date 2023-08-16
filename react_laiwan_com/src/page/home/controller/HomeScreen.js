@@ -23,25 +23,18 @@ import Qrcode from '../../../view/Qrcode';
 import DownloadButton from '../view/DownloadButton';
 import getLocalDownloadVersion from '../../../utils/getLocalDownloadVersion';
 
-const LOCAL_DOWNLOAD_URL = '/apk/laiwan_2306021136.apk'
-const QRCODE_DOWNLOAD_URL = `https://${  window.location.hostname  }${LOCAL_DOWNLOAD_URL}`
-
 const HomeScreen = () => {
-    // eslint-disable-next-line no-unused-vars
     const [localDownloadUrl, setLocalDownloadUrl] = useState('');
-    // eslint-disable-next-line no-unused-vars
     const [qrcodeDownloadUrl, setQrcodeDownloadUrl] = useState('')
     const [huaweiDownloadUrl, setHuaweiDownloadUrl] = useState('')
 
     useEffect(() => {
         fetch(androidDownloadUrl)
             .then((response) => response.json())
-            .then((data) => {
-                const { ok, result } = data;
-                if (ok) {
-                    setLocalDownloadUrl(result.cdn_download_url);
-                    setQrcodeDownloadUrl(result.download_url)
-                }
+            .then(({ apk_files: apkFiles }) => {
+                const url = `https://${window.location.hostname}/apk/${apkFiles[0]}`;
+                setLocalDownloadUrl(url);
+                setQrcodeDownloadUrl(url);
                 // TODO: 缺少错误反馈，之后加
             });
 
@@ -131,14 +124,14 @@ const HomeScreen = () => {
                                 />
                             </a>
                             <div className={styles.localContainer}>
-                                <a href={LOCAL_DOWNLOAD_URL}>
+                                <a href={localDownloadUrl}>
                                     <img
                                         className={styles.buttonImage}
                                         src={localDownload}
                                         alt="本地下载"
                                     />
                                 </a>
-                                <span>{`最新版本: ${getLocalDownloadVersion(LOCAL_DOWNLOAD_URL)}`}</span>
+                                <span>{`最新版本: ${getLocalDownloadVersion(localDownloadUrl)}`}</span>
                             </div>
                             {serverType === 'staging' ?
                                 <DownloadButton href={huaweiDownloadUrl} title="华为版下载" subtitle="(支持华为)" />
@@ -147,7 +140,7 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className={styles.qrcodeContainer}>
-                        <Qrcode downloadUrl={QRCODE_DOWNLOAD_URL} />
+                        <Qrcode downloadUrl={qrcodeDownloadUrl} />
                         <div className={styles.qrcodeText}>手机扫码下载</div>
                     </div>
                 </div>
