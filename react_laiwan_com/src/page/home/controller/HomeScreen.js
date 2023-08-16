@@ -36,6 +36,9 @@ const HomeScreen = () => {
                 setLocalDownloadUrl(url);
                 setQrcodeDownloadUrl(url);
                 // TODO: 缺少错误反馈，之后加
+            })
+            .catch((error) => {
+                console.log(`error .meesage :: ${error.message}`);
             });
 
         if (serverType === 'staging') {
