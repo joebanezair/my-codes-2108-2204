@@ -29,7 +29,7 @@ const HomeScreen = () => {
     const [huaweiDownloadUrl, setHuaweiDownloadUrl] = useState('')
 
     useEffect(() => {
-        fetch(androidDownloadUrl)
+        fetch(androidDownloadUrl, { cache: 'no-cache' })
             .then((response) => response.json())
             .then(({ apk_files: apkFiles }) => {
                 const url = `https://${window.location.hostname}/apk/${apkFiles[0]}`;
