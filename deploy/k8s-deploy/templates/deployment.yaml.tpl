@@ -4,7 +4,7 @@ metadata:
   namespace: {{ k8s_namespace }}
   name: {{ project_dns_name }}
 spec:
-  replicas: 1
+  replicas: {{ server.replicas }}
   selector:
     matchLabels:
       app: {{ project_dns_name }}
@@ -26,6 +26,13 @@ spec:
           value: {{ stage }}
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: {{ server.requests.cpu }}
+            memory: {{ server.requests.memory }}
+          limits:
+            cpu: {{ server.limits.cpu }}
+            memory: {{ server.limits.memory }}
       imagePullSecrets:
       - name: docker-registry-vpc-hk-laiwanio
 ---
