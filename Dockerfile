@@ -11,8 +11,10 @@ COPY --from=build-stage /opt/app/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-stage /opt/app/privacy.html /usr/share/nginx/html
 COPY --from=build-stage /opt/app/privacy-en.html /usr/share/nginx/html
 COPY --from=build-stage /opt/app/agreement.html /usr/share/nginx/html
-COPY --from=build-stage /opt/app/src /usr/share/nginx/html/src
 COPY --from=build-stage /opt/app/support.html /usr/share/nginx/html
+COPY --from=build-stage /opt/app/delete_account.html /usr/share/nginx/html
+
+COPY --from=build-stage /opt/app/src /usr/share/nginx/html/src
 
 COPY --from=build-stage /opt/app/dist /usr/share/nginx/html
 COPY --from=build-stage /opt/app/robots.txt /usr/share/nginx/html

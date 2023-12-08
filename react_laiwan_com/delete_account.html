@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Delete Your Account</h1>
+
+        <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" placeholder="Enter your User ID">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+
+        <button onclick="confirmDelete()">Delete My Account</button>
+    </div>
+
+    <script>
+        function confirmDelete() {
+            var userId = document.getElementById("userId").value;
+            var password = document.getElementById("password").value;
+
+            // 确保用户输入了用户ID和密码
+            if (userId.trim() === '' || password.trim() === '') {
+                alert("Please enter your User ID and password.");
+                return;
+            }
+
+            // 提示用户再次确认
+            var isConfirmed = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+
+            if (isConfirmed) {
+                // 在这里添加删除账号的逻辑
+                // 这可能涉及向服务器发送请求以删除用户数据等操作
+
+                // 示意：向服务器发送删除请求
+                // 这里应该使用异步请求，例如使用Fetch API或XMLHttpRequest
+                // 在实际应用中，确保添加适当的身份验证和安全性检查
+                // 示例代码中，使用setTimeout模拟异步请求
+                setTimeout(function() {
+                    alert("Your account will be deleted within 30 days. Thank you for using our service.");
+                    // 这里可以跳转到登录页面或其他适当的页面
+                }, 2000); // 模拟2秒后完成删除操作
+            } else {
+                // 用户取消删除操作
+                alert("Account deletion canceled.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
