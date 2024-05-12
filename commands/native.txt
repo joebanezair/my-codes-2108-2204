@@ -1,0 +1,13 @@
+Remove mo yung author Num:
+
+unang command:
+git remote remove origin
+
+second command:
+npm install
+
+3rd command:
+npx react-native run-android
+
+4th command:
+npx react-native start

@@ -1,0 +1,23 @@
+
+git clone --single-branch --branch <branchname/> <LINK/>
+
+git clone --single-branch --branch main https://github.com/joebanezair/my-codes-2108-2204.git
+
+git reset --hard HEAD~1
+git log --oneline
+
+npx react-native run-android
+npx react-native start
+npx expo start
+
+echo "# Officia" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/joebanezair/Officia.git
+git push -u origin main
+
+git remote add origin https://github.com/joebanezair/Officia.git
+git branch -M main
+git push -u origin main

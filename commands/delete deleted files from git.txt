@@ -1,0 +1,5 @@
+git add --all
+
+git add -A
+git commit -m "Remove deleted files"
+git commit -am "Remove deleted files"

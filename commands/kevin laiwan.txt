@@ -1,0 +1,22 @@
+Pull Request
+
+git remote remove origin
+
+git branch newjoe
+git checkout newjoe
+git add .
+git commit -m "new joe"
+git push origin newjoe
+
+$ cd react_laiwan_com
+$ yarn
+
+$ cd react_laiwan_com
+$ yarn start
+
+set NODE_OPTIONS=--openssl-legacy-provider
+set NODE_OPTIONS=--openssl-legacy-provider
+
+don't
+$ git checkout master
+$ ./make_tag
